@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://www.lijiaze.vip/images/bizhi001.jpg">
 <meta property="og:image" content="http://www.lijiaze.vip/images/music-plugin-link.jpg">
 <meta property="og:image" content="http://www.lijiaze.vip/images/music001.jpg">
-<meta property="og:updated_time" content="2019-06-05T15:33:54.578Z">
+<meta property="og:updated_time" content="2019-06-05T15:40:32.322Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo yilia 主题的一些小技巧">
 <meta name="twitter:description" content="概述在使用hexo初始化博客后，需要选择一个主题，这里选择yilia主题。具体怎么使用可以看其Wiki,但是还有一些花里胡哨的小插件，litten大神追求简洁的页面，自然就没有相关的说明，所以下面记录一下。">
@@ -183,7 +183,7 @@
 <a id="more"></a>
 
 <h2 id="1-修改背景"><a href="#1-修改背景" class="headerlink" title="1.修改背景"></a>1.修改背景</h2><p>在yilia主题下，默认是黑色，所以这里要是想替换的，可以采用下面的方式替换成你喜欢的图片作为背景。</p>
-<h3 id="1-1-添加图片"><a href="#1-1-添加图片" class="headerlink" title="1.1 添加图片"></a>1.1 添加图片</h3><p>在博客根目录（注意，不是主题yilia的根目录）的source目录新建images目录，然后将图片上传到该目录,这样上传后的路径就是博客路径加图片名称比如：<a href="http://lijiaze.vip/images/bizhi.jpg" target="_blank" rel="noopener">http://lijiaze.vip/images/bizhi.jpg</a>  </p>
+<h3 id="1-1-添加图片"><a href="#1-1-添加图片" class="headerlink" title="1.1 添加图片"></a>1.1 添加图片</h3><p>在博客根目录（注意，不是主题yilia的根目录）的source目录新建images目录，将图片上传到该目录,这样图片路径就是博客地址加图片名称比如：<a href="http://lijiaze.vip/images/bizhi.jpg" target="_blank" rel="noopener">http://lijiaze.vip/images/bizhi.jpg</a>  </p>
 <h3 id="1-2-修改配置文件"><a href="#1-2-修改配置文件" class="headerlink" title="1.2 修改配置文件"></a>1.2 修改配置文件</h3><p>修改yilia主题的left-col.ejs这个文件，具体路径是yilia/layout/_partial/left-col.ejs，将原来的  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">"overlay"</span> style=<span class="string">"background: &lt;%= theme.style &amp;&amp; theme.style.header ? theme.style.header : defaultBg %&gt;"</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 
@@ -195,7 +195,7 @@
 
 <p>当更新完成后，我们将可以看到如下的效果图  </p>
 <p><img src="/images/bizhi001.jpg" alt="效果图"></p>
-<h2 id="2-添加背景音乐盒"><a href="#2-添加背景音乐盒" class="headerlink" title="2. 添加背景音乐盒"></a>2. 添加背景音乐盒</h2><p>虽然现在企鹅空间已经基本算半放弃的状态，但还会怀念当年为了装饰一款非主流音乐盒的那种喜悦，青春啊。。。</p>
+<h2 id="2-添加背景音乐盒"><a href="#2-添加背景音乐盒" class="headerlink" title="2. 添加背景音乐盒"></a>2. 添加背景音乐盒</h2><p>虽然现在企鹅空间已经基本算半放弃的状态，但还会怀念当年找到一款非主流音乐盒，加上自己喜欢的音乐的那种喜悦，青春啊。。。</p>
 <h3 id="2-1-生成网易云链接"><a href="#2-1-生成网易云链接" class="headerlink" title="2.1 生成网易云链接"></a>2.1 生成网易云链接</h3><p>这里需要一个网易云账号以及该账号下的一个歌单，这样就能生成网易云音乐插件的链接，如下图：  </p>
 <p><img src="/images/music-plugin-link.jpg" alt="网易云音乐插件链接">  </p>
 <p>这里面能获取到一个链接，如下</p>
