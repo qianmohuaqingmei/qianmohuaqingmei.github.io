@@ -12,7 +12,7 @@
 <meta name="keywords" content="Hexo Yilia">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo yilia 主题的一些小技巧">
-<meta property="og:url" content="http://www.lijiaze.vip/2019/06/05/Hexo-yilia-主题的一些小技巧/index.html">
+<meta property="og:url" content="http://www.lijiaze.vip/2019/06/06/Hexo-yilia-主题的一些小技巧/index.html">
 <meta property="og:site_name" content="浅墨画青梅">
 <meta property="og:description" content="概述在使用hexo初始化博客后，需要选择一个主题，这里选择yilia主题。具体怎么使用可以看其Wiki,但是还有一些花里胡哨的小插件，litten大神追求简洁的页面，自然就没有相关的说明，所以下面记录一下。">
 <meta property="og:locale" content="zh-CN">
@@ -20,7 +20,8 @@
 <meta property="og:image" content="http://www.lijiaze.vip/images/music-plugin-link.jpg">
 <meta property="og:image" content="http://www.lijiaze.vip/images/music001.jpg">
 <meta property="og:image" content="http://www.lijiaze.vip/images/busuanzi001.jpg">
-<meta property="og:updated_time" content="2019-06-05T16:19:25.446Z">
+<meta property="og:image" content="http://www.lijiaze.vip/images/changyan001.jpg">
+<meta property="og:updated_time" content="2019-06-06T13:55:13.763Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo yilia 主题的一些小技巧">
 <meta name="twitter:description" content="概述在使用hexo初始化博客后，需要选择一个主题，这里选择yilia主题。具体怎么使用可以看其Wiki,但是还有一些花里胡哨的小插件，litten大神追求简洁的页面，自然就没有相关的说明，所以下面记录一下。">
@@ -172,8 +173,8 @@
   
 
         
-        <a href="/2019/06/05/Hexo-yilia-主题的一些小技巧/" class="archive-article-date">
-  	<time datetime="2019-06-05T14:28:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-05</time>
+        <a href="/2019/06/06/Hexo-yilia-主题的一些小技巧/" class="archive-article-date">
+  	<time datetime="2019-06-06T13:28:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-06</time>
 </a>
         
       </header>
@@ -225,6 +226,16 @@
 
 <p>当更新完成后，我们将可以看到如下的效果图</p>
 <p><img src="/images/busuanzi001.jpg" alt="效果图"></p>
+<h2 id="4-畅言评论"><a href="#4-畅言评论" class="headerlink" title="4 畅言评论"></a>4 畅言评论</h2><p>首先需要<a href="http://changyan.kuaizhan.com" target="_blank" rel="noopener">畅言官网</a>注册一个账号，然后进行网站备案，不进行备案的话，评论的功能只能试用半个月。</p>
+<h3 id="4-1-ICP备案"><a href="#4-1-ICP备案" class="headerlink" title="4.1 ICP备案"></a>4.1 ICP备案</h3><p>如果没有服务器是不能进行备案的，那要为了一个博客而买个服务的话，性价比不高，所以我们只能使用一个取巧的方式。去<a href="http://www.beianbeian.com" target="_blank" rel="noopener"> ICP备案查询网</a><br>上面找一个小公司的信息，比如上面看到的历史记录查询，我们随便获取一个。然后将信息填到畅言的ICP备案里面,过一天左右将会审批通过.</p>
+<h3 id="4-2-修改配置文件"><a href="#4-2-修改配置文件" class="headerlink" title="4.2 修改配置文件"></a>4.2 修改配置文件</h3><p>这时需要将yilia主题下的_config.yml里面的畅言的两个配置修改为自己真实的值。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#3、畅言</span></span><br><span class="line">changyan_appid: cyugJtiYY</span><br><span class="line">changyan_conf: prod_93b59xxxxxxxxxxxxxxxxxxxxxxxxx</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-更新及效果"><a href="#4-3-更新及效果" class="headerlink" title="4.3 更新及效果"></a>4.3 更新及效果</h3><p>将刚刚修改的保存后，使用以下命令将博客内容更新</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+
+<p>当更新完成后，我们将可以看到如下的效果图</p>
+<p><img src="/images/changyan001.jpg" alt="效果图"></p>
 
       
 
@@ -246,6 +257,11 @@
                       <span class="reward-type">支付宝</span>
                     </div>
                     
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/weichatpay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
                     
                   </div>
                 </span>
@@ -320,7 +336,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.lijiaze.vip/2019/06/05/Hexo-yilia-主题的一些小技巧/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.lijiaze.vip/2019/06/06/Hexo-yilia-主题的一些小技巧/" alt="微信分享二维码">
     </div>
 </div>
 
