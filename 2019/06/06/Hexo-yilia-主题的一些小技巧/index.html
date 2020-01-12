@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://www.lijiaze.vip/images/music001.jpg">
 <meta property="og:image" content="http://www.lijiaze.vip/images/busuanzi001.jpg">
 <meta property="og:image" content="http://www.lijiaze.vip/images/changyan001.jpg">
-<meta property="og:updated_time" content="2019-06-06T14:17:31.316Z">
+<meta property="og:updated_time" content="2020-01-12T15:15:04.690Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo yilia 主题的一些小技巧">
 <meta name="twitter:description" content="概述在使用hexo初始化博客后，需要选择一个主题，这里选择yilia主题。具体怎么使用可以看其Wiki,但是还有一些花里胡哨的小插件，litten大神追求简洁的页面，自然就没有相关的说明，所以下面记录一下。">
@@ -230,6 +230,9 @@
 <h3 id="4-1-ICP备案"><a href="#4-1-ICP备案" class="headerlink" title="4.1 ICP备案"></a>4.1 ICP备案</h3><p>如果没有服务器是不能进行备案的，那要为了一个博客而买个服务的话，性价比不高，所以我们只能使用一个取巧的方式。去<a href="http://www.beianbeian.com" target="_blank" rel="noopener"> ICP备案查询网</a><br>上面找一个小公司的信息，比如上面看到的历史记录查询，我们随便获取一个。然后将信息填到畅言的ICP备案里面,过一天左右将会审批通过.</p>
 <h3 id="4-2-修改配置文件"><a href="#4-2-修改配置文件" class="headerlink" title="4.2 修改配置文件"></a>4.2 修改配置文件</h3><p>这时需要将yilia主题下的_config.yml里面的畅言的两个配置修改为自己真实的值。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#3、畅言</span></span><br><span class="line">changyan_appid: cyugJtiYY</span><br><span class="line">changyan_conf: prod_93b59xxxxxxxxxxxxxxxxxxxxxxxxx</span><br></pre></td></tr></table></figure>
+
+<p>在themes\yilia\source\main.0cf68a.css文件后面追加两行，屏蔽广告</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#feedAv &#123; margin-top: -250px!important; transform: scale(0)!important; z-index: -999!important; &#125;</span></span><br><span class="line"><span class="comment">#pop_ad &#123; margin-top: -250px!important; transform: scale(0)!important; z-index: -999!important; &#125;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="4-3-更新及效果"><a href="#4-3-更新及效果" class="headerlink" title="4.3 更新及效果"></a>4.3 更新及效果</h3><p>将刚刚修改的保存后，使用以下命令将博客内容更新</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
