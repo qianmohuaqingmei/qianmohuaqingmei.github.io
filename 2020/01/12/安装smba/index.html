@@ -6,15 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://www.lijiaze.vip">
-  <title>浅墨画青梅</title>
+  <title>安装smba | 浅墨画青梅</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="浅墨画青梅">
-<meta property="og:url" content="http://www.lijiaze.vip/index.html">
+  <meta name="description" content="概述为了让Linux和Windows能实时工共享目录，在Linux上面安装个smba。">
+<meta name="keywords" content="smba Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安装smba">
+<meta property="og:url" content="http://www.lijiaze.vip/2020/01/12/安装smba/index.html">
 <meta property="og:site_name" content="浅墨画青梅">
+<meta property="og:description" content="概述为了让Linux和Windows能实时工共享目录，在Linux上面安装个smba。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.lijiaze.vip/images/smbaconf001.jpg">
+<meta property="og:image" content="http://www.lijiaze.vip/images/smbalogin001.jpg">
+<meta property="og:image" content="http://www.lijiaze.vip/images/smbalogin002.jpg">
+<meta property="og:image" content="http://www.lijiaze.vip/images/smbalogin003.jpg">
+<meta property="og:image" content="http://www.lijiaze.vip/images/smbalogin004.jpg">
+<meta property="og:updated_time" content="2020-01-12T14:48:06.240Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅墨画青梅">
+<meta name="twitter:title" content="安装smba">
+<meta name="twitter:description" content="概述为了让Linux和Windows能实时工共享目录，在Linux上面安装个smba。">
+<meta name="twitter:image" content="http://www.lijiaze.vip/images/smbaconf001.jpg">
   
     <link rel="alternative" href="/atom.xml" title="浅墨画青梅" type="application/atom+xml">
   
@@ -150,16 +161,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-安装smba" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-安装smba" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/12/安装smba/">安装smba</a>
+    <h1 class="article-title" itemprop="name">
+      安装smba
     </h1>
   
 
@@ -173,11 +182,65 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>为了让Linux和Windows能实时工共享目录，在Linux上面安装个smba。</p>
-        
-          <a class="article-more-a" href="/2020/01/12/安装smba/#more">more >></a>
-        
+<a id="more"></a>
+
+<h2 id="1-安装smba"><a href="#1-安装smba" class="headerlink" title="1.安装smba"></a>1.安装smba</h2><p>这里直接使用yum命令安装。</p>
+<h3 id="1-1-安装smba"><a href="#1-1-安装smba" class="headerlink" title="1.1 安装smba"></a>1.1 安装smba</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># yum -y install samba</span></span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">![安装SMBA](/images/installsmba001.jpg)</span><br><span class="line"></span><br><span class="line"><span class="comment">### 1.2 配置samb</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#### 1.2.1 添加Samba用户</span></span><br><span class="line"></span><br><span class="line">使用useradd创建一个新的用户。</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line"><span class="comment"># useradd Duzi</span></span><br></pre></td></tr></table></figure>
+
+<p>使用smb命令给这个用户设置密码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># smbpasswd -a Duzi</span></span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">![创建用户](/images/smbauser001.jpg)</span><br><span class="line"></span><br><span class="line"><span class="comment">#### 1.2.2 修改Samba配置文件</span></span><br><span class="line"></span><br><span class="line">编辑/etc/samba/smb.conf这个文件，并在最后追加以下内容。</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">[Duzi]</span><br><span class="line">	path = /home/Duzi</span><br><span class="line">	available = yes</span><br><span class="line">	valid users = Duzi</span><br><span class="line">	<span class="built_in">read</span> only = no</span><br><span class="line">	browsable = yes</span><br><span class="line">	public = yes</span><br><span class="line">	writable = yes</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/smbaconf001.jpg" alt="修改配置"></p>
+<h4 id="1-2-3-修改系统配置"><a href="#1-2-3-修改系统配置" class="headerlink" title="1.2.3 修改系统配置"></a>1.2.3 修改系统配置</h4><p>这里需要关闭防火墙和setenforce</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># systemctl stop firewalld</span></span><br><span class="line"><span class="comment"># setenforce 0</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-4-修改文件目录属性"><a href="#1-2-4-修改文件目录属性" class="headerlink" title="1.2.4 修改文件目录属性"></a>1.2.4 修改文件目录属性</h4><p>将共享的目录设置为755，以及文件属主为新建的用户。</p>
+<pre><code class="bash"><span class="comment"># chmod 755 /home/Duzi</span>
+<span class="comment"># chown Duzi:Duzi /home/Duzi -R</span></code></pre>
+<h4 id="1-2-5-启动smba"><a href="#1-2-5-启动smba" class="headerlink" title="1.2.5 启动smba"></a>1.2.5 启动smba</h4><p>smba的启动文件是/usr/lib/systemd/system/smb.service</p>
+<pre><code class="bash"><span class="comment"># service smb restart</span></code></pre>
+<h2 id="2-使用smba"><a href="#2-使用smba" class="headerlink" title="2. 使用smba"></a>2. 使用smba</h2><p>在Windows上，打开文件管理器，然后根据虚拟机的IP，输入\IP，账号密码就是上面配置的那个。这里是Duzi/Duzi@1023</p>
+<p><img src="/images/smbalogin001.jpg" alt="登录001"></p>
+<p>登录之后的页面是这样的，此时就可以看到我们共享目录和文件了</p>
+<p><img src="/images/smbalogin002.jpg" alt="登录002"></p>
+<p>上面虽然我们能看到所共享的目录和文件，但是我们的IDEA其实还是没办法打开的。所有需要生成一个新的驱动器（盘符）。</p>
+<p><img src="/images/smbalogin003.jpg" alt="登录003"></p>
+<p>这样IDEA在打开的时候就可以选择到这个目录作为工作目录了。</p>
+<p><img src="/images/smbalogin004.jpg" alt="登录004"></p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>爱，就供养<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/weichatpay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -197,16 +260,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/12/安装smba/">更多精彩 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.lijiaze.vip/2020/01/12/安装smba/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/06/06/Hexo-yilia-主题的一些小技巧/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hexo yilia 主题的一些小技巧</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -226,328 +348,24 @@
 
 
 
-
   
-    <article id="post-Hexo-yilia-主题的一些小技巧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/06/Hexo-yilia-主题的一些小技巧/">Hexo yilia 主题的一些小技巧</a>
-    </h1>
   
 
-        
-        <a href="/2019/06/06/Hexo-yilia-主题的一些小技巧/" class="archive-article-date">
-  	<time datetime="2019-06-06T13:28:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>在使用hexo初始化博客后，需要选择一个主题，这里选择yilia主题。具体怎么使用可以看其<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">Wiki</a>,但是还有一些花里胡哨的小插件，litten大神追求简洁的页面，自然就没有相关的说明，所以下面记录一下。</p>
-        
-          <a class="article-more-a" href="/2019/06/06/Hexo-yilia-主题的一些小技巧/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Hexo Yilia</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/06/Hexo-yilia-主题的一些小技巧/">更多精彩 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
+  
+  <div id="SOHUCS" sid="安装smba"></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js"></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cyugJtiYY",
+        conf: "prod_93b5906623d98eda2333693f7d4a2b29"
+    });
+</script>
 
   
-    <article id="post-《西江月·痴》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/05/《西江月·痴》/">《西江月·痴》</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/05/《西江月·痴》/" class="archive-article-date">
-  	<time datetime="2017-11-04T16:12:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p align="center">《西江月·痴》</p>
-<p align="center">月落青霜满天，洛水轻飘云烟，白衣青丝画中仙，不应流落人间。</p>
-<p align="center">夜半执笔影单，红烛几盏徒添，痴心难抒残梦牵，怎寄半篇信笺。</p>
-
-<p><br><br></p>
-<p>文案：</p>
-        
-          <a class="article-more-a" href="/2017/11/05/《西江月·痴》/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">杜若诗集</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/05/《西江月·痴》/">更多精彩 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
 
   
-    <article id="post-《梦江南·与子偕老》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/05/《梦江南·与子偕老》/">《梦江南·与子偕老》</a>
-    </h1>
-  
 
-        
-        <a href="/2017/06/05/《梦江南·与子偕老》/" class="archive-article-date">
-  	<time datetime="2017-06-04T16:06:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p align="center">《梦江南·与子偕老》</p>
-<p align="center">相识地，鸥白涛声旧。</p>
-<p align="center">牵手相偎尽此生，青丝银发心依羞。</p>
-<p align="center">消得几生求。</p>
-
-<p><br><br></p>
-<p>文案：</p>
-        
-          <a class="article-more-a" href="/2017/06/05/《梦江南·与子偕老》/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">杜若诗集</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/05/《梦江南·与子偕老》/">更多精彩 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-《鹊桥仙·梧桐山》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/01/《鹊桥仙·梧桐山》/">《鹊桥仙·梧桐山》</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/01/《鹊桥仙·梧桐山》/" class="archive-article-date">
-  	<time datetime="2017-05-01T15:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p align="center">《鹊桥仙·梧桐山》</p><br><br>
-<p align="center">梧桐叶落，晨雾氤氲，三分浅冬诗意，漫爬吁气衣襟湿，尽洗却，经年之苦。</p><br><br>
-<p align="center">鹏城峰上，云烟萦绕，些许疏影几里。静坐闲看新岁来，遥相望，孤者何惧。</p><br><br>
-
-<p><br><br></p>
-<p>文案：</p>
-        
-          <a class="article-more-a" href="/2017/05/01/《鹊桥仙·梧桐山》/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">杜若诗词</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/01/《鹊桥仙·梧桐山》/">更多精彩 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -576,8 +394,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
