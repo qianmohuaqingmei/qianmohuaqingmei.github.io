@@ -6,26 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://www.lijiaze.vip">
-  <title>Hexo yilia 主题的一些小技巧 | 浅墨画青梅</title>
+  <title>Docker容器 | 浅墨画青梅</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概述在使用hexo初始化博客后，需要选择一个主题，这里选择yilia主题。具体怎么使用可以看其Wiki,但是还有一些花里胡哨的小插件，litten大神追求简洁的页面，自然就没有相关的说明，所以下面记录一下。">
-<meta name="keywords" content="Hexo Yilia">
+  <meta name="description" content="1. 虚拟化和容器技术 虚拟化技术  Type1: 不安装宿主机操作系统，而直接在硬件基础上安装虚拟化管理软件Type2: 安装宿主机操作系统，在宿主机操作系统之上安装虚拟化管理软件  容器技术  Container 是在宿主机操作系统上使用Cgroups,Namespaceses技术创建出来具有边界的特殊进程。">
+<meta name="keywords" content="Docker">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo yilia 主题的一些小技巧">
-<meta property="og:url" content="http://www.lijiaze.vip/2019/06/06/Hexo-yilia-主题的一些小技巧/index.html">
+<meta property="og:title" content="Docker容器">
+<meta property="og:url" content="http://www.lijiaze.vip/2019/05/04/Docker容器/index.html">
 <meta property="og:site_name" content="浅墨画青梅">
-<meta property="og:description" content="概述在使用hexo初始化博客后，需要选择一个主题，这里选择yilia主题。具体怎么使用可以看其Wiki,但是还有一些花里胡哨的小插件，litten大神追求简洁的页面，自然就没有相关的说明，所以下面记录一下。">
+<meta property="og:description" content="1. 虚拟化和容器技术 虚拟化技术  Type1: 不安装宿主机操作系统，而直接在硬件基础上安装虚拟化管理软件Type2: 安装宿主机操作系统，在宿主机操作系统之上安装虚拟化管理软件  容器技术  Container 是在宿主机操作系统上使用Cgroups,Namespaceses技术创建出来具有边界的特殊进程。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.lijiaze.vip/images/bizhi001.jpg">
-<meta property="og:image" content="http://www.lijiaze.vip/images/music-plugin-link.jpg">
-<meta property="og:image" content="http://www.lijiaze.vip/images/music001.jpg">
-<meta property="og:image" content="http://www.lijiaze.vip/images/busuanzi001.jpg">
-<meta property="og:image" content="http://www.lijiaze.vip/images/changyan001.jpg">
-<meta property="og:updated_time" content="2020-01-12T15:15:04.000Z">
+<meta property="og:image" content="http://www.lijiaze.vip/images/docker/container/01.png">
+<meta property="og:image" content="http://www.lijiaze.vip/2019/05/04/images/docker/container/02.png">
+<meta property="og:image" content="http://www.lijiaze.vip/2019/05/04/images/docker/container/031.png">
+<meta property="og:image" content="http://www.lijiaze.vip/2019/05/04/images/docker/container/03.png">
+<meta property="og:image" content="http://www.lijiaze.vip/2019/05/04/images/docker/container/041.png">
+<meta property="og:image" content="http://www.lijiaze.vip/2019/05/04/images/docker/container/04.png">
+<meta property="og:updated_time" content="2020-08-15T09:12:51.408Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo yilia 主题的一些小技巧">
-<meta name="twitter:description" content="概述在使用hexo初始化博客后，需要选择一个主题，这里选择yilia主题。具体怎么使用可以看其Wiki,但是还有一些花里胡哨的小插件，litten大神追求简洁的页面，自然就没有相关的说明，所以下面记录一下。">
-<meta name="twitter:image" content="http://www.lijiaze.vip/images/bizhi001.jpg">
+<meta name="twitter:title" content="Docker容器">
+<meta name="twitter:description" content="1. 虚拟化和容器技术 虚拟化技术  Type1: 不安装宿主机操作系统，而直接在硬件基础上安装虚拟化管理软件Type2: 安装宿主机操作系统，在宿主机操作系统之上安装虚拟化管理软件  容器技术  Container 是在宿主机操作系统上使用Cgroups,Namespaceses技术创建出来具有边界的特殊进程。">
+<meta name="twitter:image" content="http://www.lijiaze.vip/images/docker/container/01.png">
   
     <link rel="alternative" href="/atom.xml" title="浅墨画青梅" type="application/atom+xml">
   
@@ -161,85 +162,125 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Hexo-yilia-主题的一些小技巧" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Docker容器" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hexo yilia 主题的一些小技巧
+      Docker容器
     </h1>
   
 
         
-        <a href="/2019/06/06/Hexo-yilia-主题的一些小技巧/" class="archive-article-date">
-  	<time datetime="2019-06-06T13:28:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-06</time>
+        <a href="/2019/05/04/Docker容器/" class="archive-article-date">
+  	<time datetime="2019-05-04T13:28:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>在使用hexo初始化博客后，需要选择一个主题，这里选择yilia主题。具体怎么使用可以看其<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">Wiki</a>,但是还有一些花里胡哨的小插件，litten大神追求简洁的页面，自然就没有相关的说明，所以下面记录一下。</p>
+        <h2 id="1-虚拟化和容器技术"><a href="#1-虚拟化和容器技术" class="headerlink" title="1. 虚拟化和容器技术"></a>1. 虚拟化和容器技术</h2><ul>
+<li>虚拟化技术</li>
+</ul>
+<p>Type1: 不安装宿主机操作系统，而直接在硬件基础上安装虚拟化管理软件<br>Type2: 安装宿主机操作系统，在宿主机操作系统之上安装虚拟化管理软件</p>
+<ul>
+<li>容器技术</li>
+</ul>
+<p>Container 是在宿主机操作系统上使用Cgroups,Namespaceses技术创建出来具有边界的特殊进程。</p>
 <a id="more"></a>
 
-<h2 id="1-修改背景"><a href="#1-修改背景" class="headerlink" title="1.修改背景"></a>1.修改背景</h2><p>在yilia主题下，默认是黑色，所以这里要是想替换的，可以采用下面的方式替换成你喜欢的图片作为背景。</p>
-<h3 id="1-1-添加图片"><a href="#1-1-添加图片" class="headerlink" title="1.1 添加图片"></a>1.1 添加图片</h3><p>在博客根目录（注意，不是主题yilia的根目录）的source目录新建images目录，将图片上传到该目录,这样图片路径就是博客地址加图片名称比如：<a href="http://lijiaze.vip/images/bizhi.jpg" target="_blank" rel="noopener">http://lijiaze.vip/images/bizhi.jpg</a>  </p>
-<h3 id="1-2-修改配置文件"><a href="#1-2-修改配置文件" class="headerlink" title="1.2 修改配置文件"></a>1.2 修改配置文件</h3><p>修改yilia主题的left-col.ejs这个文件，具体路径是yilia/layout/_partial/left-col.ejs，将原来的  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">"overlay"</span> style=<span class="string">"background: &lt;%= theme.style &amp;&amp; theme.style.header ? theme.style.header : defaultBg %&gt;"</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>区别</li>
+</ul>
+<p>虚拟化技术会虚拟出多个内核，每个虚拟机拥有一个自己的内核，彼此之间隔离性非常好。并且在创建虚拟机之初就定义好了虚拟机的资源限制，如CPU核心数，内存大小，磁盘大小等。<br>容器技术是直接运行在宿主机之上的，多个容器共用一个内核，因此隔离效果比较差，但是性能更好。</p>
+<p><img src="/images/docker/container/01.png" alt="image.png"></p>
+<h2 id="2-容器化的基础"><a href="#2-容器化的基础" class="headerlink" title="2. 容器化的基础"></a>2. 容器化的基础</h2><h3 id="2-1-Chroot"><a href="#2-1-Chroot" class="headerlink" title="2.1. Chroot"></a>2.1. Chroot</h3><p>如果需要在一个宿主机上运行多个容器，且容器之间相互个离，那么第一个就需要系统库文件的依赖，对于一个容器而言，需要将其需要的系统文件单独复制出来一份，放到指定目录，并且需要让进程认为这就是根目录，而不是去调用宿主机系统上的库文件。Chroot就是一个切换根目录的方式。</p>
+<h3 id="2-2-NameSpaces"><a href="#2-2-NameSpaces" class="headerlink" title="2.2. NameSpaces"></a>2.2. NameSpaces</h3><p>为了让多个容器以沙盒的方式在宿主机上运行，就需要提前定义好各个容器能看到的边界。由于各个容器都是直接运行在宿主机系统上，因此需要内核对各个容器的上下文进行修改，让他们看上去是一个独立的操作系统。比如，指定PID为1的进程，指定网卡设备，指定文件系统挂载，指定用户等等。<br>Linux操作系统内核从底层实现了为各个进程创建独立用户空间的功能，不同用户空间似于一个个独立的虚拟机系统，用户空间内部进程不能感知到其它用户空间中的进程状态。内核提供了六种Namespaces:</p>
+<table>
+<thead>
+<tr>
+<th>UTS</th>
+<th>hostname and domainname</th>
+<th>主机名和域名隔离</th>
+<th>内核版本：2.6.19</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>User</td>
+<td></td>
+<td>用户隔离。运行进程的用户和组</td>
+<td>内核版本：3.8.x</td>
+</tr>
+<tr>
+<td>Mount</td>
+<td></td>
+<td>挂载点隔离。即挂载点隔离，主要指根目录</td>
+<td>内核版本：2.4.19</td>
+</tr>
+<tr>
+<td>IPC</td>
+<td>Inter-process-connection</td>
+<td>进程间通信隔离。消息队列、共享内容、信号量</td>
+<td>内核版本：2.6.19</td>
+</tr>
+<tr>
+<td>Pid</td>
+<td>Process</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ID</td>
+<td>PID隔离</td>
+<td>内核版本：2.6.24</td>
+<td></td>
+</tr>
+<tr>
+<td>Net</td>
+<td>Network</td>
+<td>网络隔离。网络设备、协议栈、端口</td>
+<td>内核版本：2.6.29</td>
+</tr>
+</tbody></table>
+<h3 id="2-3-Cgroups"><a href="#2-3-Cgroups" class="headerlink" title="2.3. Cgroups"></a>2.3. Cgroups</h3><p>Namespaceses通过障眼法实现了用户空间的隔离，但是没办法对硬件资源进行限制，当一个容器进行CPU密集型操作时，会消耗掉整个宿主机的CPU资源，进而影响了其它容器的正常运行。<br>因此在Namespaceses之上，还需要对各个容器实现硬件资源限制，比如CPU，Memory,diskio等等。<br>Cgroups技术针对进程而言的，在centos7系统上，可以通过以下方式来实现对进程的资源限制:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">[root@qianmohuaqingmei ~]# while :;do :;done &amp;</span><br><span class="line">[1] 2136</span><br><span class="line">[root@qianmohuaqingmei ~]# pidstat -u -p 2136 2  ## 未加cgroups限制下，跑满单个CPU核心</span><br><span class="line">11:09:54 AM   UID       PID    %usr %system  %guest    %CPU   CPU  Command</span><br><span class="line">11:09:56 AM     0      2136   99.50    0.00    0.00   99.50     4  bash</span><br><span class="line">11:09:58 AM     0      2136  100.00    0.00    0.00  100.00     4  bash</span><br><span class="line">11:10:00 AM     0      2136  100.00    0.00    0.00  100.00     4  bash</span><br><span class="line">[root@qianmohuaqingmei ~]# mount -t cgroup ## 查看当前cgroups路径</span><br><span class="line">cgroup on /sys/fs/cgroup/systemd type cgroup (rw,nosuid,nodev,noexec,relatime,xattr,release_agent=/usr/lib/systemd/systemd-cgroups-agent,name=systemd)</span><br><span class="line">cgroup on /sys/fs/cgroup/hugetlb type cgroup (rw,nosuid,nodev,noexec,relatime,hugetlb)</span><br><span class="line">cgroup on /sys/fs/cgroup/cpuset type cgroup (rw,nosuid,nodev,noexec,relatime,cpuset)</span><br><span class="line">cgroup on /sys/fs/cgroup/cpu,cpuacct type cgroup (rw,nosuid,nodev,noexec,relatime,cpuacct,cpu)</span><br><span class="line">cgroup on /sys/fs/cgroup/net_cls,net_prio type cgroup (rw,nosuid,nodev,noexec,relatime,net_prio,net_cls)</span><br><span class="line">cgroup on /sys/fs/cgroup/devices type cgroup (rw,nosuid,nodev,noexec,relatime,devices)</span><br><span class="line">cgroup on /sys/fs/cgroup/blkio type cgroup (rw,nosuid,nodev,noexec,relatime,blkio)</span><br><span class="line">cgroup on /sys/fs/cgroup/pids type cgroup (rw,nosuid,nodev,noexec,relatime,pids)</span><br><span class="line">cgroup on /sys/fs/cgroup/freezer type cgroup (rw,nosuid,nodev,noexec,relatime,freezer)</span><br><span class="line">cgroup on /sys/fs/cgroup/perf_event type cgroup (rw,nosuid,nodev,noexec,relatime,perf_event)</span><br><span class="line">cgroup on /sys/fs/cgroup/memory type cgroup (rw,nosuid,nodev,noexec,relatime,memory)</span><br><span class="line"></span><br><span class="line">[root@qianmohuaqingmei ~]# mkdir /sys/fs/cgroup/cpu/loop</span><br><span class="line">[root@qianmohuaqingmei ~]# cat /sys/fs/cgroup/cpu/loop/cpu.cfs_quota_us</span><br><span class="line">-1</span><br><span class="line">[root@qianmohuaqingmei ~]# cat /sys/fs/cgroup/cpu/loop/cpu.cfs_period_us</span><br><span class="line">100000</span><br><span class="line">[root@qianmohuaqingmei ~]# echo 10000 &gt;/sys/fs/cgroup/cpu/loop/cpu.cfs_quota_us ## CPU时间片限制在20%</span><br><span class="line">[root@qianmohuaqingmei ~]# echo 2136 &gt; /sys/fs/cgroup/cpu/loop/tasks ## 指定限制的进程PID</span><br><span class="line">[root@qianmohuaqingmei ~]# pidstat -u -p 2136 2</span><br><span class="line">Linux 3.10.0-862.el7.x86_64 (qianmohuaqingmei) 	03/02/2019 	_x86_64_	(8 CPU)</span><br><span class="line">11:16:37 AM   UID       PID    %usr %system  %guest    %CPU   CPU  Command</span><br><span class="line">11:16:39 AM     0      2136   10.50    0.00    0.00   10.50     4  bash</span><br><span class="line">11:16:41 AM     0      2136   10.00    0.00    0.00   10.00     4  bash</span><br><span class="line">11:16:43 AM     0      2136    9.50    0.00    0.00    9.50     4  bash</span><br><span class="line">11:16:45 AM     0      2136    9.95    0.00    0.00    9.95     4  bash</span><br></pre></td></tr></table></figure>
 
-<p>替换成下面的这样，url的链接就是刚刚上传后的图片的链接。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">"overlay"</span> style=<span class="string">"background: url('http://lijiaze.vip/images/bizhi.jpg') no-repeat center bottom;background-size: cover;"</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="3-Docker架构"><a href="#3-Docker架构" class="headerlink" title="3. Docker架构"></a>3. Docker架构</h2><h3 id="3-1-Docker组件"><a href="#3-1-Docker组件" class="headerlink" title="3.1. Docker组件"></a>3.1. Docker组件</h3><p><img src="../images/docker/container/02.png" alt="未命名图片.png"></p>
+<ul>
+<li>Repostitory<ul>
+<li>由特定的docker镜像的所有迭代版本组成一个镜像仓库</li>
+<li>一个Registry可以包括多个Repostitory</li>
+<li>Repostitory包含顶层仓库和用户仓库<ul>
+<li>顶层仓库: 仓库名:标签, nginx:latest</li>
+<li>用户仓库: 用户名/仓库名:标签, heyang/nginx:1.4.2</li>
+</ul>
+</li>
+<li>一个镜像可以有多个标签，如最新版的nginx,可以是nginx:latest,nginx:1.4.2</li>
+</ul>
+</li>
+<li>Index<ul>
+<li>提供用户认证、镜像检索功能</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-2-Docker镜像和容器"><a href="#3-2-Docker镜像和容器" class="headerlink" title="3.2. Docker镜像和容器"></a>3.2. Docker镜像和容器</h3><h4 id="3-2-1-Docker镜像"><a href="#3-2-1-Docker镜像" class="headerlink" title="3.2.1. Docker镜像"></a>3.2.1. Docker镜像</h4><p>镜像(Image)是一堆只读层(read-only layer)的统一视角。如下图所示:</p>
+<p><img src="../images/docker/container/031.png" alt="Image1.png"><br><img src="../images/docker/container/03.png" alt="Image2.png"></p>
+<p>左边的是多个只读层，他们相互堆叠在一起。除了最下层之外，其它每一层都会有一个指针指向下一层。这些层是Docker内部的实现细节，并且能够在宿主机的文件系统上访问到。<br>统一文件系统（union file system,aufs）技术(新版用overlay2)能够将不同的层整合成一个文件系统，为这些层提供了一个统一的视角，这样就隐藏了多层的存在，在用户的角度看来，只存在一个文件系统。我们可以在图片的右边看到这个视角的形式。<br>每一层都包含了当前层的ID，Metadata，Pointer（指向上一层）三层，最底层不包含Pointer。</p>
+<h4 id="3-2-2-Docker容器"><a href="#3-2-2-Docker容器" class="headerlink" title="3.2.2. Docker容器"></a>3.2.2. Docker容器</h4><p>Docker容器包含静止状态和运行状态两种，这两种状态下的层级不一样。<br>静态状态的容器仅仅是在镜像状态下增加一个可读写的层级，运行状态中的容器包含了进程和对应的进程空间：<br><img src="../images/docker/container/041.png" alt="container.png"><br><img src="../images/docker/container/04.png" alt="container2.png"></p>
+<h2 id="4-Docker安装"><a href="#4-Docker安装" class="headerlink" title="4. Docker安装"></a>4. Docker安装</h2><h3 id="4-1-Docker安装配置"><a href="#4-1-Docker安装配置" class="headerlink" title="4.1. Docker安装配置"></a>4.1. Docker安装配置</h3><p>Docker在2017年以前时使用大版本号+小版本号来名，在2017年之后，采用YY.MM.N-xx格式，如 19.03.1-ce表示2019年3月份的第2个ce版本。<br>以CentOS 7安装docker-ce版本为例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">[root@qianmohuaqingmei ~]# uname -r # 确认内核版本，要求大于3.8</span><br><span class="line">3.10.0-862.el7.x86_64</span><br><span class="line"></span><br><span class="line">[root@qianmohuaqingmei ~]# wget -O /etc/yum.repos.d/docker-ce.repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br><span class="line">[root@qianmohuaqingmei ~]# yum install -y docker-ce  # 安装docker-ce</span><br><span class="line"></span><br><span class="line">[root@qianmohuaqingmei ~]# vim /etc/docker/daemon.json  # 初始化配置</span><br><span class="line">&#123;</span><br><span class="line">  &quot;graph&quot;: &quot;/data/docker&quot;,</span><br><span class="line">  &quot;storage-driver&quot;: &quot;overlay2&quot;,</span><br><span class="line">  &quot;insecure-registries&quot;: [&quot;registry.access.redhat.com&quot;,&quot;quay.io&quot;],</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://q2gr04ke.mirror.aliyuncs.com&quot;],</span><br><span class="line">  &quot;bip&quot;: &quot;172.24.20.1/24&quot;,</span><br><span class="line">  &quot;exec-opts&quot;: [&quot;native.cgroupdriver=systemd&quot;],</span><br><span class="line">  &quot;log-opts&quot;: &#123;&quot;max-size&quot;:&quot;256M&quot;, &quot;max-file&quot;:&quot;2&quot;&#125;,</span><br><span class="line">  &quot;live-restore&quot;: true</span><br><span class="line">&#125;</span><br><span class="line">[root@qianmohuaqingmei ~]# mkdir -p /data/docker</span><br><span class="line">[root@qianmohuaqingmei ~]# systemctl start docker &amp;&amp; systemctl enable docker</span><br><span class="line">[root@qianmohuaqingmei ~]# ip addr show dev docker0  # 确认IP地址</span><br><span class="line">3: docker0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc noqueue state DOWN group default </span><br><span class="line">    link/ether 02:42:e7:6b:2d:f6 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 172.24.20.1/24 brd 172.24.20.255 scope global docker0</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line"></span><br><span class="line">[root@qianmohuaqingmei ~]# docker container run --rm hello-world  # 测试docker是否运行正常</span><br><span class="line">Unable to find image &apos;hello-world:latest&apos; locally</span><br><span class="line">latest: Pulling from library/hello-world</span><br><span class="line">1b930d010525: Pull complete </span><br><span class="line">Digest: sha256:4fe721ccc2e8dc7362278a29dc660d833570ec2682f4e4194f4ee23e415e1064</span><br><span class="line">Status: Downloaded newer image for hello-world:latest</span><br><span class="line"></span><br><span class="line">Hello from Docker!</span><br><span class="line">This message shows that your installation appears to be working correctly.</span><br><span class="line"></span><br><span class="line">To generate this message, Docker took the following steps:</span><br><span class="line"> 1. The Docker client contacted the Docker daemon.</span><br><span class="line"> 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.</span><br><span class="line">    (amd64)</span><br><span class="line"> 3. The Docker daemon created a new container from that image which runs the</span><br><span class="line">    executable that produces the output you are currently reading.</span><br><span class="line"> 4. The Docker daemon streamed that output to the Docker client, which sent it</span><br><span class="line">    to your terminal.</span><br><span class="line"></span><br><span class="line">To try something more ambitious, you can run an Ubuntu container with:</span><br><span class="line"> $ docker run -it ubuntu bash</span><br><span class="line"></span><br><span class="line">Share images, automate workflows, and more with a free Docker ID:</span><br><span class="line"> https://hub.docker.com/</span><br><span class="line"></span><br><span class="line">For more examples and ideas, visit:</span><br><span class="line"> https://docs.docker.com/get-started/</span><br></pre></td></tr></table></figure>
 
-<h3 id="1-3-更新及效果"><a href="#1-3-更新及效果" class="headerlink" title="1.3 更新及效果"></a>1.3 更新及效果</h3><p>将刚刚修改的保存后，使用以下命令将博客内容更新  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># daemon.json 配置介绍</span><br><span class="line">&#123;</span><br><span class="line">  &quot;graph&quot;: &quot;/data/docker&quot;,</span><br><span class="line">  &quot;storage-driver&quot;: &quot;overlay2&quot;,</span><br><span class="line">  &quot;insecure-registries&quot;: [&quot;registry.access.redhat.com&quot;,&quot;quay.io&quot;],</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://q2gr04ke.mirror.aliyuncs.com&quot;],</span><br><span class="line">  &quot;bip&quot;: &quot;172.24.20.1/24&quot;,</span><br><span class="line">  &quot;exec-opts&quot;: [&quot;native.cgroupdriver=systemd&quot;],</span><br><span class="line">  &quot;live-restore&quot;: true</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 配置项注意点：</span><br><span class="line"># graph: 该关键字未来将被弃用，可以采用 &quot;data-root&quot; 替代</span><br><span class="line"># storage-driver: 存储驱动，即分层文件系统</span><br><span class="line"># insecure-registries: 不安全的docker registries，即使用http协议推拉镜象</span><br><span class="line"># registry-mirrors: 加速站点，一般可以使用阿里、网易云、docker中国(https://registry.docker-cn.com)的地址</span><br><span class="line"># bip: 指定docker bridge地址(不能以.0结尾)，生产中建议采用 172.xx.yy.1/24,其中xx.yy为宿主机ip后四位，方便定位问题</span><br><span class="line"># 若启动失败，查看 /var/log/message 日志排错</span><br></pre></td></tr></table></figure>
 
-<p>当更新完成后，我们将可以看到如下的效果图  </p>
-<p><img src="/images/bizhi001.jpg" alt="效果图"></p>
-<h2 id="2-添加背景音乐盒"><a href="#2-添加背景音乐盒" class="headerlink" title="2. 添加背景音乐盒"></a>2. 添加背景音乐盒</h2><p>虽然现在企鹅空间已经基本算半放弃的状态，但还会怀念当年找到一款非主流音乐盒，加上自己喜欢的音乐的那种喜悦，青春啊。。。</p>
-<h3 id="2-1-生成网易云链接"><a href="#2-1-生成网易云链接" class="headerlink" title="2.1 生成网易云链接"></a>2.1 生成网易云链接</h3><p>这里需要一个网易云账号以及该账号下的一个歌单，这样就能生成网易云音乐插件的链接，如下图：  </p>
-<p><img src="/images/music-plugin-link.jpg" alt="网易云音乐插件链接">  </p>
-<p>这里面能获取到一个链接，如下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe frameborder=<span class="string">"no"</span> border=<span class="string">"0"</span> marginwidth=<span class="string">"0"</span> marginheight=<span class="string">"0"</span> width=330 height=110 src=<span class="string">"//music.163.com/outchain/player?type=0&amp;id=2210961042&amp;auto=1&amp;height=90"</span>&gt;&lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">[root@qianmohuaqingmei ~]# docker info  # Docker 信息查看</span><br><span class="line">Client:</span><br><span class="line"> Debug Mode: false</span><br><span class="line"></span><br><span class="line">Server:</span><br><span class="line"> Containers: 0              # 容器数量</span><br><span class="line">  Running: 0</span><br><span class="line">  Paused: 0</span><br><span class="line">  Stopped: 0</span><br><span class="line"> Images: 1                  # 镜像数量</span><br><span class="line"> Server Version: 19.03.5    # server 版本</span><br><span class="line"> Storage Driver: overlay2</span><br><span class="line">  Backing Filesystem: xfs   # 宿主机上的底层文件系统</span><br><span class="line">  Supports d_type: true</span><br><span class="line">  Native Overlay Diff: true</span><br><span class="line"> Logging Driver: json-file</span><br><span class="line"> Cgroup Driver: systemd     # Cgroups 驱动</span><br><span class="line"> Plugins:</span><br><span class="line">  Volume: local</span><br><span class="line">  Network: bridge host ipvlan macvlan null overlay</span><br><span class="line">  Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog</span><br><span class="line"> Swarm: inactive</span><br><span class="line"> Runtimes: runc</span><br><span class="line"> Default Runtime: runc</span><br><span class="line"> Init Binary: docker-init</span><br><span class="line"> containerd version: b34a5c8af56e510852c35414db4c1f4fa6172339</span><br><span class="line"> runc version: 3e425f80a8c931f88e6d94a8c831b9d5aa481657</span><br><span class="line"> init version: fec3683</span><br><span class="line"> Security Options:</span><br><span class="line">  seccomp</span><br><span class="line">   Profile: default</span><br><span class="line"> Kernel Version: 3.10.0-862.el7.x86_64      # 宿主机的相关信息</span><br><span class="line"> Operating System: CentOS Linux 7 (Core)</span><br><span class="line"> OSType: linux</span><br><span class="line"> Architecture: x86_64</span><br><span class="line"> CPUs: 2</span><br><span class="line"> Total Memory: 3.685GiB</span><br><span class="line"> Name: qianmohuaqingmei</span><br><span class="line"> ID: ASZO:NO2O:EJ2W:WGN5:MWAL:MBMP:TURI:WKNC:YUPS:E4E2:MATG:MXV3</span><br><span class="line"> Docker Root Dir: /data/docker              # docker 数据存储目录</span><br><span class="line"> Debug Mode: false</span><br><span class="line"> Registry: https://index.docker.io/v1/      # registry 地址</span><br><span class="line"> Labels:</span><br><span class="line"> Experimental: false</span><br><span class="line"> Insecure Registries:</span><br><span class="line">  quay.io</span><br><span class="line">  registry.access.redhat.com</span><br><span class="line">  127.0.0.0/8</span><br><span class="line"> Registry Mirrors:                          # 加速站点</span><br><span class="line">  https://q2gr04ke.mirror.aliyuncs.com/</span><br><span class="line"> Live Restore Enabled: true</span><br><span class="line"></span><br><span class="line">WARNING: bridge-nf-call-iptables is disabled    # 当前两个warn需要设置内核模块</span><br><span class="line">WARNING: bridge-nf-call-ip6tables is disabled</span><br></pre></td></tr></table></figure>
 
-<p>不过因为个人的审美，所以需要将这里面的大小调节一下，得到如下的链接：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=<span class="string">"position:absolute;bottom:0px;left:auto"</span>&gt;</span><br><span class="line">   &lt;iframe frameborder=<span class="string">"no"</span> border=<span class="string">"0"</span> marginwidth=<span class="string">"0"</span> marginheight=<span class="string">"0"</span> width=300 height=100 src=<span class="string">"//music.163.com/outchain/player?type=0&amp;id=2210961042&amp;auto=1&amp;height=100"</span>&gt;&lt;/iframe&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="4-2-Docker-pull配置代理"><a href="#4-2-Docker-pull配置代理" class="headerlink" title="4.2. Docker pull配置代理"></a>4.2. Docker pull配置代理</h3><p>部分场景中，下载国外镜像非常慢，因此可以配置相关代理进行加速，方法如下：</p>
+<h4 id="4-2-1-配置宿主机代理"><a href="#4-2-1-配置宿主机代理" class="headerlink" title="4.2.1. 配置宿主机代理"></a>4.2.1. 配置宿主机代理</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">1.  找到 Lantern 的代理服务器的http(s)监听地址，以当前宿主机 127.0.0.1:9768 为例</span><br><span class="line">2.  配置windows端口的转发，将所有10.4.7.1的10080端口转发至 127.0.0.1:9768</span><br><span class="line">		netsh interface portproxy add v4tov4 listenaddress=10.4.7.1 listenport=10080 connectaddress=127.0.0.1 connectport=9768</span><br><span class="line">3.  配置windows防火墙策略，允许 10.4.7.0/24 网段访问 10.4.7.1:10080</span><br><span class="line">4.  配置Linux机器的http和https代理</span><br><span class="line">    [root@qianmohuaqingmei ~]# export http_proxy=&quot;10.4.7.1:10080&quot;</span><br><span class="line">		[root@qianmohuaqingmei ~]# export https_proxy=&quot;10.4.7.1:10080&quot;</span><br><span class="line">5.  测试</span><br><span class="line">    [root@qianmohuaqingmei ~]# curl -I https://www.google.com</span><br><span class="line">    HTTP/1.1 200 OK</span><br><span class="line">    Date: Friday, 20-Mar-20 09:55:18 CST</span><br><span class="line">    Keep-Alive: timeout=58</span><br><span class="line">    Content-Length: 0</span><br><span class="line"></span><br><span class="line"># 实验环境的虚拟机使用的是 10.4.7.0/24 的NAT网络，宿主机地址为 10.4.7.1</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-2-修改配置文件"><a href="#2-2-修改配置文件" class="headerlink" title="2.2 修改配置文件"></a>2.2 修改配置文件</h3><p>修改yilia主题的left-col.ejs这个文件，具体路径是yilia/layout/_partial/left-col.ejs，在这个文件最后追加上上面的链接，如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;% var defaultBg = <span class="string">'#4d4d4d'</span>; %&gt;</span><br><span class="line">&lt;div class=<span class="string">"overlay"</span> style=<span class="string">"background: url('http://lijiaze.vip/images/bizhi.jpg') no-repeat center bottom;background-size: cover;"</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;div class=<span class="string">"intrude-less"</span>&gt;</span><br><span class="line">	&lt;header id=<span class="string">"header"</span> class=<span class="string">"inner"</span>&gt;</span><br><span class="line">		&lt;a href=<span class="string">"&lt;%=theme.root%&gt;"</span> class=<span class="string">"profilepic"</span>&gt;</span><br><span class="line">			&lt;img src=<span class="string">"&lt;%=theme.avatar%&gt;"</span> class=<span class="string">"js-avatar"</span>&gt;</span><br><span class="line">		&lt;/a&gt;</span><br><span class="line">		&lt;hgroup&gt;</span><br><span class="line">		  &lt;h1 class=<span class="string">"header-author"</span>&gt;&lt;a href=<span class="string">"&lt;%=theme.root%&gt;"</span>&gt;&lt;%=theme.author%&gt;&lt;/a&gt;&lt;/h1&gt;</span><br><span class="line">		&lt;/hgroup&gt;</span><br><span class="line">		&lt;% <span class="keyword">if</span> (theme.subtitle)&#123; %&gt;</span><br><span class="line">		&lt;p class=<span class="string">"header-subtitle"</span>&gt;&lt;%=theme.subtitle%&gt;&lt;/p&gt;</span><br><span class="line">		&lt;%&#125;%&gt;</span><br><span class="line"></span><br><span class="line">		&lt;nav class=<span class="string">"header-menu"</span>&gt;</span><br><span class="line">			&lt;ul&gt;</span><br><span class="line">			&lt;% <span class="keyword">for</span> (var i <span class="keyword">in</span> theme.menu)&#123; %&gt;</span><br><span class="line">				&lt;li&gt;&lt;a href=<span class="string">"&lt;%- url_for(theme.menu[i]) %&gt;"</span>&gt;&lt;%= i %&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">	        &lt;%&#125;%&gt;</span><br><span class="line">			&lt;/ul&gt;</span><br><span class="line">		&lt;/nav&gt;</span><br><span class="line">		&lt;nav class=<span class="string">"header-smart-menu"</span>&gt;</span><br><span class="line">    		&lt;% <span class="keyword">for</span> (var i <span class="keyword">in</span> theme.smart_menu)&#123; %&gt;</span><br><span class="line">    			&lt;% <span class="keyword">if</span>(theme.smart_menu[i])&#123; %&gt;</span><br><span class="line">    			&lt;a q-on=<span class="string">"click: openSlider(e, '&lt;%-i%&gt;')"</span> href=<span class="string">"javascript:void(0)"</span>&gt;&lt;%= theme.smart_menu[i] %&gt;&lt;/a&gt;</span><br><span class="line">    			&lt;% &#125; %&gt;</span><br><span class="line">            &lt;%&#125;%&gt;</span><br><span class="line">		&lt;/nav&gt;</span><br><span class="line">		&lt;nav class=<span class="string">"header-nav"</span>&gt;</span><br><span class="line">			&lt;div class=<span class="string">"social"</span>&gt;</span><br><span class="line">				&lt;% <span class="keyword">for</span> (var i <span class="keyword">in</span> theme.subnav)&#123; %&gt;</span><br><span class="line">					&lt;a class=<span class="string">"&lt;%= i %&gt;"</span> target=<span class="string">"_blank"</span> href=<span class="string">"&lt;%- url_for(theme.subnav[i]) %&gt;"</span> title=<span class="string">"&lt;%= i %&gt;"</span>&gt;&lt;i class=<span class="string">"icon-&lt;%= i %&gt;"</span>&gt;&lt;/i&gt;&lt;/a&gt;</span><br><span class="line">		        &lt;%&#125;%&gt;</span><br><span class="line">			&lt;/div&gt;</span><br><span class="line">		&lt;/nav&gt;</span><br><span class="line">	&lt;/header&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;div style=<span class="string">"position:absolute;bottom:0px;left:auto"</span>&gt;</span><br><span class="line">   &lt;iframe frameborder=<span class="string">"no"</span> border=<span class="string">"0"</span> marginwidth=<span class="string">"0"</span> marginheight=<span class="string">"0"</span> width=300 height=100 src=<span class="string">"//music.163.com/outchain/player?type=0&amp;id=2210961042&amp;auto=1&amp;height=100"</span>&gt;&lt;/iframe&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-3-更新及效果"><a href="#2-3-更新及效果" class="headerlink" title="2.3 更新及效果"></a>2.3 更新及效果</h3><p>将刚刚修改的保存后，使用以下命令将博客内容更新</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-
-<p>当更新完成后，我们将可以看到如下的效果图</p>
-<p><img src="/images/music001.jpg" alt="效果图"></p>
-<h2 id="3-博客浏览量统计"><a href="#3-博客浏览量统计" class="headerlink" title="3 博客浏览量统计"></a>3 博客浏览量统计</h2><p>浏览量的统计这里采用<a href="http://ibruce.info/2015/04/04/busuanzi" target="_blank" rel="noopener">不算子</a>，其用法里面主要有两个算法，针对每个种算法都有对应的代码，将其放到需要显示的位置即可。<br>算法a：pv的方式，单个用户连续点击n篇文章，记录n次访问量。<br>算法b：uv的方式，单个用户连续点击n篇文章，只记录1次访客数。  </p>
-<h3 id="3-1-修改配置文件"><a href="#3-1-修改配置文件" class="headerlink" title="3.1 修改配置文件"></a>3.1 修改配置文件</h3><p>选择其中的一种算法，然后修改yilia主题的footer.ejs这个文件，具体路径是yilia/layout/_partial/footer.ejs，在这个文件里面追加算法的内容，如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script async src=<span class="string">"//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"</span>&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;span id=<span class="string">"busuanzi_container_site_pv"</span>&gt;</span><br><span class="line">    第&lt;span id=<span class="string">"busuanzi_value_site_uv"</span>&gt;&lt;/span&gt;位客官,您好,欢迎访问本站</span><br><span class="line">&lt;/span&gt;</span><br></pre></td></tr></table></figure>
-
-<p>修改完成后，该文件的内容如下所示：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;footer id=<span class="string">"footer"</span>&gt;</span><br><span class="line">  &lt;div class=<span class="string">"outer"</span>&gt;</span><br><span class="line">    &lt;div id=<span class="string">"footer-info"</span>&gt;</span><br><span class="line">        &lt;script async src=<span class="string">"//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"</span>&gt;</span><br><span class="line">        &lt;/script&gt;</span><br><span class="line">        &lt;span id=<span class="string">"busuanzi_container_site_pv"</span>&gt;</span><br><span class="line">        第&lt;span id=<span class="string">"busuanzi_value_site_uv"</span>&gt;&lt;/span&gt;位客官,您好,欢迎访问本站</span><br><span class="line">        &lt;/span&gt;</span><br><span class="line">        &lt;div class=<span class="string">"footer-left"</span>&gt;</span><br><span class="line">                &amp;copy; &lt;%= date(new Date(), <span class="string">'YYYY'</span>) %&gt; &lt;%= config.author || config.title %&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=<span class="string">"footer-right"</span>&gt;</span><br><span class="line">                &lt;a href=<span class="string">"http://hexo.io/"</span> target=<span class="string">"_blank"</span>&gt;Hexo&lt;/a&gt;  Theme &lt;a href=<span class="string">"https://github.com/litten/hexo-theme-yilia"</span> target=<span class="string">"_blank"</span>&gt;Yilia&lt;/a&gt; by Litten</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/footer&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-2-更新及效果"><a href="#3-2-更新及效果" class="headerlink" title="3.2 更新及效果"></a>3.2 更新及效果</h3><p>将刚刚修改的保存后，使用以下命令将博客内容更新</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-
-<p>当更新完成后，我们将可以看到如下的效果图</p>
-<p><img src="/images/busuanzi001.jpg" alt="效果图"></p>
-<h2 id="4-畅言评论"><a href="#4-畅言评论" class="headerlink" title="4 畅言评论"></a>4 畅言评论</h2><p>首先需要<a href="http://changyan.kuaizhan.com" target="_blank" rel="noopener">畅言官网</a>注册一个账号，然后进行网站备案，不进行备案的话，评论的功能只能试用半个月。</p>
-<h3 id="4-1-ICP备案"><a href="#4-1-ICP备案" class="headerlink" title="4.1 ICP备案"></a>4.1 ICP备案</h3><p>如果没有服务器是不能进行备案的，那要为了一个博客而买个服务的话，性价比不高，所以我们只能使用一个取巧的方式。去<a href="http://www.beianbeian.com" target="_blank" rel="noopener"> ICP备案查询网</a><br>上面找一个小公司的信息，比如上面看到的历史记录查询，我们随便获取一个。然后将信息填到畅言的ICP备案里面,过一天左右将会审批通过.</p>
-<h3 id="4-2-修改配置文件"><a href="#4-2-修改配置文件" class="headerlink" title="4.2 修改配置文件"></a>4.2 修改配置文件</h3><p>这时需要将yilia主题下的_config.yml里面的畅言的两个配置修改为自己真实的值。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#3、畅言</span></span><br><span class="line">changyan_appid: cyugJtiYY</span><br><span class="line">changyan_conf: prod_93b59xxxxxxxxxxxxxxxxxxxxxxxxx</span><br></pre></td></tr></table></figure>
-
-<p>在themes\yilia\source\main.0cf68a.css文件后面追加两行，屏蔽广告</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#feedAv &#123; margin-top: -250px!important; transform: scale(0)!important; z-index: -999!important; &#125;</span></span><br><span class="line"><span class="comment">#pop_ad &#123; margin-top: -250px!important; transform: scale(0)!important; z-index: -999!important; &#125;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="4-3-更新及效果"><a href="#4-3-更新及效果" class="headerlink" title="4.3 更新及效果"></a>4.3 更新及效果</h3><p>将刚刚修改的保存后，使用以下命令将博客内容更新</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-
-<p>当更新完成后，我们将可以看到如下的效果图</p>
-<p><img src="/images/changyan001.jpg" alt="效果图"></p>
-
+<h4 id="4-2-2-配置docker代理"><a href="#4-2-2-配置docker代理" class="headerlink" title="4.2.2. 配置docker代理"></a>4.2.2. 配置docker代理</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">root@qianmohuaqingmei:~# mkdir /etc/systemd/system/docker.service.d</span><br><span class="line">root@qianmohuaqingmei:~# vim /etc/systemd/system/docker.service.d/http-proxy.conf</span><br><span class="line">[Service]</span><br><span class="line">Environment=&quot;HTTP_PROXY=http://10.4.7.1:10080&quot;</span><br><span class="line">root@qianmohuaqingmei:~# systemctl daemon-reload</span><br><span class="line">root@qianmohuaqingmei:~# systemctl restart docker</span><br><span class="line">root@qianmohuaqingmei:~# docker info 2&gt;&amp;1 | grep -i proxy</span><br><span class="line"> HTTP Proxy: http://10.4.7.1:10080</span><br></pre></td></tr></table></figure>
       
 
       
@@ -283,7 +324,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Hexo Yilia</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
         		</li>
       		
 		</ul>
@@ -339,7 +380,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.lijiaze.vip/2019/06/06/Hexo-yilia-主题的一些小技巧/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.lijiaze.vip/2019/05/04/Docker容器/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -353,18 +394,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/01/12/安装smba/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/05/06/Docker网络/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          安装smba
+          Docker网络
         
       </div>
     </a>
   
   
-    <a href="/2019/05/06/Docker网络/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Docker网络</div>
+    <a href="/2017/11/05/《西江月·痴》/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">《西江月·痴》</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -394,7 +435,7 @@
   
 
   
-  <div id="SOHUCS" sid="Hexo-yilia-主题的一些小技巧"></div> 
+  <div id="SOHUCS" sid="Docker容器"></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js"></script>
 <script type="text/javascript">
     window.changyan.api.config({
