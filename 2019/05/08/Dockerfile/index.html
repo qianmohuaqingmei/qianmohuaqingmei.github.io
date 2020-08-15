@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="浅墨画青梅">
 <meta property="og:description" content="1. 语法1.1. 语法要求 执行docker build的目录为镜像创建的工作目录，所有被Dockerfile引用的文件都必须在此目录或者其子目录中，不可超出工作目录的边界 Dockerfile可以引用文件也可以引用目录，支持通配符，对于引用的目录中个别不需要的文件可以将路径写入.dockerignore文件中，该文件同样支持通配符 注释以 # 开头，类似于shell 脚本 非注释的非空行是指令">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-08-15T10:52:40.741Z">
+<meta property="og:updated_time" content="2020-08-15T10:59:51.307Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dockerfile">
 <meta name="twitter:description" content="1. 语法1.1. 语法要求 执行docker build的目录为镜像创建的工作目录，所有被Dockerfile引用的文件都必须在此目录或者其子目录中，不可超出工作目录的边界 Dockerfile可以引用文件也可以引用目录，支持通配符，对于引用的目录中个别不需要的文件可以将路径写入.dockerignore文件中，该文件同样支持通配符 注释以 # 开头，类似于shell 脚本 非注释的非空行是指令">
@@ -190,27 +190,30 @@
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># escape=\</span></span><br><span class="line"><span class="comment"># escape=`</span></span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><strong>说明</strong></li>
+<li><strong>说明</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The default escape is usually used in RUN directive.But in windows image,file path delimiter is so the is better choice in create window image.</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
-<p>The default escape is usually used in RUN directive.But in windows image,file path delimiter is so the is better choice in create window image.</p>
 <h4 id="1-2-2-FROM"><a href="#1-2-2-FROM" class="headerlink" title="1.2.2. FROM"></a>1.2.2. FROM</h4><ul>
 <li><strong>格式</strong></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FROM image[:tag] [AS name]</span><br><span class="line">FROM image[@digest] [AS name]</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><strong>说明</strong></li>
+<li><strong>说明</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用于指定基础镜像，默认的标签是latest，你可以指定，如果本地没有这个镜像，就远端镜像仓库下载。</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
-<p>用于指定基础镜像，默认的标签是latest，你可以指定，如果本地没有这个镜像，就远端镜像仓库下载。</p>
 <h4 id="1-2-3-MAINTAINER-deprecated"><a href="#1-2-3-MAINTAINER-deprecated" class="headerlink" title="1.2.3. MAINTAINER(deprecated)"></a>1.2.3. MAINTAINER(deprecated)</h4><ul>
 <li><strong>格式</strong></li>
 </ul>
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">MAINTAINER</span> strings</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><strong>说明</strong></li>
+<li><strong>说明</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">指定镜像制作者的信息与说明，这个命令废弃了，替代的命令是LABEL</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
-<p>指定镜像制作者的信息与说明，这个命令废弃了，替代的命令是LABEL</p>
 <h4 id="1-2-4-LABEL"><a href="#1-2-4-LABEL" class="headerlink" title="1.2.4. LABEL"></a>1.2.4. LABEL</h4><ul>
 <li><strong>格式</strong></li>
 </ul>
@@ -219,7 +222,8 @@
 <ul>
 <li><strong>说明</strong></li>
 </ul>
-<p>给镜像添加标签信息，如作者，版本等，在标签里面，可以使用’&#39;进行分行，从而继续下一个键值对</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">给镜像添加标签信息，如作者，版本等，在标签里面，可以使用&apos;\&apos;进行分行，从而继续下一个键值对</span><br></pre></td></tr></table></figure>
+
 <h4 id="1-2-5-COPY"><a href="#1-2-5-COPY" class="headerlink" title="1.2.5. COPY"></a>1.2.5. COPY</h4><ul>
 <li><p><strong>格式</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">COPY [--chown=user:group] src …… dest</span><br><span class="line">COPY [--chown=user:group] [&quot;src&quot;,&quot;src&quot;,……,&quot;dest&quot;]</span><br></pre></td></tr></table></figure>
@@ -227,15 +231,8 @@
 <li><p><strong>说明</strong></p>
 </li>
 </ul>
-<p>Chown option only worked on Linux container.COPY instruction copy files or directory based on docker-build<br>workdir to container destination path.The src path support wildcards which will<br>be done using Go’s filepath match rules,such as “hom* hom?.txt”. The dest is an absolute path,or a path ralative to WORKDIR.</p>
-<ul>
-<li>If src is a directory,the<br>whole contents of the directory are copied,include filesystem and<br>metadata.</li>
-<li>If src is a directory,the<br>directory is not copied,just its contents.</li>
-<li>If dest is ending with<br>“/“,it will be done an directory.Otherwise,it will be considered<br>a regular file.</li>
-<li>If specify src by wildcards<br>or sepcify multiple src,the dest must be direcotry.</li>
-<li>If dest doesn’t exits,it<br>will be created.</li>
-<li>If filename contain blank<br>charactre,the JSON array is better choice</li>
-</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Chown option only worked on Linux container.COPY instruction copy files or directory based on docker-build</span><br><span class="line">workdir to container destination path.The src path support wildcards which will</span><br><span class="line">be done using Go&apos;s filepath match rules,such as &quot;hom* hom?.txt&quot;. The dest is an absolute path,or a path ralative to WORKDIR.</span><br><span class="line"></span><br><span class="line">   - If src is a directory,the</span><br><span class="line">     whole contents of the directory are copied,include filesystem and</span><br><span class="line">     metadata.</span><br><span class="line">   - If src is a directory,the</span><br><span class="line">     directory is not copied,just its contents.</span><br><span class="line">   - If dest is ending with</span><br><span class="line">     &quot;/&quot;,it will be done an directory.Otherwise,it will be considered</span><br><span class="line">     a regular file.</span><br><span class="line">   - If specify src by wildcards</span><br><span class="line">     or sepcify multiple src,the dest must be direcotry.</span><br><span class="line">   - If dest doesn&apos;t exits,it</span><br><span class="line">     will be created.</span><br><span class="line">   - If filename contain blank</span><br><span class="line">     charactre,the JSON array is better choice</span><br></pre></td></tr></table></figure>
+
 <h4 id="1-2-6-ADD"><a href="#1-2-6-ADD" class="headerlink" title="1.2.6. ADD"></a>1.2.6. ADD</h4><ul>
 <li><p><strong>格式</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ADD [--chown=user:group] src …… dest</span><br><span class="line">ADD [--chown=user:group] [&quot;src&quot;,&quot;src&quot;,……,&quot;dest&quot;]</span><br></pre></td></tr></table></figure>
@@ -243,14 +240,8 @@
 <li><p><strong>说明</strong></p>
 </li>
 </ul>
-<p>The ADD instruction is like COPY instruction.But the<br>instruction has some features:</p>
-<ul>
-<li>ADD can sepcify local files<br>or remote file URLs from src.</li>
-<li>If src is URL,the<br>destination will be chmod to 600.</li>
-<li>If src is tar archive<br>format(.tar,.tar.gz,.tar.bz2,.tar.xz),it will be unpacked on<br>destination(like tar -xf src).</li>
-<li>If scr is URL tar archive<br>format,it will not be unpacked on destination.</li>
-<li>If URL requires<br>authentication,you must be download by wget or curl on COM instruction.</li>
-</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">The ADD instruction is like COPY instruction.But the</span><br><span class="line">instruction has some features:</span><br><span class="line"></span><br><span class="line">   - ADD can sepcify local files</span><br><span class="line">     or remote file URLs from src.</span><br><span class="line">   - If src is URL,the</span><br><span class="line">     destination will be chmod to 600.</span><br><span class="line">   - If src is tar archive</span><br><span class="line">     format(.tar,.tar.gz,.tar.bz2,.tar.xz),it will be unpacked on</span><br><span class="line">     destination(like tar -xf src).</span><br><span class="line">   - If scr is URL tar archive</span><br><span class="line">     format,it will not be unpacked on destination.</span><br><span class="line">   - If URL requires</span><br><span class="line">     authentication,you must be download by wget or curl on COM instruction.</span><br></pre></td></tr></table></figure>
+
 <h4 id="1-2-7-RUN"><a href="#1-2-7-RUN" class="headerlink" title="1.2.7. RUN"></a>1.2.7. RUN</h4><ul>
 <li><strong>格式</strong></li>
 </ul>
@@ -259,17 +250,8 @@
 <ul>
 <li><strong>说明</strong></li>
 </ul>
-<p>RUN command is running when you create image by “docker<br>build”.All commands must included in base image.</p>
-<ul>
-<li>“RUN command … “<br>is shell form,the command is run in a shell,whinc by defualt is<br>“/bin/sh -c” on Linux or “cmd /s /c” on Windows.</li>
-</ul>
-<p>The default shell for shell form can be changed by “SHELL”<br>command.</p>
-<ul>
-<li>“RUN<br>[“executable”,”param1”,”param2”,…]” is<br>exec form,the command is run skep shell.</li>
-<li>In shell form you can use a<br>“&quot; to continue a single RUN instruction onto next line.</li>
-<li>The exec form is parsed as a<br>JSON array,so you must use double-quotes(“) rather than<br>single-quotes(‘).</li>
-<li>In windows image,<br>RUN [“c:\windows\system32\tasklist.exe”] is syntax<br>error.The correct syntax for this example is:RUN<br>[“c:\windows\system32\tasklist.exe”]]</li>
-</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">RUN command is running when you create image by &quot;docker</span><br><span class="line">build&quot;.All commands must included in base image.</span><br><span class="line"></span><br><span class="line">   - &quot;RUN command … &quot;</span><br><span class="line">     is shell form,the command is run in a shell,whinc by defualt is</span><br><span class="line">     &quot;/bin/sh -c&quot; on Linux or &quot;cmd /s /c&quot; on Windows.</span><br><span class="line"></span><br><span class="line">The default shell for shell form can be changed by &quot;SHELL&quot;</span><br><span class="line">command.</span><br><span class="line"></span><br><span class="line">   - &quot;RUN</span><br><span class="line">     [&quot;executable&quot;,&quot;param1&quot;,&quot;param2&quot;,…]&quot; is</span><br><span class="line">     exec form,the command is run skep shell.</span><br><span class="line">   - In shell form you can use a</span><br><span class="line">     &quot;\&quot; to continue a single RUN instruction onto next line.</span><br><span class="line">   - The exec form is parsed as a</span><br><span class="line">     JSON array,so you must use double-quotes(&quot;) rather than</span><br><span class="line">     single-quotes(&apos;).</span><br><span class="line">   - In windows image,</span><br><span class="line">     RUN [&quot;c:\windows\system32\tasklist.exe&quot;] is syntax</span><br><span class="line">     error.The correct syntax for this example is:RUN</span><br><span class="line">     [&quot;c:\\windows\\system32\\tasklist.exe&quot;]]</span><br></pre></td></tr></table></figure>
+
 <h4 id="1-2-8-CMD"><a href="#1-2-8-CMD" class="headerlink" title="1.2.8. CMD"></a>1.2.8. CMD</h4><ul>
 <li><strong>格式</strong></li>
 </ul>
@@ -286,11 +268,11 @@
 <ul>
 <li>Exec format:</li>
 </ul>
-<p>The second format is exec format.It is preferred format.<br>The exec format skip shell to run command,so some enviroment or<br>commands can’t run success.<br>The exec format is JSON array,that need use double-quotes(“).</p>
+<p>The second format is exec format.It is preferred format.The exec format skip shell to run command,so some enviroment or<br>commands can’t run success.The exec format is JSON array,that need use double-quotes(“).</p>
 <ul>
 <li>Entrypoint argument format</li>
 </ul>
-<p>The third format is entrypoint argument format.<br>It define default arguments for ENTRYPOIN command.</p>
+<p>The third format is entrypoint argument format.It define default arguments for ENTRYPOIN command.</p>
 <h4 id="1-2-9-ENTRYPOINT"><a href="#1-2-9-ENTRYPOINT" class="headerlink" title="1.2.9. ENTRYPOINT"></a>1.2.9. ENTRYPOINT</h4><ul>
 <li><strong>格式</strong></li>
 </ul>
@@ -409,7 +391,8 @@
 <ul>
 <li><strong>说明</strong></li>
 </ul>
-<p>Set default expose port and protocol when you run container with “-P” optinon,default protocol is TCP.<br>Use the “-p” option will publish and map one or more ports.Use the “-P” option will publish all exposed ports and map to high-order ports.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Set default expose port and protocol when you run container with &quot;-P&quot; optinon,default protocol is TCP.</span><br><span class="line">Use the &quot;-p&quot; option will publish and map one or more ports.</span><br><span class="line">Use the &quot;-P&quot; option will publish all exposed ports and map to high-order ports.</span><br></pre></td></tr></table></figure>
+
 <h4 id="1-2-11-ENV"><a href="#1-2-11-ENV" class="headerlink" title="1.2.11. ENV"></a>1.2.11. ENV</h4><ul>
 <li><strong>格式</strong></li>
 </ul>
@@ -418,7 +401,8 @@
 <ul>
 <li><strong>说明</strong></li>
 </ul>
-<p>Defines variable key to the value.The vaule be in the environment for all subsequent instruction in docker build,even you can change them when create and run a container by options “–env key=value”.<br>When you need define multiple variables,you can use second format,and you also can use quotes include values.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Defines variable key to the value.</span><br><span class="line">The vaule be in the environment for all subsequent instruction in docker build,</span><br><span class="line">even you can change them when create and run a container by options &quot;--env key=value&quot;.</span><br><span class="line">When you need define multiple variables,you can use second format,and you also can use quotes include values.</span><br></pre></td></tr></table></figure>
+
 <h4 id="1-2-12-HEALTHCHECK"><a href="#1-2-12-HEALTHCHECK" class="headerlink" title="1.2.12. HEALTHCHECK"></a>1.2.12. HEALTHCHECK</h4><ul>
 <li><strong>格式</strong></li>
 </ul>
@@ -427,18 +411,8 @@
 <ul>
 <li><strong>说明</strong></li>
 </ul>
-<p>Defines health check process to test container status.The first<br>format is defined health check method.The second format is disable any<br>healthcheck inherited from the base image.<br>Options:</p>
-<ul>
-<li>–interval: Sets time<br>between tow check.Default 30s.</li>
-<li>–timeout:  Defines timeout time,default is 30s.</li>
-<li>–start-period: Defines<br>seconds after container start to run health check.Default 0s.</li>
-<li>–retries: Retry<br>times.Default 3.</li>
-</ul>
-<p>Status:</p>
-<ul>
-<li>0: Success, container is<br>healthy.</li>
-<li>1: Failed,container is not<br>work correctly.</li>
-</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Defines health check process to test container status.The first</span><br><span class="line">format is defined health check method.The second format is disable any</span><br><span class="line">healthcheck inherited from the base image.Options:</span><br><span class="line"></span><br><span class="line">   - --interval: Sets time</span><br><span class="line">     between tow check.Default 30s.</span><br><span class="line">   - --timeout:  Defines timeout time,default is 30s.</span><br><span class="line">   - --start-period: Defines</span><br><span class="line">     seconds after container start to run health check.Default 0s.</span><br><span class="line">   - --retries: Retry</span><br><span class="line">     times.Default 3.</span><br><span class="line"></span><br><span class="line">Status:</span><br><span class="line"></span><br><span class="line">   - 0: Success, container is</span><br><span class="line">     healthy.</span><br><span class="line">   - 1: Failed,container is not</span><br><span class="line">     work correctly.</span><br></pre></td></tr></table></figure>
+
 <h4 id="1-2-13-VOLUME"><a href="#1-2-13-VOLUME" class="headerlink" title="1.2.13. VOLUME"></a>1.2.13. VOLUME</h4><ul>
 <li><strong>格式</strong></li>
 </ul>
@@ -447,7 +421,8 @@
 <ul>
 <li><strong>说明</strong></li>
 </ul>
-<p>Specify volume which will mounted by container-managed when<br>container run.<br>Docker will copy file to volume when the files created before volumes declared.After valume declared,any build steps<br>change the data within the volume will be discarded.The volume can’t specify host dirctory.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Specify volume which will mounted by container-managed when</span><br><span class="line">container run.</span><br><span class="line">Docker will copy file to volume when the files created before volumes declared.</span><br><span class="line">After valume declared,any build steps change the data within the volume will be discarded.</span><br><span class="line">The volume can&apos;t specify host dirctory.</span><br></pre></td></tr></table></figure>
+
 <h4 id="1-2-14-USER"><a href="#1-2-14-USER" class="headerlink" title="1.2.14. USER"></a>1.2.14. USER</h4><ul>
 <li><strong>格式</strong></li>
 </ul>
@@ -456,16 +431,18 @@
 <ul>
 <li><strong>说明</strong></li>
 </ul>
-<p>The USER command set user name or UID and group name or GID to use<br>when running the image and for any RUN,CMD,and ENTRYPOIN directive.<br>When the user doesn’t have a primary group when the image will be run with root group.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The USER command set user name or UID and group name or GID to use</span><br><span class="line">when running the image and for any RUN,CMD,and ENTRYPOIN directive.</span><br><span class="line">When the user doesn&apos;t have a primary group when the image will be run with root group.</span><br></pre></td></tr></table></figure>
+
 <h4 id="1-2-15-WORKDIR"><a href="#1-2-15-WORKDIR" class="headerlink" title="1.2.15. WORKDIR"></a>1.2.15. WORKDIR</h4><ul>
 <li><strong>格式</strong></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WORKDIR path</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><strong>说明</strong></li>
+<li><strong>说明</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Specify work directory in container for any RUN,CMD,ENTRYPOIN,ADD,COPY instructions.</span><br><span class="line">If the path dosen&apos;t exist,it will be create.</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
-<p>Specify work directory in container for any RUN,CMD,ENTRYPOIN,ADD,COPY instructions.If the path dosen’t exist,it will be create.</p>
 <h4 id="1-2-16-ONBULID"><a href="#1-2-16-ONBULID" class="headerlink" title="1.2.16. ONBULID"></a>1.2.16. ONBULID</h4><ul>
 <li><strong>格式</strong></li>
 </ul>
@@ -474,16 +451,18 @@
 <ul>
 <li><strong>说明</strong></li>
 </ul>
-<p>Defines introduction when the image referer by others.In other word,if other people<br>create use base image which sets ONBUILD command,it will execute the INSTRODUCTION when referer.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Defines introduction when the image referer by others.In other word,if other people</span><br><span class="line">create use base image which sets ONBUILD command,it will execute the INSTRODUCTION when referer.</span><br></pre></td></tr></table></figure>
+
 <h4 id="1-2-17-ARG"><a href="#1-2-17-ARG" class="headerlink" title="1.2.17. ARG"></a>1.2.17. ARG</h4><ul>
 <li><strong>格式</strong></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ARG key[=default_value]</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><strong>说明</strong></li>
+<li><strong>说明</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Define variable that user can pass value by &quot;--build-arg key=value&quot; </span><br><span class="line">when docker build.It use default value when user doesn&apos;t pass value and defines</span><br><span class="line">default in Dockerfile.If you need specify image version,</span><br><span class="line">you can set &quot;ARG VERSION&quot; before FROM instruction,</span><br><span class="line">but the ARG instruction that before FROM will not be referer after FROM instruction,</span><br><span class="line">you must reset ARG instruction after FROM instruction.</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
-<p>Define variable that user can pass value by “–build-arg key=value” when docker build.It use default value when user doesn’t pass value and defines<br>default in Dockerfile.If you need specify image version,you can set “ARG VERSION” before FROM instruction,but the ARG instruction that before FROM<br>will not be referer after FROM instruction,you must reset ARG instruction after FROM instruction.</p>
 <h4 id="1-2-18-SHELL"><a href="#1-2-18-SHELL" class="headerlink" title="1.2.18. SHELL"></a>1.2.18. SHELL</h4><ul>
 <li><strong>格式</strong></li>
 </ul>
@@ -492,7 +471,8 @@
 <ul>
 <li><strong>说明</strong></li>
 </ul>
-<p>Defins shell which overwrite default shell (“/bin/sh -c” or “cmd /S /C”).</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Defins shell which overwrite default shell (&quot;/bin/sh -c&quot; or &quot;cmd /S /C&quot;).</span><br></pre></td></tr></table></figure>
+
 <h4 id="1-2-19-STOPSINGLE"><a href="#1-2-19-STOPSINGLE" class="headerlink" title="1.2.19. STOPSINGLE"></a>1.2.19. STOPSINGLE</h4><ul>
 <li><strong>格式</strong></li>
 </ul>
@@ -501,7 +481,8 @@
 <ul>
 <li><strong>说明</strong></li>
 </ul>
-<p>Defines signal when execute “docker container stop”,default is 15.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Defines signal when execute &quot;docker container stop&quot;,default is 15.</span><br></pre></td></tr></table></figure>
+
 <h2 id="2-Examples"><a href="#2-Examples" class="headerlink" title="2. Examples"></a>2. Examples</h2><h3 id="2-1-常用的指令使用案例"><a href="#2-1-常用的指令使用案例" class="headerlink" title="2.1. 常用的指令使用案例"></a>2.1. 常用的指令使用案例</h3><h4 id="2-1-1-LABEL-amp-COPY"><a href="#2-1-1-LABEL-amp-COPY" class="headerlink" title="2.1.1. LABEL &amp; COPY"></a>2.1.1. LABEL &amp; COPY</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[root@qianmohuaqingmei test-01]# cp -r /etc/yum.repos.d/ ./</span><br><span class="line">[root@qianmohuaqingmei test-01]# cp /etc/passwd ./</span><br><span class="line">[root@qianmohuaqingmei test-01]# head -100 Dockerfile .dockerignore</span><br><span class="line">==&gt; Dockerfile &lt;==</span><br><span class="line"># Test FROM directive</span><br><span class="line">FROM busybox:latest</span><br><span class="line">LABEL author=&quot;qianmohuaqingmei &lt;lijiaze_id@163.com&gt;&quot; version=&quot;test-image-v1.0.1&quot; baseimage=&quot;busybox:latest&quot;</span><br><span class="line">COPY yum.repos.d passwd /tmp/</span><br><span class="line">==&gt; .dockerignore &lt;== ## 需要忽略的文件</span><br><span class="line">yum.repos.d/CentOS-*</span><br><span class="line"></span><br><span class="line">[root@qianmohuaqingmei ~]# docker container run --name c1 --rm test-image:v1.0.2 ls /tmp/</span><br><span class="line">docker-ce.repo</span><br><span class="line">passwd</span><br><span class="line">[root@qianmohuaqingmei ~]# docker image inspect -f &#123;&#123;.ContainerConfig.Labels&#125;&#125; test-image:v1.0.2</span><br><span class="line">map[author:qianmohuaqingmei &lt;lijiaze_id@163.com&gt; baseimage:busybox:latest version:test-image-v1.0.1]</span><br></pre></td></tr></table></figure>
 
 <h4 id="2-1-2-ADD"><a href="#2-1-2-ADD" class="headerlink" title="2.1.2. ADD"></a>2.1.2. ADD</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@qianmohuaqingmei test-01]# cat Dockerfile</span><br></pre></td></tr></table></figure>
@@ -857,11 +838,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Photoshop</a>
+                <a href="javascript:void(0)" class="js-tag color1">Hexo Yilia</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">杜若诗集</a>
+                <a href="javascript:void(0)" class="js-tag color5">Photoshop</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -869,7 +850,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Hexo Yilia</a>
+                <a href="javascript:void(0)" class="js-tag color5">杜若诗集</a>
               </li>
              
               <li class="article-tag-list-item">
