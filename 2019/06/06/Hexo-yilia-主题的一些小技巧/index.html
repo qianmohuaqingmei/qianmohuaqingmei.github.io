@@ -16,16 +16,16 @@
 <meta property="og:site_name" content="浅墨画青梅">
 <meta property="og:description" content="概述在使用hexo初始化博客后，需要选择一个主题，这里选择yilia主题。具体怎么使用可以看其Wiki,但是还有一些花里胡哨的小插件，litten大神追求简洁的页面，自然就没有相关的说明，所以下面记录一下。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.lijiaze.vip/images/bizhi001.jpg">
-<meta property="og:image" content="http://www.lijiaze.vip/images/music-plugin-link.jpg">
-<meta property="og:image" content="http://www.lijiaze.vip/images/music001.jpg">
-<meta property="og:image" content="http://www.lijiaze.vip/images/busuanzi001.jpg">
-<meta property="og:image" content="http://www.lijiaze.vip/images/changyan001.jpg">
-<meta property="og:updated_time" content="2020-01-12T15:15:04.000Z">
+<meta property="og:image" content="http://www.lijiaze.vip/images/hexo/20190606/001.jpg">
+<meta property="og:image" content="http://www.lijiaze.vip/images/hexo/20190606/002.jpg">
+<meta property="og:image" content="http://www.lijiaze.vip/images/hexo/20190606/003.jpg">
+<meta property="og:image" content="http://www.lijiaze.vip/images/hexo/20190606/004.jpg">
+<meta property="og:image" content="http://www.lijiaze.vip/images/hexo/20190606/005.jpg">
+<meta property="og:updated_time" content="2020-08-22T15:32:04.022Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo yilia 主题的一些小技巧">
 <meta name="twitter:description" content="概述在使用hexo初始化博客后，需要选择一个主题，这里选择yilia主题。具体怎么使用可以看其Wiki,但是还有一些花里胡哨的小插件，litten大神追求简洁的页面，自然就没有相关的说明，所以下面记录一下。">
-<meta name="twitter:image" content="http://www.lijiaze.vip/images/bizhi001.jpg">
+<meta name="twitter:image" content="http://www.lijiaze.vip/images/hexo/20190606/001.jpg">
   
     <link rel="alternative" href="/atom.xml" title="浅墨画青梅" type="application/atom+xml">
   
@@ -196,10 +196,10 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
 
 <p>当更新完成后，我们将可以看到如下的效果图  </p>
-<p><img src="/images/bizhi001.jpg" alt="效果图"></p>
+<p><img src="/images/hexo/20190606/001.jpg" alt="效果图"></p>
 <h2 id="2-添加背景音乐盒"><a href="#2-添加背景音乐盒" class="headerlink" title="2. 添加背景音乐盒"></a>2. 添加背景音乐盒</h2><p>虽然现在企鹅空间已经基本算半放弃的状态，但还会怀念当年找到一款非主流音乐盒，加上自己喜欢的音乐的那种喜悦，青春啊。。。</p>
 <h3 id="2-1-生成网易云链接"><a href="#2-1-生成网易云链接" class="headerlink" title="2.1 生成网易云链接"></a>2.1 生成网易云链接</h3><p>这里需要一个网易云账号以及该账号下的一个歌单，这样就能生成网易云音乐插件的链接，如下图：  </p>
-<p><img src="/images/music-plugin-link.jpg" alt="网易云音乐插件链接">  </p>
+<p><img src="/images/hexo/20190606/002.jpg" alt="网易云音乐插件链接">  </p>
 <p>这里面能获取到一个链接，如下</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe frameborder=<span class="string">"no"</span> border=<span class="string">"0"</span> marginwidth=<span class="string">"0"</span> marginheight=<span class="string">"0"</span> width=330 height=110 src=<span class="string">"//music.163.com/outchain/player?type=0&amp;id=2210961042&amp;auto=1&amp;height=90"</span>&gt;&lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
 
@@ -213,7 +213,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
 
 <p>当更新完成后，我们将可以看到如下的效果图</p>
-<p><img src="/images/music001.jpg" alt="效果图"></p>
+<p><img src="/images/hexo/20190606/003.jpg" alt="效果图"></p>
 <h2 id="3-博客浏览量统计"><a href="#3-博客浏览量统计" class="headerlink" title="3 博客浏览量统计"></a>3 博客浏览量统计</h2><p>浏览量的统计这里采用<a href="http://ibruce.info/2015/04/04/busuanzi" target="_blank" rel="noopener">不算子</a>，其用法里面主要有两个算法，针对每个种算法都有对应的代码，将其放到需要显示的位置即可。<br>算法a：pv的方式，单个用户连续点击n篇文章，记录n次访问量。<br>算法b：uv的方式，单个用户连续点击n篇文章，只记录1次访客数。  </p>
 <h3 id="3-1-修改配置文件"><a href="#3-1-修改配置文件" class="headerlink" title="3.1 修改配置文件"></a>3.1 修改配置文件</h3><p>选择其中的一种算法，然后修改yilia主题的footer.ejs这个文件，具体路径是yilia/layout/_partial/footer.ejs，在这个文件里面追加算法的内容，如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script async src=<span class="string">"//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"</span>&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;span id=<span class="string">"busuanzi_container_site_pv"</span>&gt;</span><br><span class="line">    第&lt;span id=<span class="string">"busuanzi_value_site_uv"</span>&gt;&lt;/span&gt;位客官,您好,欢迎访问本站</span><br><span class="line">&lt;/span&gt;</span><br></pre></td></tr></table></figure>
@@ -225,7 +225,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
 
 <p>当更新完成后，我们将可以看到如下的效果图</p>
-<p><img src="/images/busuanzi001.jpg" alt="效果图"></p>
+<p><img src="/images/hexo/20190606/004.jpg" alt="效果图"></p>
 <h2 id="4-畅言评论"><a href="#4-畅言评论" class="headerlink" title="4 畅言评论"></a>4 畅言评论</h2><p>首先需要<a href="http://changyan.kuaizhan.com" target="_blank" rel="noopener">畅言官网</a>注册一个账号，然后进行网站备案，不进行备案的话，评论的功能只能试用半个月。</p>
 <h3 id="4-1-ICP备案"><a href="#4-1-ICP备案" class="headerlink" title="4.1 ICP备案"></a>4.1 ICP备案</h3><p>如果没有服务器是不能进行备案的，那要为了一个博客而买个服务的话，性价比不高，所以我们只能使用一个取巧的方式。去<a href="http://www.beianbeian.com" target="_blank" rel="noopener"> ICP备案查询网</a><br>上面找一个小公司的信息，比如上面看到的历史记录查询，我们随便获取一个。然后将信息填到畅言的ICP备案里面,过一天左右将会审批通过.</p>
 <h3 id="4-2-修改配置文件"><a href="#4-2-修改配置文件" class="headerlink" title="4.2 修改配置文件"></a>4.2 修改配置文件</h3><p>这时需要将yilia主题下的_config.yml里面的畅言的两个配置修改为自己真实的值。</p>
@@ -238,7 +238,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
 
 <p>当更新完成后，我们将可以看到如下的效果图</p>
-<p><img src="/images/changyan001.jpg" alt="效果图"></p>
+<p><img src="/images/hexo/20190606/005.jpg" alt="效果图"></p>
 
       
 
@@ -510,11 +510,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Hexo Yilia</a>
+                <a href="javascript:void(0)" class="js-tag color5">Photoshop</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Photoshop</a>
+                <a href="javascript:void(0)" class="js-tag color1">Hexo Yilia</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -526,11 +526,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">smba Linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">杜若诗词</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">杜若诗词</a>
+                <a href="javascript:void(0)" class="js-tag color1">smba Linux</a>
               </li>
             
             <div class="clearfix"></div>

@@ -16,20 +16,20 @@
 <meta property="og:site_name" content="浅墨画青梅">
 <meta property="og:description" content="简述Docker使用Linux桥接（参考《Linux虚拟网络技术》），在宿主机虚拟一个Docker容器网桥(docker0)，Docker启动一个容器时会根据Docker网桥的网段分配给容器一个IP地址，称为Container-IP，同时Docker网桥是每个容器的默认网关。因为在同一宿主机内的容器都接入同一个网桥，这样容器之间就能够通过容器的Container-IP直接通信。 Docker网桥是">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.lijiaze.vip/images/docker/network/001.png">
-<meta property="og:image" content="http://www.lijiaze.vip/images/docker/network/002.png">
-<meta property="og:image" content="http://www.lijiaze.vip/images/docker/network/003.png">
-<meta property="og:image" content="http://www.lijiaze.vip/images/docker/network/NAT.png">
-<meta property="og:image" content="http://www.lijiaze.vip/images/docker/network/Overlay.png">
-<meta property="og:image" content="http://www.lijiaze.vip/images/docker/network/host.png">
-<meta property="og:image" content="http://www.lijiaze.vip/images/docker/network/container.png">
-<meta property="og:image" content="http://www.lijiaze.vip/images/docker/network/none.png">
-<meta property="og:image" content="http://www.lijiaze.vip/images/docker/network/bridge.png">
-<meta property="og:updated_time" content="2020-08-15T08:41:34.033Z">
+<meta property="og:image" content="http://www.lijiaze.vip/images/docker/20190505/001.png">
+<meta property="og:image" content="http://www.lijiaze.vip/images/docker/20190505/002.png">
+<meta property="og:image" content="http://www.lijiaze.vip/images/docker/20190505/003.png">
+<meta property="og:image" content="http://www.lijiaze.vip/images/docker/20190505/004.png">
+<meta property="og:image" content="http://www.lijiaze.vip/images/docker/20190505/005.png">
+<meta property="og:image" content="http://www.lijiaze.vip/images/docker/20190505/006.png">
+<meta property="og:image" content="http://www.lijiaze.vip/images/docker/20190505/007.png">
+<meta property="og:image" content="http://www.lijiaze.vip/images/docker/20190505/008.png">
+<meta property="og:image" content="http://www.lijiaze.vip/images/docker/20190505/009.png">
+<meta property="og:updated_time" content="2020-08-22T15:32:04.054Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker网络">
 <meta name="twitter:description" content="简述Docker使用Linux桥接（参考《Linux虚拟网络技术》），在宿主机虚拟一个Docker容器网桥(docker0)，Docker启动一个容器时会根据Docker网桥的网段分配给容器一个IP地址，称为Container-IP，同时Docker网桥是每个容器的默认网关。因为在同一宿主机内的容器都接入同一个网桥，这样容器之间就能够通过容器的Container-IP直接通信。 Docker网桥是">
-<meta name="twitter:image" content="http://www.lijiaze.vip/images/docker/network/001.png">
+<meta name="twitter:image" content="http://www.lijiaze.vip/images/docker/20190505/001.png">
   
     <link rel="alternative" href="/atom.xml" title="浅墨画青梅" type="application/atom+xml">
   
@@ -192,23 +192,23 @@
 <h2 id="1-常见的容器之间通信方式"><a href="#1-常见的容器之间通信方式" class="headerlink" title="1. 常见的容器之间通信方式"></a>1. 常见的容器之间通信方式</h2><h3 id="1-1-同一个宿主机内部"><a href="#1-1-同一个宿主机内部" class="headerlink" title="1.1. 同一个宿主机内部"></a>1.1. 同一个宿主机内部</h3><ul>
 <li>通过虚拟交换机来实现容器间通信</li>
 </ul>
-<p><img src="/images/docker/network/001.png" alt="虚拟交换机与容器间通信"></p>
+<p><img src="/images/docker/20190505/001.png" alt="虚拟交换机与容器间通信"></p>
 <ul>
 <li>如果容器在不同的虚拟交换机上，则可以通过交换机直连或者路由转发的方式通信</li>
 </ul>
-<p><img src="/images/docker/network/002.png" alt="交换机直连或者路由转发的方式通信"></p>
+<p><img src="/images/docker/20190505/002.png" alt="交换机直连或者路由转发的方式通信"></p>
 <h3 id="1-2-跨宿主机的容器通信"><a href="#1-2-跨宿主机的容器通信" class="headerlink" title="1.2. 跨宿主机的容器通信"></a>1.2. 跨宿主机的容器通信</h3><ul>
 <li>通过桥接宿主机网卡的方式通信</li>
 </ul>
-<p><img src="/images/docker/network/003.png" alt="桥接宿主机"></p>
+<p><img src="/images/docker/20190505/003.png" alt="桥接宿主机"></p>
 <ul>
 <li>NAT转发(docker默认的方式)</li>
 </ul>
-<p><img src="/images/docker/network/NAT.png" alt="NAT转发"></p>
+<p><img src="/images/docker/20190505/004.png" alt="NAT转发"></p>
 <ul>
 <li>叠加式网络(Overlay network)</li>
 </ul>
-<p><img src="/images/docker/network/Overlay.png" alt="叠加式网络"></p>
+<p><img src="/images/docker/20190505/005.png" alt="叠加式网络"></p>
 <h2 id="2-Docker网络模型"><a href="#2-Docker网络模型" class="headerlink" title="2. Docker网络模型"></a>2. Docker网络模型</h2><table>
 <thead>
 <tr>
@@ -243,25 +243,25 @@
 </ul>
 <p>如果启动容器的时候使用host模式，那么这个容器将不会获得一个独立的Network Namespace，而是和宿主机共用一个Network Namespace。容器将不会虚拟出自己的网卡，配置自己的IP等，而是使用宿主机的IP和端口。但是，容器的其他方面，如文件系统、进程列表等还是和宿主机隔离的。</p>
 <p>使用host模式的容器可以直接使用宿主机的IP地址与外界通信，容器内部的服务端口也可以使用宿主机的端口，不需要进行NAT，host最大的优势就是网络性能比较好，但是docker host上已经使用的端口就不能再用了，网络的隔离性不好。</p>
-<p><img src="/images/docker/network/host.png" alt="Host模式"></p>
+<p><img src="/images/docker/20190505/006.png" alt="Host模式"></p>
 <ul>
 <li>2 container模式</li>
 </ul>
 <p>这个模式指定新创建的容器和已经存在的一个容器共享一个 Network Namespace，而不是和宿主机共享。新创建的容器不会创建自己的网卡，配置自己的 IP，而是和一个指定的容器共享 IP、端口范围等。同样，两个容器除了网络方面，其他的如文件系统、进程列表等还是隔离的。两个容器的进程可以通过 lo 网卡设备通信。</p>
-<p><img src="/images/docker/network/container.png" alt="container模式"></p>
+<p><img src="/images/docker/20190505/007.png" alt="container模式"></p>
 <ul>
 <li>3 none模式</li>
 </ul>
 <p>使用none模式，Docker容器拥有自己的Network Namespace，但是，并不为Docker容器进行任何网络配置。也就是说，这个Docker容器没有网卡、IP、路由等信息。需要我们自己为Docker容器添加网卡、配置IP等。</p>
 <p>这种网络模式下容器只有lo回环网络，没有其他网卡。none模式可以在容器创建时通过–network=none来指定。这种类型的网络没有办法联网，封闭的网络能很好的保证容器的安全性。</p>
-<p><img src="/images/docker/network/none.png" alt="none模式"></p>
+<p><img src="/images/docker/20190505/008.png" alt="none模式"></p>
 <ul>
 <li>4 bridge模式</li>
 </ul>
 <p>当Docker进程启动时，会在主机上创建一个名为docker0的虚拟网桥，此主机上启动的Docker容器会连接到这个虚拟网桥上。虚拟网桥的工作方式和物理交换机类似，这样主机上的所有容器就通过交换机连在了一个二层网络中。</p>
 <p>从docker0子网中分配一个IP给容器使用，并设置docker0的IP地址为容器的默认网关。在主机上创建一对虚拟网卡veth pair设备，Docker将veth pair设备的一端放在新创建的容器中，并命名为eth0（容器的网卡），另一端放在主机中，以vethxxx这样类似的名字命名，并将这个网络设备加入到docker0网桥中。可以通过brctl show命令查看。</p>
 <p>bridge模式是docker的默认网络模式，不写–net参数，就是bridge模式。使用docker run -p时，docker实际是在iptables做了DNAT规则，实现端口转发功能。可以使用iptables -t nat -vnL查看。</p>
-<p><img src="/images/docker/network/bridge.png" alt="bridge模式"></p>
+<p><img src="/images/docker/20190505/009.png" alt="bridge模式"></p>
 <h2 id="3-实例"><a href="#3-实例" class="headerlink" title="3. 实例"></a>3. 实例</h2><h3 id="3-1-Docker-容器网络信息查看"><a href="#3-1-Docker-容器网络信息查看" class="headerlink" title="3.1 Docker 容器网络信息查看"></a>3.1 Docker 容器网络信息查看</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">veth3c68900@if4 一半在docker0上，一半在容器中。master接口是 docker0</span><br><span class="line"></span><br><span class="line">[root@qianmohuaqingmei ~]# ip link show</span><br><span class="line">3: docker0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP mode DEFAULT group default </span><br><span class="line">    link/ether 02:42:c0:d4:92:cf brd ff:ff:ff:ff:ff:ff</span><br><span class="line">5: vethddd64c6@if4: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue master docker0 state UP mode DEFAULT group default </span><br><span class="line">    link/ether ea:aa:18:c7:37:ce brd ff:ff:ff:ff:ff:ff link-netnsid 0</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@qianmohuaqingmei ~]# docker network ls</span><br><span class="line">NETWORK ID          NAME                DRIVER              SCOPE</span><br><span class="line">7e3281cd6b11        bridge              bridge              local   ## 默认方式，桥接</span><br><span class="line">047bcc1a687d        host                host                local   ## 共享宿主机网络</span><br><span class="line">c64d8da93e91        none                null                local   ## 封闭式容器，仅lo口</span><br></pre></td></tr></table></figure>
@@ -650,11 +650,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Hexo Yilia</a>
+                <a href="javascript:void(0)" class="js-tag color5">Photoshop</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Photoshop</a>
+                <a href="javascript:void(0)" class="js-tag color1">Hexo Yilia</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -666,11 +666,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">smba Linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">杜若诗词</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">杜若诗词</a>
+                <a href="javascript:void(0)" class="js-tag color1">smba Linux</a>
               </li>
             
             <div class="clearfix"></div>

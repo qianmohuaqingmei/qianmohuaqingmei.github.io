@@ -16,14 +16,14 @@
 <meta property="og:site_name" content="浅墨画青梅">
 <meta property="og:description" content="当我们想实现图片拼接的时候，我们首先会想到啥？美图秀秀？Photoshop？对于猿猿们来说，那当然是自己实现了。下面使用Python实现一个拼接的最简单的功能。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.lijiaze.vip/images/20190510_214954.jpg">
-<meta property="og:image" content="http://www.lijiaze.vip/images/20190720_205419.jpg">
-<meta property="og:image" content="http://www.lijiaze.vip/images/20200606_0119.jpg">
-<meta property="og:updated_time" content="2020-06-05T17:45:35.000Z">
+<meta property="og:image" content="http://www.lijiaze.vip/images/python/20200606/001.jpg">
+<meta property="og:image" content="http://www.lijiaze.vip/images/python/20200606/002.jpg">
+<meta property="og:image" content="http://www.lijiaze.vip/images/python/20200606/003.jpg">
+<meta property="og:updated_time" content="2020-08-22T15:14:47.273Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python实现拼接图片功能">
 <meta name="twitter:description" content="当我们想实现图片拼接的时候，我们首先会想到啥？美图秀秀？Photoshop？对于猿猿们来说，那当然是自己实现了。下面使用Python实现一个拼接的最简单的功能。">
-<meta name="twitter:image" content="http://www.lijiaze.vip/images/20190510_214954.jpg">
+<meta name="twitter:image" content="http://www.lijiaze.vip/images/python/20200606/001.jpg">
   
     <link rel="alternative" href="/atom.xml" title="浅墨画青梅" type="application/atom+xml">
   
@@ -185,10 +185,10 @@
 <h4 id="安装Image库"><a href="#安装Image库" class="headerlink" title="安装Image库"></a>安装Image库</h4><p>因为已经有大神们写了Image的库，我们就不要重复造轮子了~~</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pip install Image</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="准备拼接的图片"><a href="#准备拼接的图片" class="headerlink" title="准备拼接的图片"></a>准备拼接的图片</h4><p>这里将图片准备在桌面的images目录（C:\Users\Administrator\Desktop\images\）里面。<br><img src="/images/20190510_214954.jpg" alt="拼接的图片01"><br><img src="/images/20190720_205419.jpg" alt="拼接的图片01"></p>
+<h4 id="准备拼接的图片"><a href="#准备拼接的图片" class="headerlink" title="准备拼接的图片"></a>准备拼接的图片</h4><p>这里将图片准备在桌面的images目录（C:\Users\Administrator\Desktop\images\）里面。<br><img src="/images/python/20200606/001.jpg" alt="拼接的图片01"><br><img src="/images/python/20200606/002.jpg" alt="拼接的图片01"></p>
 <h4 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> os <span class="keyword">import</span> listdir</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">image_link</span><span class="params">()</span>:</span></span><br><span class="line">    path = <span class="string">"C:\\Users\Administrator\Desktop\images\\"</span></span><br><span class="line">    im_list = [Image.open(path + fn) <span class="keyword">for</span> fn <span class="keyword">in</span> listdir(path) <span class="keyword">if</span> fn.endswith(<span class="string">'.jpg'</span>)]</span><br><span class="line"></span><br><span class="line">    ims = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> im_list:</span><br><span class="line">        new_img = i.resize((<span class="number">3968</span>, <span class="number">2937</span>),Image.BILINEAR)</span><br><span class="line">        ims.append(new_img)</span><br><span class="line">    width, height = ims[<span class="number">0</span>].size</span><br><span class="line">    result = Image.new(ims[<span class="number">0</span>].mode, (width,height * len(ims)))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i,im <span class="keyword">in</span> enumerate(ims):</span><br><span class="line">        result.paste(im,box=(<span class="number">0</span>,i*height))</span><br><span class="line"></span><br><span class="line">    result.save(path + <span class="string">"20200606_0119.jpg"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    image_link()</span><br></pre></td></tr></table></figure>
 
-<h4 id="拼接后的图片"><a href="#拼接后的图片" class="headerlink" title="拼接后的图片"></a>拼接后的图片</h4><p>这时根据代码里指定的路径，拼接后的图片就保存在桌面的images目录里面。<br><img src="/images/20200606_0119.jpg" alt="拼接的图片目录"></p>
+<h4 id="拼接后的图片"><a href="#拼接后的图片" class="headerlink" title="拼接后的图片"></a>拼接后的图片</h4><p>这时根据代码里指定的路径，拼接后的图片就保存在桌面的images目录里面。<br><img src="/images/python/20200606/003.jpg" alt="拼接的图片目录"></p>
 
       
 
@@ -451,11 +451,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Hexo Yilia</a>
+                <a href="javascript:void(0)" class="js-tag color5">Photoshop</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Photoshop</a>
+                <a href="javascript:void(0)" class="js-tag color1">Hexo Yilia</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -467,11 +467,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">smba Linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">杜若诗词</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">杜若诗词</a>
+                <a href="javascript:void(0)" class="js-tag color1">smba Linux</a>
               </li>
             
             <div class="clearfix"></div>
