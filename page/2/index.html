@@ -152,6 +152,83 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Docker网络" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/06/Docker网络/">Docker网络</a>
+    </h1>
+  
+
+        
+        <a href="/2019/05/06/Docker网络/" class="archive-article-date">
+  	<time datetime="2019-05-06T13:28:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>Docker使用Linux桥接（参考《Linux虚拟网络技术》），在宿主机虚拟一个Docker容器网桥(docker0)，<br>Docker启动一个容器时会根据Docker网桥的网段分配给容器一个IP地址，称为Container-IP，<br>同时Docker网桥是每个容器的默认网关。因为在同一宿主机内的容器都接入同一个网桥，<br>这样容器之间就能够通过容器的Container-IP直接通信。</p>
+<p>Docker网桥是宿主机虚拟出来的，并不是真实存在的网络设备，外部网络是无法寻址到的，<br>这也意味着外部网络无法通过直接Container-IP访问到容器。如果容器希望外部访问能够访问到，<br>可以通过映射容器端口到宿主主机（端口映射），即docker run创建容器时候通过 -p 或 -P 参数来启用，访问容器的时候就通过[宿主机IP]:[容器端口]访问容器。</p>
+        
+          <a class="article-more-a" href="/2019/05/06/Docker网络/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/06/Docker网络/">更多精彩 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Docker镜像" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -199,6 +276,76 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/05/05/Docker镜像/">更多精彩 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-《忆王孙·清明祭》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/05/《忆王孙·清明祭》/">《忆王孙·清明祭》</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/05/《忆王孙·清明祭》/" class="archive-article-date">
+  	<time datetime="2019-04-05T15:17:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p align="center">《忆王孙·清明祭》</p>
+<p align="center">旧檐新燕泥春寒，深院几丝柳叶盘。</p>
+<p align="center">闹市喧嚣烟禁燃，路荒栏，白纸青香起祭烟。</p>
+
+<p><br><br></p>
+<p>文案：</p>
+        
+          <a class="article-more-a" href="/2019/04/05/《忆王孙·清明祭》/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/05/《忆王孙·清明祭》/">更多精彩 >></a>
         </p>
       
 
@@ -797,170 +944,6 @@
 
 
   
-    <article id="post-《浣溪沙•茶溪谷》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/17/《浣溪沙•茶溪谷》/">《浣溪沙•茶溪谷》</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/17/《浣溪沙•茶溪谷》/" class="archive-article-date">
-  	<time datetime="2018-03-17T15:50:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p align="center">《浣溪沙•茶溪谷》</p>
-<p align="center">末芽浅绿满茶山，株叶紫红倾容颜，幽水淡烟溪谷寒。</p>
-<p align="center">竹间晨听鸟语喃，不堪暮看花败残，唯恐时光负春闲。</p>
-
-<p><br><br></p>
-<p>文案：</p>
-        
-          <a class="article-more-a" href="/2018/03/17/《浣溪沙•茶溪谷》/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">杜若诗集</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/17/《浣溪沙•茶溪谷》/">更多精彩 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-《清平乐•盘古庙》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/23/《清平乐•盘古庙》/">《清平乐•盘古庙》</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/23/《清平乐•盘古庙》/" class="archive-article-date">
-  	<time datetime="2018-02-23T10:40:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p align="center">《清平乐•盘古庙》</p>
-<p align="center">深山峭壁，磐石千年立。</p>
-<p align="center">雕栏玉砌禅乐起，清心虔拜祷祈。</p>
-<p align="center">香烛青烟绕随，恍若氤氲仙气。</p>
-<p align="center">遥念盘古旧事，一斧天地始开。</p>
-
-<p><br><br></p>
-<p>文案：</p>
-        
-          <a class="article-more-a" href="/2018/02/23/《清平乐•盘古庙》/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">杜若诗集</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/23/《清平乐•盘古庙》/">更多精彩 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1068,11 +1051,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Photoshop</a>
+                <a href="javascript:void(0)" class="js-tag color2">Jmeter</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Jmeter</a>
+                <a href="javascript:void(0)" class="js-tag color5">Photoshop</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1084,11 +1067,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Hexo Yilia</a>
+                <a href="javascript:void(0)" class="js-tag color5">杜若诗集</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">杜若诗集</a>
+                <a href="javascript:void(0)" class="js-tag color1">Hexo Yilia</a>
               </li>
             
             <div class="clearfix"></div>
