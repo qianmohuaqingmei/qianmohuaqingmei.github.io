@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://www.lijiaze.vip">
   <title>Docker镜像 | 浅墨画青梅</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="02-Docker镜像1. Docker镜像Docker 容器的运行是基于宿主机的内核，通过linux的namespaces来实现隔离，相对于虚拟机而言降低了硬件资源的性能损耗，且具备一定程度上的应用隔离效果。另外，通过最小化的镜像方式运行docker 容器，相对于虚拟机而言大幅度降低非生产力进程的资源消耗。最后使用打包好的镜像，统一了应用程序的运行环境，降低了开发和测试人员的负担，但是增加了运维">
+  <meta name="description" content="1. Docker镜像Docker 容器的运行是基于宿主机的内核，通过linux的namespaces来实现隔离，相对于虚拟机而言降低了硬件资源的性能损耗，且具备一定程度上的应用隔离效果。另外，通过最小化的镜像方式运行docker 容器，相对于虚拟机而言大幅度降低非生产力进程的资源消耗。最后使用打包好的镜像，统一了应用程序的运行环境，降低了开发和测试人员的负担，但是增加了运维工作的复杂度。">
 <meta name="keywords" content="Docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker镜像">
 <meta property="og:url" content="http://www.lijiaze.vip/2019/05/05/Docker镜像/index.html">
 <meta property="og:site_name" content="浅墨画青梅">
-<meta property="og:description" content="02-Docker镜像1. Docker镜像Docker 容器的运行是基于宿主机的内核，通过linux的namespaces来实现隔离，相对于虚拟机而言降低了硬件资源的性能损耗，且具备一定程度上的应用隔离效果。另外，通过最小化的镜像方式运行docker 容器，相对于虚拟机而言大幅度降低非生产力进程的资源消耗。最后使用打包好的镜像，统一了应用程序的运行环境，降低了开发和测试人员的负担，但是增加了运维">
+<meta property="og:description" content="1. Docker镜像Docker 容器的运行是基于宿主机的内核，通过linux的namespaces来实现隔离，相对于虚拟机而言降低了硬件资源的性能损耗，且具备一定程度上的应用隔离效果。另外，通过最小化的镜像方式运行docker 容器，相对于虚拟机而言大幅度降低非生产力进程的资源消耗。最后使用打包好的镜像，统一了应用程序的运行环境，降低了开发和测试人员的负担，但是增加了运维工作的复杂度。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.lijiaze.vip/images/docker/20190505/001.png">
-<meta property="og:updated_time" content="2020-08-22T15:32:04.007Z">
+<meta property="og:updated_time" content="2020-08-23T10:40:38.699Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker镜像">
-<meta name="twitter:description" content="02-Docker镜像1. Docker镜像Docker 容器的运行是基于宿主机的内核，通过linux的namespaces来实现隔离，相对于虚拟机而言降低了硬件资源的性能损耗，且具备一定程度上的应用隔离效果。另外，通过最小化的镜像方式运行docker 容器，相对于虚拟机而言大幅度降低非生产力进程的资源消耗。最后使用打包好的镜像，统一了应用程序的运行环境，降低了开发和测试人员的负担，但是增加了运维">
+<meta name="twitter:description" content="1. Docker镜像Docker 容器的运行是基于宿主机的内核，通过linux的namespaces来实现隔离，相对于虚拟机而言降低了硬件资源的性能损耗，且具备一定程度上的应用隔离效果。另外，通过最小化的镜像方式运行docker 容器，相对于虚拟机而言大幅度降低非生产力进程的资源消耗。最后使用打包好的镜像，统一了应用程序的运行环境，降低了开发和测试人员的负担，但是增加了运维工作的复杂度。">
 <meta name="twitter:image" content="http://www.lijiaze.vip/images/docker/20190505/001.png">
   
     <link rel="alternative" href="/atom.xml" title="浅墨画青梅" type="application/atom+xml">
@@ -177,7 +177,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="02-Docker镜像"><a href="#02-Docker镜像" class="headerlink" title="02-Docker镜像"></a>02-Docker镜像</h1><h2 id="1-Docker镜像"><a href="#1-Docker镜像" class="headerlink" title="1. Docker镜像"></a>1. Docker镜像</h2><p>Docker 容器的运行是基于宿主机的内核，通过linux的namespaces来实现隔离，相对于虚拟机而言降低了硬件资源的性能损耗，且具备一定程度上的应用隔离效果。<br>另外，通过最小化的镜像方式运行docker 容器，相对于虚拟机而言大幅度降低非生产力进程的资源消耗。<br>最后使用打包好的镜像，统一了应用程序的运行环境，降低了开发和测试人员的负担，但是增加了运维工作的复杂度。</p>
+        <h2 id="1-Docker镜像"><a href="#1-Docker镜像" class="headerlink" title="1. Docker镜像"></a>1. Docker镜像</h2><p>Docker 容器的运行是基于宿主机的内核，通过linux的namespaces来实现隔离，相对于虚拟机而言降低了硬件资源的性能损耗，且具备一定程度上的应用隔离效果。<br>另外，通过最小化的镜像方式运行docker 容器，相对于虚拟机而言大幅度降低非生产力进程的资源消耗。<br>最后使用打包好的镜像，统一了应用程序的运行环境，降低了开发和测试人员的负担，但是增加了运维工作的复杂度。</p>
 <a id="more"></a>
 
 <p><img src="/images/docker/20190505/001.png" alt="image.png"></p>
@@ -332,8 +332,8 @@
     </a>
   
   
-    <a href="/2018/02/04/《画堂春•立春》/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">《画堂春•立春》</div>
+    <a href="/2018/03/27/《采桑子•春思》/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">《采桑子•春思》</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -487,15 +487,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jmeter</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">杜若诗集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
