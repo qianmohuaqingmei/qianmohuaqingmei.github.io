@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://www.lijiaze.vip">
   <title>Linux基础_磁盘初始化命令 | 浅墨画青梅</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="磁盘初始化1 挂载根目录123456# df -h# fdisk -l# fdisk /dev/vdb# mkfs.btrfs /dev/vdb1# btrfs device add -f /dev/vdb1 /# btrfs filesystem balance /  2 xfs格式123456789101112131415# fdisk -l# fdisk /dev/vdbnp1pw# fdi">
+  <meta name="description" content="磁盘初始化1 挂载根目录123456789# df -h# fdisk -l# fdisk /dev/vdb# mkfs.btrfs /dev/vdb1# btrfs device add -f /dev/vdb1 /# btrfs filesystem balance /# 可能需要重启rsyslog服务# service rsyslog restart">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux基础_磁盘初始化命令">
 <meta property="og:url" content="http://www.lijiaze.vip/2015/09/20/Linux基础-磁盘初始化命令/index.html">
 <meta property="og:site_name" content="浅墨画青梅">
-<meta property="og:description" content="磁盘初始化1 挂载根目录123456# df -h# fdisk -l# fdisk /dev/vdb# mkfs.btrfs /dev/vdb1# btrfs device add -f /dev/vdb1 /# btrfs filesystem balance /  2 xfs格式123456789101112131415# fdisk -l# fdisk /dev/vdbnp1pw# fdi">
+<meta property="og:description" content="磁盘初始化1 挂载根目录123456789# df -h# fdisk -l# fdisk /dev/vdb# mkfs.btrfs /dev/vdb1# btrfs device add -f /dev/vdb1 /# btrfs filesystem balance /# 可能需要重启rsyslog服务# service rsyslog restart">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-08-26T10:51:55.628Z">
+<meta property="og:updated_time" content="2020-08-26T16:53:24.222Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux基础_磁盘初始化命令">
-<meta name="twitter:description" content="磁盘初始化1 挂载根目录123456# df -h# fdisk -l# fdisk /dev/vdb# mkfs.btrfs /dev/vdb1# btrfs device add -f /dev/vdb1 /# btrfs filesystem balance /  2 xfs格式123456789101112131415# fdisk -l# fdisk /dev/vdbnp1pw# fdi">
+<meta name="twitter:description" content="磁盘初始化1 挂载根目录123456789# df -h# fdisk -l# fdisk /dev/vdb# mkfs.btrfs /dev/vdb1# btrfs device add -f /dev/vdb1 /# btrfs filesystem balance /# 可能需要重启rsyslog服务# service rsyslog restart">
   
     <link rel="alternative" href="/atom.xml" title="浅墨画青梅" type="application/atom+xml">
   
@@ -175,7 +175,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="磁盘初始化"><a href="#磁盘初始化" class="headerlink" title="磁盘初始化"></a>磁盘初始化</h2><h3 id="1-挂载根目录"><a href="#1-挂载根目录" class="headerlink" title="1 挂载根目录"></a>1 挂载根目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># df -h</span></span><br><span class="line"><span class="comment"># fdisk -l</span></span><br><span class="line"><span class="comment"># fdisk /dev/vdb</span></span><br><span class="line"><span class="comment"># mkfs.btrfs /dev/vdb1</span></span><br><span class="line"><span class="comment"># btrfs device add -f /dev/vdb1 /</span></span><br><span class="line"><span class="comment"># btrfs filesystem balance /</span></span><br></pre></td></tr></table></figure>
+        <h2 id="磁盘初始化"><a href="#磁盘初始化" class="headerlink" title="磁盘初始化"></a>磁盘初始化</h2><h3 id="1-挂载根目录"><a href="#1-挂载根目录" class="headerlink" title="1 挂载根目录"></a>1 挂载根目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># df -h</span></span><br><span class="line"><span class="comment"># fdisk -l</span></span><br><span class="line"><span class="comment"># fdisk /dev/vdb</span></span><br><span class="line"><span class="comment"># mkfs.btrfs /dev/vdb1</span></span><br><span class="line"><span class="comment"># btrfs device add -f /dev/vdb1 /</span></span><br><span class="line"><span class="comment"># btrfs filesystem balance /</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 可能需要重启rsyslog服务</span></span><br><span class="line"><span class="comment"># service rsyslog restart</span></span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
 
 <h3 id="2-xfs格式"><a href="#2-xfs格式" class="headerlink" title="2 xfs格式"></a>2 xfs格式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># fdisk -l</span></span><br><span class="line"><span class="comment"># fdisk /dev/vdb</span></span><br><span class="line">n</span><br><span class="line">p</span><br><span class="line">1</span><br><span class="line">p</span><br><span class="line">w</span><br><span class="line"><span class="comment"># fdisk -l</span></span><br><span class="line"><span class="comment"># df -h</span></span><br><span class="line"><span class="comment"># mkfs.xfs /dev/vdb1</span></span><br><span class="line"><span class="comment"># mkdir -p /opt</span></span><br><span class="line"><span class="comment"># mount /dev/vdb1 /opt</span></span><br><span class="line"><span class="comment"># df -h</span></span><br><span class="line"><span class="comment"># vi /etc/fstab</span></span><br><span class="line">/dev/vdb1 /opt xfs defaults 0 0</span><br></pre></td></tr></table></figure>
 
@@ -189,7 +191,7 @@
 
 <h3 id="7-挂旧盘"><a href="#7-挂旧盘" class="headerlink" title="7 挂旧盘"></a>7 挂旧盘</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1 先查看</span></span><br><span class="line"><span class="comment"># vgscan</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2 同步</span></span><br><span class="line"><span class="comment"># vgchange -ay</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3 查看</span></span><br><span class="line"><span class="comment"># lvscan</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 4 挂载 这里面如果查看到两个硬盘的LV状态都是active的话，在进行挂载</span></span><br><span class="line"><span class="comment"># mount -t ext3 /dev/VGname/LVname /mnt/cdrom</span></span><br></pre></td></tr></table></figure>
 
-<p>参考网站<br><a href="http://blog.csdn.net/snlying/article/details/6184428" target="_blank" rel="noopener">虚拟机根目录空间扩充</a><br><a href="https://blog.51cto.com/search/user?uid=9181639&q=%E7%A3%81%E7%9B%98" target="_blank" rel="noopener">被删除了</a><br><a href="http://stackoverflow.com/questions/26305376/resize2fs-bad-magic-number-in-super-block-while-trying-to-open" target="_blank" rel="noopener">resize a logical volume</a><br><a href="https://www.suse.com/documentation/sles11/stor_admin/data/biuzt64.html" target="_blank" rel="noopener"></a><br><a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/ch-btrfs.html#btrfs-creating-fs" target="_blank" rel="noopener">Creating a btrfs File System</a><br><a href="https://wiki.archlinux.org/index.php/LVM_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)" target="_blank" rel="noopener">LVM (简体中文)</a></p>
+<p>参考网站<br><a href="http://blog.csdn.net/snlying/article/details/6184428" target="_blank" rel="noopener">虚拟机根目录空间扩充</a><br><a href="https://blog.51cto.com/search/user?uid=9181639&q=%E7%A3%81%E7%9B%98" target="_blank" rel="noopener">被删除了</a><br><a href="http://stackoverflow.com/questions/26305376/resize2fs-bad-magic-number-in-super-block-while-trying-to-open" target="_blank" rel="noopener">resize a logical volume</a><br><a href="https://www.suse.com/documentation/sles11/stor_admin/data/biuzt64.html" target="_blank" rel="noopener">SUSE Linux</a><br><a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/ch-btrfs.html#btrfs-creating-fs" target="_blank" rel="noopener">Creating a btrfs File System</a><br><a href="https://wiki.archlinux.org/index.php/LVM_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)" target="_blank" rel="noopener">LVM (简体中文)</a></p>
 
       
 
@@ -457,11 +459,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
+                <a href="javascript:void(0)" class="js-tag color3">Ansible</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Ansible</a>
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -473,11 +475,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Jmeter</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">Jmeter</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -489,15 +491,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Hexo Yilia</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Smba Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">杜若诗集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Hexo Yilia</a>
               </li>
             
             <div class="clearfix"></div>
