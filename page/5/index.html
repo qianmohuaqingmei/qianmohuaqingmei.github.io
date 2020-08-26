@@ -455,6 +455,170 @@
 
 
   
+    <article id="post-Linux基础-磁盘初始化命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/20/Linux基础-磁盘初始化命令/">Linux基础_磁盘初始化命令</a>
+    </h1>
+  
+
+        
+        <a href="/2015/09/20/Linux基础-磁盘初始化命令/" class="archive-article-date">
+  	<time datetime="2015-09-20T12:40:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="磁盘初始化"><a href="#磁盘初始化" class="headerlink" title="磁盘初始化"></a>磁盘初始化</h2><h3 id="1-挂载根目录"><a href="#1-挂载根目录" class="headerlink" title="1 挂载根目录"></a>1 挂载根目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># df -h</span></span><br><span class="line"><span class="comment"># fdisk -l</span></span><br><span class="line"><span class="comment"># fdisk /dev/vdb</span></span><br><span class="line"><span class="comment"># mkfs.btrfs /dev/vdb1</span></span><br><span class="line"><span class="comment"># btrfs device add -f /dev/vdb1 /</span></span><br><span class="line"><span class="comment"># btrfs filesystem balance /</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-xfs格式"><a href="#2-xfs格式" class="headerlink" title="2 xfs格式"></a>2 xfs格式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># fdisk -l</span></span><br><span class="line"><span class="comment"># fdisk /dev/vdb</span></span><br><span class="line">n</span><br><span class="line">p</span><br><span class="line">1</span><br><span class="line">p</span><br><span class="line">w</span><br><span class="line"><span class="comment"># fdisk -l</span></span><br><span class="line"><span class="comment"># df -h</span></span><br><span class="line"><span class="comment"># mkfs.xfs /dev/vdb1</span></span><br><span class="line"><span class="comment"># mkdir -p /opt</span></span><br><span class="line"><span class="comment"># mount /dev/vdb1 /opt</span></span><br><span class="line"><span class="comment"># df -h</span></span><br><span class="line"><span class="comment"># vi /etc/fstab</span></span><br><span class="line">/dev/vdb1 /opt xfs defaults 0 0</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-ext3格式"><a href="#3-ext3格式" class="headerlink" title="3 ext3格式"></a>3 ext3格式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># fdisk -l</span></span><br><span class="line"><span class="comment"># fdisk /dev/vdb</span></span><br><span class="line">n</span><br><span class="line">p</span><br><span class="line">1</span><br><span class="line">p</span><br><span class="line">w</span><br><span class="line"><span class="comment"># fdisk -l</span></span><br><span class="line"><span class="comment"># df -h</span></span><br><span class="line"><span class="comment"># mkfs.ext3 /dev/vdb1</span></span><br><span class="line"><span class="comment"># mkdir -p /opt</span></span><br><span class="line"><span class="comment"># mount /dev/vdb1 /opt</span></span><br><span class="line"><span class="comment"># df -h</span></span><br><span class="line"><span class="comment"># vi /etc/fstab</span></span><br><span class="line">/dev/vdb1 /opt ext3 defaults 0 0</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-lvm"><a href="#4-lvm" class="headerlink" title="4 lvm"></a>4 lvm</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建物理卷</span></span><br><span class="line"><span class="comment"># pvcreate /dev/xvde</span></span><br><span class="line"><span class="comment"># pvcreate /dev/xvdf</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建卷组</span></span><br><span class="line"><span class="comment"># vgcreate oss_vg /dev/sde</span></span><br><span class="line"><span class="comment"># vgcreate oss_vg_zk /dev/sdf</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建逻辑卷</span></span><br><span class="line"><span class="comment"># lvcreate -L 50G -n var_log_Bigdata oss_vg</span></span><br><span class="line"><span class="comment"># lvcreate -L 80G -n opt oss_vg</span></span><br><span class="line"><span class="comment"># lvcreate -L 150G -n srv_BigData oss_vg</span></span><br><span class="line"><span class="comment"># lvcreate -L 50G -n srv_BigData_dbdata_om oss_vg</span></span><br><span class="line"><span class="comment"># lvcreate -L 70G -n srv_BigData_LocalBackup oss_vg</span></span><br><span class="line"><span class="comment"># lvcreate -L 80G -n srv_BigData_namenode oss_vg</span></span><br><span class="line"><span class="comment"># lvcreate -L 9G -n srv_BigData_zookeeper oss_vg_zk</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 格式化</span></span><br><span class="line"><span class="comment"># mkfs.ext3 /dev/oss_vg/var_log_Bigdata</span></span><br><span class="line"><span class="comment"># mkfs.ext3 /dev/oss_vg/opt</span></span><br><span class="line"><span class="comment"># mkfs.ext3 /dev/oss_vg/srv_BigData</span></span><br><span class="line"><span class="comment"># mkfs.ext3 /dev/oss_vg/srv_BigData_dbdata_om</span></span><br><span class="line"><span class="comment"># mkfs.ext3 /dev/oss_vg/srv_BigData_LocalBackup</span></span><br><span class="line"><span class="comment"># mkfs.ext3 /dev/oss_vg/srv_BigData_namenode</span></span><br><span class="line"><span class="comment"># mkfs.ext3 /dev/oss_vg/srv_BigData_zookeeper</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 优先创建/srv/BigData目录,并进行挂载。</span></span><br><span class="line"><span class="comment"># mkdir -p /srv/BigData</span></span><br><span class="line"><span class="comment"># mount /dev/oss_vg/srv_BigData /srv/BigData</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 继续创建另外的目录并进行挂载</span></span><br><span class="line"><span class="comment"># mkdir -p /var/log/Bigdata</span></span><br><span class="line"><span class="comment"># mkdir -p /opt</span></span><br><span class="line"><span class="comment"># mkdir -p /srv/BigData/dbdata_om</span></span><br><span class="line"><span class="comment"># mkdir -p /srv/BigData/LocalBackup</span></span><br><span class="line"><span class="comment"># mkdir -p /srv/BigData/namenode</span></span><br><span class="line"><span class="comment"># mkdir -p /srv/BigData/zookeeper</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 挂载</span></span><br><span class="line"><span class="comment"># mount /dev/oss_vg/var_log_Bigdata /var/log/Bigdata</span></span><br><span class="line"><span class="comment"># mount /dev/oss_vg/opt /opt</span></span><br><span class="line"><span class="comment"># mount /dev/oss_vg/srv_BigData_dbdata_om /srv/BigData/dbdata_om</span></span><br><span class="line"><span class="comment"># mount /dev/oss_vg/srv_BigData_LocalBackup /srv/BigData/LocalBackup</span></span><br><span class="line"><span class="comment"># mount /dev/oss_vg/srv_BigData_namenode /srv/BigData/namenode</span></span><br><span class="line"><span class="comment"># mount /dev/oss_vg/srv_BigData_zookeeper /srv/BigData/zookeeper</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加/etc/fstab</span></span><br><span class="line">/dev/oss_vg/var_log_Bigdata  /var/<span class="built_in">log</span>/Bigdata ext3 defaults 0 2</span><br><span class="line">/dev/oss_vg/opt  /opt ext3 defaults 0 2</span><br><span class="line">/dev/oss_vg/srv_BigData  /srv/BigData ext3 defaults 0 2</span><br><span class="line">/dev/oss_vg/srv_BigData_dbdata_om /srv/BigData/dbdata_om ext3 defaults 0 2</span><br><span class="line">/dev/oss_vg/srv_BigData_LocalBackup /srv/BigData/LocalBackup ext3 defaults 0 2</span><br><span class="line">/dev/oss_vg/srv_BigData_namenode /srv/BigData/namenode ext3 defaults 0 2</span><br><span class="line">/dev/oss_vg/srv_BigData_zookeeper /srv/BigData/zookeeper ext3 defaults 0 2</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-回退"><a href="#5-回退" class="headerlink" title="5 回退"></a>5 回退</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1 执行df -h 参考挂载点并卸载挂载点</span></span><br><span class="line"><span class="comment"># umount /var/log/Bigdata</span></span><br><span class="line"><span class="comment"># umount /opt</span></span><br><span class="line"><span class="comment"># umount /srv/BigData/kafka/data1</span></span><br><span class="line"><span class="comment"># umount /srv/BigData/hadop/data1</span></span><br><span class="line"><span class="comment"># umount /srv/BigData</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2 执行lvscan查看逻辑卷并卸载</span></span><br><span class="line"><span class="comment"># lvremove /dev/oss_vg_data/srv_BigData_hadoop_data1</span></span><br><span class="line"><span class="comment"># lvremove /dev/oss_vg/var_log_Bigdata</span></span><br><span class="line"><span class="comment"># lvremove /dev/oss_vg/opt</span></span><br><span class="line"><span class="comment"># lvremove /dev/oss_vg/srv_Bigdata</span></span><br><span class="line"><span class="comment"># lvremove /dev/oss_vg/srv_Bigdata_kafka_data1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3 执行pvscan查看物理卷并卸载物理卷</span></span><br><span class="line"><span class="comment"># vgremove oss_vg_data</span></span><br><span class="line"><span class="comment"># vgremove oss_vg</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 4 回退fstab</span></span><br><span class="line"></span><br><span class="line">OR</span><br><span class="line"><span class="comment"># 1.查看挂载点</span></span><br><span class="line"><span class="comment"># lsblk</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2.卸载</span></span><br><span class="line"><span class="comment"># umount /dev/oss_vg/hadfs</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3.删除逻辑卷</span></span><br><span class="line"><span class="comment"># lvremove oss_vg/hadfs</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 4 删除卷组</span></span><br><span class="line"><span class="comment"># pvremove oss_vg</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 5 删除物理卷</span></span><br><span class="line"><span class="comment"># pvremove /dev/vdc</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 6 回退fstab</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="6-扩容"><a href="#6-扩容" class="headerlink" title="6 扩容"></a>6 扩容</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1 创建物理卷</span></span><br><span class="line"><span class="comment"># pvcreate /dev/vdc</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2 扩大卷组oss_vg</span></span><br><span class="line"><span class="comment"># vgextend oss_vg /dev/vdc</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3 查看物理卷</span></span><br><span class="line"><span class="comment"># pvs</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 4 查看卷组</span></span><br><span class="line"><span class="comment"># lvs</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 5 扩大逻辑卷</span></span><br><span class="line"><span class="comment"># lvresize -L +50G -r oss_vg/opt</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="7-挂旧盘"><a href="#7-挂旧盘" class="headerlink" title="7 挂旧盘"></a>7 挂旧盘</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1 先查看</span></span><br><span class="line"><span class="comment"># vgscan</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2 同步</span></span><br><span class="line"><span class="comment"># vgchange -ay</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3 查看</span></span><br><span class="line"><span class="comment"># lvscan</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 4 挂载 这里面如果查看到两个硬盘的LV状态都是active的话，在进行挂载</span></span><br><span class="line"><span class="comment"># mount -t ext3 /dev/VGname/LVname /mnt/cdrom</span></span><br></pre></td></tr></table></figure>
+
+<p>参考网站<br><a href="http://blog.csdn.net/snlying/article/details/6184428" target="_blank" rel="noopener">虚拟机根目录空间扩充</a><br><a href="https://blog.51cto.com/search/user?uid=9181639&q=%E7%A3%81%E7%9B%98" target="_blank" rel="noopener">被删除了</a><br><a href="http://stackoverflow.com/questions/26305376/resize2fs-bad-magic-number-in-super-block-while-trying-to-open" target="_blank" rel="noopener">resize a logical volume</a><br><a href="https://www.suse.com/documentation/sles11/stor_admin/data/biuzt64.html" target="_blank" rel="noopener"></a><br><a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/ch-btrfs.html#btrfs-creating-fs" target="_blank" rel="noopener">Creating a btrfs File System</a><br><a href="https://wiki.archlinux.org/index.php/LVM_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)" target="_blank" rel="noopener">LVM (简体中文)</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/09/20/Linux基础-磁盘初始化命令/">更多精彩 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Linux基础-网卡配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/26/Linux基础-网卡配置/">Linux基础_网卡配置</a>
+    </h1>
+  
+
+        
+        <a href="/2015/08/26/Linux基础-网卡配置/" class="archive-article-date">
+  	<time datetime="2015-08-26T11:40:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="手动配置网卡信息"><a href="#手动配置网卡信息" class="headerlink" title="手动配置网卡信息"></a>手动配置网卡信息</h2>
+        
+          <a class="article-more-a" href="/2015/08/26/Linux基础-网卡配置/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/08/26/Linux基础-网卡配置/">更多精彩 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
@@ -558,11 +722,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Ansible</a>
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
+                <a href="javascript:void(0)" class="js-tag color3">Ansible</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -578,6 +742,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Photoshop</a>
               </li>
              
@@ -586,11 +754,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Smba Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">Hexo Yilia</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Hexo Yilia</a>
+                <a href="javascript:void(0)" class="js-tag color1">Smba Linux</a>
               </li>
              
               <li class="article-tag-list-item">
