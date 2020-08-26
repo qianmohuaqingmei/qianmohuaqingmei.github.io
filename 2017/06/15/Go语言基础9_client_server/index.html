@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="浅墨画青梅">
 <meta property="og:description" content="客户端与服务端 demo9/client/client.go">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-08-26T08:04:55.346Z">
+<meta property="og:updated_time" content="2020-08-26T08:35:47.039Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go语言基础9_client_server">
 <meta name="twitter:description" content="客户端与服务端 demo9/client/client.go">
@@ -186,6 +186,8 @@
 <li>demo9/server/server.go</li>
 </ul>
 <figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">    <span class="string">"net"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    ln, err := net.Listen(<span class="string">"tcp"</span>,<span class="string">":6666"</span>)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        fmt.Printf(<span class="string">"listen error:%v\n"</span>, err)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">defer</span> ln.Close()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> &#123;</span><br><span class="line">        conn, err := ln.Accept()</span><br><span class="line">        <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">            fmt.Printf(<span class="string">"accept error:%v\n"</span>, err)</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        &#125;</span><br><span class="line">        fmt.Println(<span class="string">"accept new conn."</span>)</span><br><span class="line">        <span class="keyword">go</span> server(conn)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">server</span><span class="params">(conn net.Conn)</span></span> &#123;</span><br><span class="line">    <span class="keyword">defer</span> conn.Close()</span><br><span class="line">    buf := <span class="built_in">make</span>([]<span class="keyword">byte</span>,<span class="number">10</span>)</span><br><span class="line">    <span class="keyword">for</span> &#123;</span><br><span class="line">        n, err := conn.Read(buf)</span><br><span class="line">        <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">            fmt.Printf(<span class="string">"read from conn error:%v\n"</span>, err)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        fmt.Printf(<span class="string">"read:%s\n"</span>,<span class="keyword">string</span>(buf[:n]))</span><br><span class="line"></span><br><span class="line">        _, err = conn.Write([]<span class="keyword">byte</span>(<span class="string">"thank you!\n"</span>))</span><br><span class="line">        <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">            fmt.Printf(<span class="string">"write error:%v\n"</span>, err)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
 
       
@@ -299,11 +301,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/08/23/Jmeter简单使用/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/06/18/Go语言基础10-http-server/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Jmeter简单使用
+          Go语言基础10_http_server
         
       </div>
     </a>
@@ -460,27 +462,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Golang</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Hexo Yilia</a>
+                <a href="javascript:void(0)" class="js-tag color2">Golang</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Jmeter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Smba Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">杜若诗集</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -489,6 +479,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Smba Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Hexo Yilia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">杜若诗集</a>
               </li>
             
             <div class="clearfix"></div>
