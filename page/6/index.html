@@ -152,6 +152,337 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Linux基础-磁盘初始化命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/20/Linux基础-磁盘初始化命令/">Linux基础_磁盘初始化命令</a>
+    </h1>
+  
+
+        
+        <a href="/2015/09/20/Linux基础-磁盘初始化命令/" class="archive-article-date">
+  	<time datetime="2015-09-20T12:40:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="磁盘初始化"><a href="#磁盘初始化" class="headerlink" title="磁盘初始化"></a>磁盘初始化</h2><h3 id="1-挂载根目录"><a href="#1-挂载根目录" class="headerlink" title="1 挂载根目录"></a>1 挂载根目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># df -h</span></span><br><span class="line"><span class="comment"># fdisk -l</span></span><br><span class="line"><span class="comment"># fdisk /dev/vdb</span></span><br><span class="line"><span class="comment"># mkfs.btrfs /dev/vdb1</span></span><br><span class="line"><span class="comment"># btrfs device add -f /dev/vdb1 /</span></span><br><span class="line"><span class="comment"># btrfs filesystem balance /</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 可能需要重启rsyslog服务</span></span><br><span class="line"><span class="comment"># service rsyslog restart</span></span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2015/09/20/Linux基础-磁盘初始化命令/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/09/20/Linux基础-磁盘初始化命令/">更多精彩 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Linux基础-问题锦集1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/01/Linux基础-问题锦集1/">Linux基础_问题锦集1</a>
+    </h1>
+  
+
+        
+        <a href="/2015/09/01/Linux基础-问题锦集1/" class="archive-article-date">
+  	<time datetime="2015-08-31T16:35:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="问题锦集1"><a href="#问题锦集1" class="headerlink" title="问题锦集1"></a>问题锦集1</h2><h3 id="1-1-lib目录被删了"><a href="#1-1-lib目录被删了" class="headerlink" title="1.1 /lib目录被删了"></a>1.1 /lib目录被删了</h3><ul>
+<li>问题描述：当时在开发环境升级着几百个的kubernetes集群的虚拟机，然后登陆到某个节点查看了一些东西，想把一个东西删掉但因为变量取不到导致误删了/lib目录。此时虚拟机的基本命令不能使用。</li>
+<li>问题思路：因为kubernetes的集群所有各个节点的/lib应该是一致的，所以可以把另外一台节点的/lib目录复制过去。</li>
+</ul>
+<p>1.在另外一个节点scp这个/lib目录到这个节点。发现传不过去。<br>2.ftp同样打不开。<br>3.看了机器基本命令用不了，但是docker命令还能使用，然后就有了一个方案。首先先制作一个/lib目录的镜像，将镜像上传到镜像私有仓库。然后在这个节点上以这个镜像启动一个容器。最后将容器里面的/lib目录复制到宿主机。</p>
+<h3 id="1-2-ldconfig动态链接库"><a href="#1-2-ldconfig动态链接库" class="headerlink" title="1.2 ldconfig动态链接库"></a>1.2 ldconfig动态链接库</h3><ul>
+<li>问题描述：</li>
+</ul>
+<p>使用docker启动mysql之后，想在虚拟机里直接连接mysql，然后报错。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@qianmohuaqingmei ld.so.conf.d]# mysql -h127.0.0.1 -uroot -pqianmohuaqingmei</span><br><span class="line">mysql: error while loading shared libraries: libncurses.so.6: cannot open shared object file: No such file or directory</span><br></pre></td></tr></table></figure>
+
+<p>在容器里面找到这个链接文件的路径，想把容器里面的动态链接库给复制出来，然后再使用ldconfig配置，然后达到目标。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># docker cp b99f042b32eb:/lib/x86_64-linux-gnu /lib/</span><br><span class="line"># cd /etc/ld.so.conf.d</span><br><span class="line"># vi x86_64-linux-gnu.conf </span><br><span class="line">/lib/x86_64-linux-gnu</span><br><span class="line"># ldconfig</span><br></pre></td></tr></table></figure>
+
+<p>执行完了之后，发现出大问题了，连一般的命令执行都报错。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@qianmohuaqingmei ld.so.conf.d]# ls</span><br><span class="line">段错误</span><br><span class="line">[root@qianmohuaqingmei ld.so.conf.d]# docker ps</span><br><span class="line">段错误</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>问题解决思路：<br>既然是因为引入这个动态链接的配置后而导致，那就回退这个操作。</li>
+</ul>
+<p>1.发现vi命令也崩溃了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@qianmohuaqingmei ld.so.conf.d]# vi x86_64-linux-gnu.conf </span><br><span class="line">段错误</span><br></pre></td></tr></table></figure>
+
+<p>2.可能源文件不存在了就能恢复了，那进行把源文件删掉或移动到别的地方，发现rm和mv也崩溃了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@qianmohuaqingmei lib]# rm -rf x86_64-linux-gnu</span><br><span class="line">段错误</span><br><span class="line">[root@qianmohuaqingmei lib]# mv x86_64-linux-gnu /root</span><br><span class="line">段错误</span><br></pre></td></tr></table></figure>
+
+<p>3.那echo命令是不是没有崩溃，然后测试一下可以，所以使用echo命令将文件清空，然后重新加载动态链接文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@qianmohuaqingmei ld.so.conf.d]#  echo &quot;test&quot;</span><br><span class="line">test</span><br><span class="line">[root@qianmohuaqingmei ld.so.conf.d]# echo &quot;&quot; &gt; x86_64-linux-gnu.conf </span><br><span class="line">[root@qianmohuaqingmei ld.so.conf.d]# ldconfig</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/09/01/Linux基础-问题锦集1/">更多精彩 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Linux基础-网卡配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/26/Linux基础-网卡配置/">Linux基础_网卡配置</a>
+    </h1>
+  
+
+        
+        <a href="/2015/08/26/Linux基础-网卡配置/" class="archive-article-date">
+  	<time datetime="2015-08-26T11:40:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="手动配置网卡信息"><a href="#手动配置网卡信息" class="headerlink" title="手动配置网卡信息"></a>手动配置网卡信息</h2>
+        
+          <a class="article-more-a" href="/2015/08/26/Linux基础-网卡配置/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/08/26/Linux基础-网卡配置/">更多精彩 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Linux基础-shell常用的命令或函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/20/Linux基础-shell常用的命令或函数/">Linux基础_shell常用的命令或函数</a>
+    </h1>
+  
+
+        
+        <a href="/2015/08/20/Linux基础-shell常用的命令或函数/" class="archive-article-date">
+  	<time datetime="2015-08-20T12:20:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="shell常用的命令或函数"><a href="#shell常用的命令或函数" class="headerlink" title="shell常用的命令或函数"></a>shell常用的命令或函数</h2><p>1 文本颜色</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">文本颜色: 重置=0,黑=30,红=31,绿=32,黄=33,蓝=34,紫=35,青=36,白=37 </span><br><span class="line">背景颜色: 重置=0,黑=40,红=41,绿=42,黄=43,蓝=44,紫=45,青=46,白=37 </span><br><span class="line"></span><br><span class="line">红色的文本: <span class="built_in">echo</span> -e <span class="string">"\e[1;31m This is red text \e[0m"</span></span><br><span class="line">绿色的背景: <span class="built_in">echo</span> -e <span class="string">"\e[1;42m This is Green background \e[0m"</span></span><br><span class="line">红色文本白色背景: <span class="built_in">echo</span> -e <span class="string">"\e[1;47;31m This is red text and White background \e[0m"</span></span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2015/08/20/Linux基础-shell常用的命令或函数/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/08/20/Linux基础-shell常用的命令或函数/">更多精彩 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-软件测试-基本理论3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -528,19 +859,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Ansible</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Golang</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -552,6 +883,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">杜若诗集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Smba Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Photoshop</a>
               </li>
              
@@ -560,15 +903,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Smba Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Hexo Yilia</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">杜若诗集</a>
               </li>
              
               <li class="article-tag-list-item">
