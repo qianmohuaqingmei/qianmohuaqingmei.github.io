@@ -16,17 +16,17 @@
 <meta property="og:site_name" content="浅墨画青梅">
 <meta property="og:description" content="概述为了让Linux和Windows能实时工共享目录，在Linux上面安装个smba。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.lijiaze.vip/images/smba/20200112/000.jpg">
-<meta property="og:image" content="http://www.lijiaze.vip/images/smba/20200112/002.jpg">
-<meta property="og:image" content="http://www.lijiaze.vip/images/smba/20200112/003.jpg">
-<meta property="og:image" content="http://www.lijiaze.vip/images/smba/20200112/004.jpg">
-<meta property="og:image" content="http://www.lijiaze.vip/images/smba/20200112/005.jpg">
-<meta property="og:image" content="http://www.lijiaze.vip/images/smba/20200112/006.jpg">
-<meta property="og:updated_time" content="2020-09-16T18:54:05.272Z">
+<meta property="og:image" content="http://www.lijiaze.vip/images/smba/20160112/000.jpg">
+<meta property="og:image" content="http://www.lijiaze.vip/images/smba/20160112/002.jpg">
+<meta property="og:image" content="http://www.lijiaze.vip/images/smba/20160112/003.jpg">
+<meta property="og:image" content="http://www.lijiaze.vip/images/smba/20160112/004.jpg">
+<meta property="og:image" content="http://www.lijiaze.vip/images/smba/20160112/005.jpg">
+<meta property="og:image" content="http://www.lijiaze.vip/images/smba/20160112/006.jpg">
+<meta property="og:updated_time" content="2020-09-16T18:57:39.825Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Smba安装">
 <meta name="twitter:description" content="概述为了让Linux和Windows能实时工共享目录，在Linux上面安装个smba。">
-<meta name="twitter:image" content="http://www.lijiaze.vip/images/smba/20200112/000.jpg">
+<meta name="twitter:image" content="http://www.lijiaze.vip/images/smba/20160112/000.jpg">
   
     <link rel="alternative" href="/atom.xml" title="浅墨画青梅" type="application/atom+xml">
   
@@ -188,14 +188,14 @@
 <h2 id="1-安装smba"><a href="#1-安装smba" class="headerlink" title="1.安装smba"></a>1.安装smba</h2><p>这里直接使用yum命令安装。</p>
 <h3 id="1-1-安装smba"><a href="#1-1-安装smba" class="headerlink" title="1.1 安装smba"></a>1.1 安装smba</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># yum -y install samba</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/images/smba/20200112/000.jpg" alt="安装SMBA"></p>
+<p><img src="/images/smba/20160112/000.jpg" alt="安装SMBA"></p>
 <h3 id="1-2-配置samb"><a href="#1-2-配置samb" class="headerlink" title="1.2 配置samb"></a>1.2 配置samb</h3><h4 id="1-2-1-添加Samba用户"><a href="#1-2-1-添加Samba用户" class="headerlink" title="1.2.1 添加Samba用户"></a>1.2.1 添加Samba用户</h4><p>使用useradd创建一个新的用户。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># useradd Duzi</span></span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">使用smb命令给这个用户设置密码  </span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line"><span class="comment"># smbpasswd -a Duzi</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="1-2-2-修改Samba配置文件"><a href="#1-2-2-修改Samba配置文件" class="headerlink" title="1.2.2 修改Samba配置文件"></a>1.2.2 修改Samba配置文件</h4><p>编辑/etc/samba/smb.conf这个文件，并在最后追加以下内容。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[Duzi]</span><br><span class="line">	path = /home/Duzi</span><br><span class="line">	available = yes</span><br><span class="line">	valid users = Duzi</span><br><span class="line">	<span class="built_in">read</span> only = no</span><br><span class="line">	browsable = yes</span><br><span class="line">	public = yes</span><br><span class="line">	writable = yes</span><br></pre></td></tr></table></figure>
 
-<p><img src="/images/smba/20200112/002.jpg" alt="修改配置"></p>
+<p><img src="/images/smba/20160112/002.jpg" alt="修改配置"></p>
 <h4 id="1-2-3-修改系统配置"><a href="#1-2-3-修改系统配置" class="headerlink" title="1.2.3 修改系统配置"></a>1.2.3 修改系统配置</h4><p>这里需要关闭防火墙和setenforce  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># systemctl stop firewalld</span></span><br><span class="line"><span class="comment"># setenforce 0</span></span><br></pre></td></tr></table></figure>
 
@@ -205,13 +205,13 @@
 <h4 id="1-2-5-启动smba"><a href="#1-2-5-启动smba" class="headerlink" title="1.2.5 启动smba"></a>1.2.5 启动smba</h4><p>smba的启动文件是/usr/lib/systemd/system/smb.service</p>
 <pre><code class="bash"><span class="comment"># service smb restart</span></code></pre>
 <h2 id="2-使用smba"><a href="#2-使用smba" class="headerlink" title="2. 使用smba"></a>2. 使用smba</h2><p>在Windows上，打开文件管理器，然后根据虚拟机的IP，输入\IP，账号密码就是上面配置的那个。这里是Duzi/Duzi@1023</p>
-<p><img src="/images/smba/20200112/003.jpg" alt="登录001"></p>
+<p><img src="/images/smba/20160112/003.jpg" alt="登录001"></p>
 <p>登录之后的页面是这样的，此时就可以看到我们共享目录和文件了</p>
-<p><img src="/images/smba/20200112/004.jpg" alt="登录002"></p>
+<p><img src="/images/smba/20160112/004.jpg" alt="登录002"></p>
 <p>上面虽然我们能看到所共享的目录和文件，但是我们的IDEA其实还是没办法打开的。所有需要生成一个新的驱动器（盘符）。</p>
-<p><img src="/images/smba/20200112/005.jpg" alt="登录003"></p>
+<p><img src="/images/smba/20160112/005.jpg" alt="登录003"></p>
 <p>这样IDEA在打开的时候就可以选择到这个目录作为工作目录了。</p>
-<p><img src="/images/smba/20200112/006.jpg" alt="登录004"></p>
+<p><img src="/images/smba/20160112/006.jpg" alt="登录004"></p>
 
       
 
@@ -483,11 +483,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -515,15 +515,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">杜若诗集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Smba Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Hexo Yilia</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">杜若诗集</a>
               </li>
              
               <li class="article-tag-list-item">
