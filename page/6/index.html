@@ -152,6 +152,88 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Linux基础-umask" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/17/Linux基础-umask/">Linux基础_umask</a>
+    </h1>
+  
+
+        
+        <a href="/2015/09/17/Linux基础-umask/" class="archive-article-date">
+  	<time datetime="2015-09-17T13:53:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="umask"><a href="#umask" class="headerlink" title="umask"></a>umask</h2><h3 id="1-简述"><a href="#1-简述" class="headerlink" title="1 简述"></a>1 简述</h3><p>在linux系统中，我们创建一个新的文件或者目录的时候，这些新的文件或目录都会有默认的访问权限，umask命令与文件和目录的默认访问权限有关。</p>
+<p>它与chmod的效果刚好相反，umask设置的是权限“补码”，而chmod设置的是文件权限码。系统管理员必须要为你设置一个合理的 umask值，以确保你创建的文件具有所希望的缺省权限，防止其他非同组用户对你的文件具有写权限。在已经登录之后，可以按照个人的偏好使用umask命 令来改变文件创建的缺省权限。相应的改变直到退出该shell或使用另外的umask命令之前一直有效。一般来说，umask命令是在/etc /profile文件中设置的，每个用户在登录时都会引用这个文件，所以如果希望改变所有用户的umask，可以在该文件中加入相应的条目。如果希望永久 性地设置自己的umask值，那么就把它放在自己$HOME目录下的.profile或.bash_profile文件中</p>
+<p>设置umask</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># umask 002</span></span><br></pre></td></tr></table></figure>
+
+<p>查看umask</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># umask -p</span></span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2015/09/17/Linux基础-umask/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/09/17/Linux基础-umask/">更多精彩 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Linux基础-问题锦集1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -730,6 +812,127 @@
 
 
   
+    <article id="post-Linux基础-操作系统启动流程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/17/Linux基础-操作系统启动流程/">Linux基础_操作系统启动流程</a>
+    </h1>
+  
+
+        
+        <a href="/2015/05/17/Linux基础-操作系统启动流程/" class="archive-article-date">
+  	<time datetime="2015-05-17T12:20:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-05-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="操作系统启动流程"><a href="#操作系统启动流程" class="headerlink" title="操作系统启动流程"></a>操作系统启动流程</h3><p>理解Linux操作系统启动流程，能有助于后期在企业中更好的维护Linux服务器，能快速定位系统问题，进而解决问题。</p>
+<p><img src="/images/python/20190517/001.png" alt="操作系统启动流程图"></p>
+<h4 id="1-加载BIOS"><a href="#1-加载BIOS" class="headerlink" title="1 加载BIOS"></a>1 加载BIOS</h4><p>计算机电源加电质检，首先加载基本输入输出系统（Basic Input Output System，BIOS），BIOS中包含硬件CPU、内存、硬盘等相关信息，包含设备启动顺序信息、硬盘信息、内存信息、时钟信息、即插即用（Plug-and-Play，PNP）特性等。加载完BIOS信息，计算机将根据顺序进行启动。</p>
+<h4 id="2-读取MBR"><a href="#2-读取MBR" class="headerlink" title="2 读取MBR"></a>2 读取MBR</h4><p>读取完BIOS信息，计算机将会查找BIOS所指定的硬盘MBR引导扇区，将其内容复制到0x7c00地址所在的物理内存中。被复制到物理内存的内容是Boot Loader，然后进行引导。</p>
+<h4 id="3-GRUB引导"><a href="#3-GRUB引导" class="headerlink" title="3 GRUB引导"></a>3 GRUB引导</h4><p>GRUB启动引导器是计算机启动过程中运行的第一个软件程序，当计算机读取内存中的GRUB配置信息后，会根据其配置信息来启动硬盘中不同的操作系统。</p>
+<h4 id="4-加载Kernel"><a href="#4-加载Kernel" class="headerlink" title="4 加载Kernel"></a>4 加载Kernel</h4><p>计算机读取内存映像，并进行解压缩操作，屏幕一般会输出“Uncompressing Linux”的提示，当解压缩内核完成后，屏幕输出“OK, booting the kernel”。系统将解压后的内核放置在内存之中，并调用start_kernel()函数来启动一系列的初始化函数并初始化各种设备，完成Linux核心环境的建立。</p>
+<h4 id="5-设定Inittab运行等级"><a href="#5-设定Inittab运行等级" class="headerlink" title="5 设定Inittab运行等级"></a>5 设定Inittab运行等级</h4><p>内核加载完毕，会启动Linux操作系统第一个守护进程init，然后通过该进程读取/etc/inittab文件，/etc/inittab文件的作用是设定Linux的运行等级，Linux常见运行级别如下</p>
+<table>
+<thead>
+<tr>
+<th>等级</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>关机模式</td>
+</tr>
+<tr>
+<td>1</td>
+<td>单用户模式</td>
+</tr>
+<tr>
+<td>2</td>
+<td>无网络支持的多用户模式</td>
+</tr>
+<tr>
+<td>3</td>
+<td>字符界面多用户模式</td>
+</tr>
+<tr>
+<td>4</td>
+<td>保留，未使用模式</td>
+</tr>
+<tr>
+<td>5</td>
+<td>图像界面多用户模式</td>
+</tr>
+<tr>
+<td>6</td>
+<td>重新引导系统，重启模式</td>
+</tr>
+</tbody></table>
+<h4 id="6-加载rc-sysinit"><a href="#6-加载rc-sysinit" class="headerlink" title="6 加载rc.sysinit"></a>6 加载rc.sysinit</h4><p>读取完运行级别，Linux系统执行的第一个用户层文件/etc/rc.d/rc.sysinit，该文件功能包括：设定PATH运行变量、设定网络配置、启动swap分区、设定/proc、系统函数、配置Selinux等。</p>
+<h4 id="7-加载内核模块"><a href="#7-加载内核模块" class="headerlink" title="7 加载内核模块"></a>7 加载内核模块</h4><p>读取/etc/modules.conf文件及/etc/modules.d目录下的文件来加载系统内核模块。该模块文件，可以后期添加或者修改及删除。</p>
+<h4 id="8-启动运行级别程序"><a href="#8-启动运行级别程序" class="headerlink" title="8 启动运行级别程序"></a>8 启动运行级别程序</h4><p>根据之前读取的运行级别，操作系统会运行rc0.d到rc6.d中的相应的脚本程序，来完成相应的初始化工作和启动相应的服务。其中以S开头表示系统即将启动的程序，如果以K开头，则代表停止该服务。S和K后紧跟的数字为启动顺序编号。</p>
+<h4 id="9-读取rc-local文件"><a href="#9-读取rc-local文件" class="headerlink" title="9 读取rc.local文件"></a>9 读取rc.local文件</h4><p>操作系统启动完相应服务之后，会读取执行/etc/rc.d/rc.local文件，可以将需要开机启动的任务加入到该文件末尾，系统会逐行去执行并启动相应命令。</p>
+<h4 id="10-执行-bin-login程序"><a href="#10-执行-bin-login程序" class="headerlink" title="10 执行/bin/login程序"></a>10 执行/bin/login程序</h4><p>执行/bin/login程序，启动到系统登录界面，操作系统等待用户输入用户名和密码，即可登录到Shell终端，如图3-7所示，输入用户名、密码即可登录Linux操作系统，至此Linux操作系统完整流程启动完毕。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/05/17/Linux基础-操作系统启动流程/">更多精彩 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
@@ -849,23 +1052,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Jmeter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Photoshop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color2">Jmeter</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -873,7 +1064,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Smba Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Photoshop</a>
               </li>
              
               <li class="article-tag-list-item">
