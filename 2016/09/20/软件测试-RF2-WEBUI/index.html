@@ -17,7 +17,7 @@
 <meta property="og:description" content="1 简述不同的测试项，需要不同的库来支撑，WebUI基于selenium、APPUI基于Appium、接口基于request。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.lijiaze.vip/images/test/20160920/001.png">
-<meta property="og:updated_time" content="2020-09-16T18:46:14.970Z">
+<meta property="og:updated_time" content="2020-09-17T14:46:48.145Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RobotFrameWork WEBUI测试">
 <meta name="twitter:description" content="1 简述不同的测试项，需要不同的库来支撑，WebUI基于selenium、APPUI基于Appium、接口基于request。">
@@ -207,55 +207,69 @@
 </tr>
 </tbody></table>
 <p><img src="/images/test/20160920/001.png" alt="简单例子"></p>
-<h3 id="3-Selenium2Library常用关键字"><a href="#3-Selenium2Library常用关键字" class="headerlink" title="3 Selenium2Library常用关键字"></a>3 Selenium2Library常用关键字</h3><table>
+<h3 id="3-Selenium2Library常用关键字"><a href="#3-Selenium2Library常用关键字" class="headerlink" title="3 Selenium2Library常用关键字"></a>3 Selenium2Library常用关键字</h3><h4 id="3-1-Open-Browser"><a href="#3-1-Open-Browser" class="headerlink" title="3.1 Open Browser"></a>3.1 Open Browser</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">作用：打开浏览器，并跳转到指定的url</span><br><span class="line"></span><br><span class="line">语法：</span><br><span class="line"></span><br><span class="line">Name:Open Browser</span><br><span class="line"></span><br><span class="line">Source:Selenium2Library &lt;test library&gt;</span><br><span class="line"></span><br><span class="line">Arguments:</span><br><span class="line"></span><br><span class="line">[ url | browser=browser | alias=alias | remote_url=remote_url | desired_capabilities=desired_capabilities | ff_profile_dir=ff_profile_dir ]</span><br><span class="line"></span><br><span class="line">参数说明：</span><br><span class="line">    url：要访问的url</span><br><span class="line">    Browser：浏览器名称</span><br><span class="line">    alias：代表当前打开的浏览器的别名，可以在切换不同浏览器实例时使用</span><br><span class="line">    remote_url：分布式selenium使用的远程服务url</span><br><span class="line">    desired_capabilities：指定了remote_url之后，可以通过desired_capabilities参数进行配置，比如IE浏览器的代理。desired_capabilities传参时可以是python中的字典类型也可以是字符串类型的键值对，比如key1:value1,key2:value2</span><br></pre></td></tr></table></figure>
+
+<p>注：支持的浏览器如下</p>
+<table>
 <thead>
 <tr>
-<th>关键字</th>
-<th>作用</th>
-<th>用法</th>
+<th>Browser</th>
+<th>Name(s)</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>Open Browser</td>
-<td>打开浏览器，并跳转到指定的url</td>
-<td>Open Browser    <a href="http://www.baidu.com" target="_blank" rel="noopener">http://www.baidu.com</a>    chrome</td>
+<td>Firefox</td>
+<td>firefox, ff</td>
 </tr>
 <tr>
-<td>Input Text</td>
-<td>在指定的元素中输入指定的内容，比如百度搜索框</td>
-<td>Input Text    id=kw    浅墨画青梅</td>
+<td>Google Chrome</td>
+<td>googlechrome, chrome, gc</td>
 </tr>
 <tr>
-<td>Input Password</td>
-<td>在指定的元素中输入密码，使用Input  Password时INFO级别的日志不会显示出来</td>
-<td>Input Password    id=epw    ${LOGIN_PWD}</td>
+<td>Internet Explorer</td>
+<td>internetexplorer, ie</td>
 </tr>
 <tr>
-<td>Click Element</td>
-<td>单击元素</td>
-<td>Click Element    id=su</td>
+<td>Edge</td>
+<td>edge</td>
 </tr>
 <tr>
-<td>Maximize Browser Window</td>
-<td>窗口最大化，防止元素不能点击</td>
-<td>Maximize Browser Window</td>
+<td>Safari</td>
+<td>safari</td>
 </tr>
 <tr>
-<td>choose file</td>
-<td>上传文件</td>
-<td>choose file  xpath=//*[text()=”文件”] ${file}</td>
+<td>Headless Firefox</td>
+<td>headlessfirefox</td>
 </tr>
 <tr>
-<td>​​​​​​​Select Frame</td>
-<td>切换到指定的frame或者iframe，比如网易云的登录页面</td>
-<td>​​​​​​​Select Frame    contentFrame</td>
-</tr>
-<tr>
-<td>Unselect Frame</td>
-<td>切换回默认的frame，相当于selenium中switch_to.default_content()</td>
-<td>​​​​​​​Unselect Frame    contentFrame</td>
+<td>Headless Chrome</td>
+<td>headlesschrome</td>
 </tr>
 </tbody></table>
+<h4 id="3-2-Input-Text-Password"><a href="#3-2-Input-Text-Password" class="headerlink" title="3.2 Input Text/Password"></a>3.2 Input Text/Password</h4><p>Input Text关键字与Input Password的区别就是使用Input  Password时INFO级别的日志不会显示出来。Selenium2Library 库中和浏览器驱动通讯的日志是DEBUG级别的，所以如果不想把密码显示出来的话，那么日志的级别就不能设置为INFO以下。</p>
+<p>Input Text语法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">作用：在指定的元素中输入指定的内容，比如百度搜索框</span><br><span class="line"></span><br><span class="line">语法：</span><br><span class="line"></span><br><span class="line">Name:Input Text</span><br><span class="line"></span><br><span class="line">Source:Selenium2Library &lt;<span class="built_in">test</span> library&gt;</span><br><span class="line"></span><br><span class="line">Arguments:[ locator | text ]</span><br><span class="line"></span><br><span class="line">参数说明：</span><br><span class="line">    locator：元素的定位表达式</span><br><span class="line">    text：待输入的内容</span><br></pre></td></tr></table></figure>
+
+<p>Input Password语法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">作用：在指定的元素中输入密码</span><br><span class="line"></span><br><span class="line">语法：</span><br><span class="line"></span><br><span class="line">Name:Input Password</span><br><span class="line"></span><br><span class="line">Source:Selenium2Library &lt;<span class="built_in">test</span> library&gt;</span><br><span class="line"></span><br><span class="line">Arguments:[ locator | password ]</span><br><span class="line"></span><br><span class="line">参数说明： </span><br><span class="line">    locator：元素的定位表达式</span><br><span class="line">    password ：待输入的密码值</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-3-Input-Text-Password"><a href="#3-3-Input-Text-Password" class="headerlink" title="3.3 Input Text/Password"></a>3.3 Input Text/Password</h4><p>语法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">作用：单击元素</span><br><span class="line"></span><br><span class="line">语法：</span><br><span class="line"></span><br><span class="line">Name:Click Element</span><br><span class="line"></span><br><span class="line">Source:Selenium2Library &lt;<span class="built_in">test</span> library&gt;</span><br><span class="line"></span><br><span class="line">Arguments:[ locator | modifier=modifier ]</span><br><span class="line"></span><br><span class="line">参数说明：</span><br><span class="line">    locator：元素定位表达式</span><br><span class="line">    modifier ：使用指定的键单击元素，感觉没什么用，使用默认参数即可</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-4-Maximize-Browser-Window"><a href="#3-4-Maximize-Browser-Window" class="headerlink" title="3.4 Maximize Browser Window"></a>3.4 Maximize Browser Window</h4><p>语法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">作用：窗口最大化，防止元素不能点击</span><br><span class="line"></span><br><span class="line">语法：</span><br><span class="line"></span><br><span class="line">Name:Maximize Browser Window</span><br><span class="line"></span><br><span class="line">Source:Selenium2Library &lt;<span class="built_in">test</span> library&gt;</span><br><span class="line"></span><br><span class="line">Arguments:[ ]</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-5-choose-file"><a href="#3-5-choose-file" class="headerlink" title="3.5 choose file"></a>3.5 choose file</h4><p>语法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">作用：上传文件</span><br><span class="line"></span><br><span class="line">语法：</span><br><span class="line"></span><br><span class="line">Name:Choose File</span><br><span class="line"></span><br><span class="line">Source:Selenium2Library &lt;<span class="built_in">test</span> library&gt;</span><br><span class="line"></span><br><span class="line">Arguments:[ locator | file_path ]</span><br><span class="line"></span><br><span class="line">参数说明：</span><br><span class="line">    locator：input域的定位方式，非input的话不能使用此方式</span><br><span class="line">    file_path：待上传的文件路径</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-6-​​​​​​​Select-Frame"><a href="#3-6-​​​​​​​Select-Frame" class="headerlink" title="3.6 ​​​​​​​Select Frame"></a>3.6 ​​​​​​​Select Frame</h4><p>语法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">作用：切换到指定的frame或者iframe，比如126邮箱的登录页面</span><br><span class="line"></span><br><span class="line">语法：</span><br><span class="line"></span><br><span class="line">Name:Select Frame</span><br><span class="line"></span><br><span class="line">Source:Selenium2Library &lt;<span class="built_in">test</span> library&gt;</span><br><span class="line"></span><br><span class="line">Arguments:[ locator ]</span><br><span class="line"></span><br><span class="line">参数说明：</span><br><span class="line">    locator ：frame的定位表达式</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-7-​​​​​​​Unselect-Frame"><a href="#3-7-​​​​​​​Unselect-Frame" class="headerlink" title="3.7 ​​​​​​​Unselect Frame"></a>3.7 ​​​​​​​Unselect Frame</h4><p>语法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">作用：切换回默认的frame，相当于selenium中switch_to.default_content()</span><br><span class="line"></span><br><span class="line">语法：</span><br><span class="line"></span><br><span class="line">Name:Unselect Frame</span><br><span class="line"></span><br><span class="line">Source:Selenium2Library &lt;<span class="built_in">test</span> library&gt;</span><br><span class="line"></span><br><span class="line">Arguments:[ ]</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-8-示例"><a href="#3-8-示例" class="headerlink" title="3.8 示例"></a>3.8 示例</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">*** Settings ***</span><br><span class="line"> </span><br><span class="line">Library           Selenium2Library</span><br><span class="line"></span><br><span class="line">*** Variables ***</span><br><span class="line"><span class="variable">$&#123;LOGIN_NAME&#125;</span>     lijiaze_id@163.com    <span class="comment"># 账户</span></span><br><span class="line"><span class="variable">$&#123;LOGIN_PWD&#125;</span>      ********     <span class="comment"># 密码</span></span><br><span class="line"><span class="variable">$&#123;USENAME&#125;</span>        流水闲枫      <span class="comment"># 账户中文名称</span></span><br><span class="line"><span class="variable">$&#123;KEYWORD&#125;</span>        浅墨画青梅    <span class="comment"># 搜索关键字</span></span><br><span class="line"></span><br><span class="line">*** Test Cases ***</span><br><span class="line"></span><br><span class="line">music_wangyiyun</span><br><span class="line">    [Tags]    v2</span><br><span class="line">    Open Browser    https://music.163.com/    chrome</span><br><span class="line">    Maximize Browser Window</span><br><span class="line">    Click Element    xpath=//*[text()=<span class="string">"登录"</span>]</span><br><span class="line">    sleep    1s</span><br><span class="line">    Click Element    xpath=//*[text()=<span class="string">"选择其他登录模式"</span>]</span><br><span class="line">    sleep    1s</span><br><span class="line">    Click Element    id=j-official-terms</span><br><span class="line">    Click Element    class=u-mlg2-wy</span><br><span class="line">    sleep    1s</span><br><span class="line">    Input Text    id=e    <span class="variable">$&#123;LOGIN_NAME&#125;</span></span><br><span class="line">    Input Password    id=epw    <span class="variable">$&#123;LOGIN_PWD&#125;</span></span><br><span class="line">    Click Element    class=u-btn2-2</span><br><span class="line">    sleep    1s</span><br><span class="line">    select frame    contentFrame</span><br><span class="line">    sleep    1s</span><br><span class="line">    <span class="variable">$&#123;uname&#125;</span>    Get Text    id=j-vip-code-to-home</span><br><span class="line">    Should Be Equal    <span class="variable">$&#123;USENAME&#125;</span>    <span class="variable">$&#123;uname&#125;</span></span><br><span class="line">    Unselect Frame</span><br><span class="line">    page should contain    <span class="variable">$&#123;USENAME&#125;</span></span><br><span class="line">    sleep    3s</span><br><span class="line">    Close Browsers</span><br></pre></td></tr></table></figure>
+
 <h3 id="4-HTML基础"><a href="#4-HTML基础" class="headerlink" title="4 HTML基础"></a>4 HTML基础</h3><p>标签的具体内容是在自动化测试中需要掌握的内容</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">"text"</span> class=<span class="string">"s_ipt"</span> name=<span class="string">"wd"</span> id=<span class="string">"kw"</span> maxlength=<span class="string">"100"</span> autocomplete=<span class="string">"off"</span>&gt;</span><br><span class="line"></span><br><span class="line">input: 标签名称TagName</span><br><span class="line">Attribute: 所有的内容</span><br><span class="line">Text: 文本内容</span><br></pre></td></tr></table></figure>
 
@@ -442,11 +456,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/05/25/Go语言基础1_字符串打印/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/09/30/软件测试-RF3-封装关键字并使用数据驱动/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Go语言基础1_字符串打印
+          RobotFrameWork 封装关键字并使用数据驱动
         
       </div>
     </a>
@@ -619,7 +633,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">杜若诗集</a>
+                <a href="javascript:void(0)" class="js-tag color5">Photoshop</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -631,15 +645,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Hexo Yilia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Smba Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Photoshop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Hexo Yilia</a>
+                <a href="javascript:void(0)" class="js-tag color5">杜若诗集</a>
               </li>
              
               <li class="article-tag-list-item">
