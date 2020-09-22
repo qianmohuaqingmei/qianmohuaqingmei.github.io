@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.lijiaze.vip/images/test/20160930/001.jpg">
 <meta property="og:image" content="http://www.lijiaze.vip/images/test/20160930/002.jpg">
-<meta property="og:updated_time" content="2020-09-17T17:23:06.560Z">
+<meta property="og:updated_time" content="2020-09-18T03:36:42.110Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RobotFrameWork 封装关键字并使用数据驱动">
 <meta name="twitter:description" content="1 背景我们先看一个之前写的一个登陆网易云音乐的样例 123456789101112131415161718192021222324252627282930*** Settings ***Library           SeleniumLibrary*** Variables ***@&amp;#123;user_info&amp;#125;      lijiaze_id@163.com    ******">
@@ -178,7 +178,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-背景"><a href="#1-背景" class="headerlink" title="1 背景"></a>1 背景</h3><p>我们先看一个之前写的一个登陆网易云音乐的样例</p>
+        <h2 id="1-背景"><a href="#1-背景" class="headerlink" title="1 背景"></a>1 背景</h2><p>我们先看一个之前写的一个登陆网易云音乐的样例</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">*** Settings ***</span><br><span class="line">Library           SeleniumLibrary</span><br><span class="line"></span><br><span class="line">*** Variables ***</span><br><span class="line">@&#123;user_info&#125;      lijiaze_id@163.com    ******    流水闲枫</span><br><span class="line"></span><br><span class="line">*** Test Cases ***</span><br><span class="line">login_music_163</span><br><span class="line">    Open Browser    https://music.163.com/    chrome</span><br><span class="line">    Maximize Browser Window</span><br><span class="line">    Click Element    xpath=//*[text()=<span class="string">"登录"</span>]</span><br><span class="line">    sleep    1s</span><br><span class="line">    Click Element    xpath=//*[text()=<span class="string">"选择其他登录模式"</span>]</span><br><span class="line">    sleep    1s</span><br><span class="line">    Click Element    id=j-official-terms</span><br><span class="line">    Click Element    //*[@class=<span class="string">'u-mlg2 u-mlg2-wy'</span>]</span><br><span class="line">    sleep    1s</span><br><span class="line">    Input Text    id=e    <span class="variable">$&#123;user_info&#125;</span>[0]</span><br><span class="line">    Input Password    id=epw    <span class="variable">$&#123;user_info&#125;</span>[1]</span><br><span class="line">    Click Element    //*[@class=<span class="string">'js-primary u-btn2 u-btn2-2'</span>]</span><br><span class="line">    sleep    1s</span><br><span class="line">    select frame    contentFrame</span><br><span class="line">    sleep    1s</span><br><span class="line">    <span class="variable">$&#123;uname&#125;</span>    Get Text    id=j-vip-code-to-home</span><br><span class="line">    Should Be Equal    <span class="variable">$&#123;user_info&#125;</span>[2]    <span class="variable">$&#123;uname&#125;</span></span><br><span class="line">    Click Element    xpath=//*[@id=<span class="string">"follow_count"</span>]</span><br><span class="line">    Unselect Frame</span><br><span class="line">    page should contain    <span class="variable">$&#123;user_info&#125;</span>[2]</span><br><span class="line">    sleep    3s</span><br><span class="line">    Close Browser</span><br></pre></td></tr></table></figure>
 
 <a id="more"></a>
@@ -189,18 +189,19 @@
 <ul>
 <li>1 代码中操作的数据都是写死的，不能根据实际的需要灵活的变化。解决方法就是所有就需要把动作抽象为一个函数，这样可以反复的调用；把变化的值抽象为函数的参数，每次调用都操作不同的数据；</li>
 <li>2 定位表达式也是写死的，如果定位表达式有变化的话就必须修改代码。解决方法：将定位表达式抽象出来放到一个资源文件中，这样每次只维护这个资源文件即可。</li>
-<li>3 测试case，变量还有操作值都放到一起，耦合性太高。解决方法：分而治之，也就是封装的思想，测试case，公共函数，资源文件分开存放。</li>
+<li>3 测试case，变量还有操作值都放到一起，耦合性太高。</li>
 </ul>
-<h3 id="2-封装"><a href="#2-封装" class="headerlink" title="2 封装"></a>2 封装</h3><p>按照上面的思路进行改造后，最终的目录结构如下：</p>
+<p>解决方法：分而治之，也就是封装的思想，测试case，公共函数，资源文件分开存放。</p>
+<h2 id="2-封装"><a href="#2-封装" class="headerlink" title="2 封装"></a>2 封装</h2><p>按照上面的思路进行改造后，最终的目录结构如下：</p>
 <p><img src="/images/test/20160930/002.jpg" alt="封装关键字"></p>
-<h4 id="2-1-定位表达式的配置文件"><a href="#2-1-定位表达式的配置文件" class="headerlink" title="2.1 定位表达式的配置文件"></a>2.1 定位表达式的配置文件</h4><p>ObjectDeposit.txt作为定位表达式的配置文件，其包括将每个页面抽象为一个字典，页面中的元素作为字典中的key，元素的定位方式作为value。</p>
+<h3 id="2-1-定位表达式的配置文件"><a href="#2-1-定位表达式的配置文件" class="headerlink" title="2.1 定位表达式的配置文件"></a>2.1 定位表达式的配置文件</h3><p>ObjectDeposit.txt作为定位表达式的配置文件，其包括将每个页面抽象为一个字典，页面中的元素作为字典中的key，元素的定位方式作为value。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">*** Variables ***</span><br><span class="line"><span class="comment">#登录页面</span></span><br><span class="line">&amp;&#123;loginPage&#125;      framename=contentFrame    loginname=e    loginpwd=epw    logintxt=//*[text()=<span class="string">"登录"</span>]    loginmode=//*[text()=<span class="string">"选择其他登录模式"</span>]    Pripolicy=j-official-terms    modebtn=//*[@class=<span class="string">'u-mlg2 u-mlg2-wy'</span>]    loginbtn=//*[@class=<span class="string">'js-primary u-btn2 u-btn2-2'</span>]    userName=j-vip-code-to-home    followbtn=//*[@id=<span class="string">"follow_count"</span>]</span><br></pre></td></tr></table></figure>
 
-<h4 id="2-2-存放自定义的公共关键字"><a href="#2-2-存放自定义的公共关键字" class="headerlink" title="2.2 存放自定义的公共关键字"></a>2.2 存放自定义的公共关键字</h4><p>public.robot作为存放自定义的公共关键字配置文件，引用ObjectDeposit.txt获取到定义好的位置变量。</p>
+<h3 id="2-2-存放自定义的公共关键字"><a href="#2-2-存放自定义的公共关键字" class="headerlink" title="2.2 存放自定义的公共关键字"></a>2.2 存放自定义的公共关键字</h3><p>public.robot作为存放自定义的公共关键字配置文件，引用ObjectDeposit.txt获取到定义好的位置变量。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">*** Settings ***</span><br><span class="line">Library           SeleniumLibrary</span><br><span class="line">Resource          ObjectDeposit.txt    <span class="comment"># 定位表达式的配置文件</span></span><br><span class="line"></span><br><span class="line">*** Keywords ***</span><br><span class="line">Login</span><br><span class="line">    [Arguments]    <span class="variable">$&#123;login_name&#125;</span>    <span class="variable">$&#123;password&#125;</span>    <span class="variable">$&#123;user_name&#125;</span></span><br><span class="line">    Open Browser    https://music.163.com/    chrome</span><br><span class="line">    Maximize Browser Window</span><br><span class="line">    Click Element    <span class="variable">$&#123;loginPage.logintxt&#125;</span></span><br><span class="line">    sleep    1s</span><br><span class="line">    Click Element    <span class="variable">$&#123;loginPage.loginmode&#125;</span></span><br><span class="line">    sleep    1s</span><br><span class="line">    Click Element    <span class="variable">$&#123;loginPage.Pripolicy&#125;</span></span><br><span class="line">    Click Element    <span class="variable">$&#123;loginPage.modebtn&#125;</span></span><br><span class="line">    sleep    1s</span><br><span class="line">    Input Text    <span class="variable">$&#123;loginPage.loginname&#125;</span>    <span class="variable">$&#123;login_name&#125;</span></span><br><span class="line">    Input Password    <span class="variable">$&#123;loginPage.loginpwd&#125;</span>    <span class="variable">$&#123;password&#125;</span></span><br><span class="line">    Click Element    <span class="variable">$&#123;loginPage.loginbtn&#125;</span></span><br><span class="line">    sleep    1s</span><br><span class="line">    select frame    <span class="variable">$&#123;loginPage.framename&#125;</span></span><br><span class="line">    sleep    1s</span><br><span class="line">    <span class="variable">$&#123;uname&#125;</span>    Get Text    <span class="variable">$&#123;loginPage.userName&#125;</span></span><br><span class="line">    Should Be Equal    <span class="variable">$&#123;user_name&#125;</span>    <span class="variable">$&#123;uname&#125;</span></span><br><span class="line">    Click Element    <span class="variable">$&#123;loginPage.followbtn&#125;</span></span><br><span class="line">    Unselect Frame</span><br><span class="line">    page should contain    <span class="variable">$&#123;user_name&#125;</span></span><br><span class="line">    sleep    3s</span><br><span class="line">    Close Browser</span><br></pre></td></tr></table></figure>
 
-<h4 id="2-3-测试文件"><a href="#2-3-测试文件" class="headerlink" title="2.3 测试文件"></a>2.3 测试文件</h4><p>测试文件，存放测试用例</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">*** Settings ***</span><br><span class="line">Suite Teardown    Close Browser</span><br><span class="line">Resource          public.robot</span><br><span class="line">Resource          ObjectDeposit.txt</span><br><span class="line"></span><br><span class="line">*** Test Cases ***</span><br><span class="line">login_test</span><br><span class="line">    Login    lijiaze_id@163.com    ******    流水闲枫</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-测试文件"><a href="#2-3-测试文件" class="headerlink" title="2.3 测试文件"></a>2.3 测试文件</h3><p>测试文件，存放测试用例，当进行封装之后，就可以快捷、简单地添加一个新的测试用例。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">*** Settings ***</span><br><span class="line">Suite Teardown    Close Browser</span><br><span class="line">Test Teardown     Close Browser</span><br><span class="line">Resource          public.robot</span><br><span class="line">Resource          ObjectDeposit.txt</span><br><span class="line"></span><br><span class="line">*** Test Cases ***</span><br><span class="line">login_test1</span><br><span class="line">    Login    lijiaze_id@163.com    ******    流水闲枫</span><br><span class="line"></span><br><span class="line">login_test2</span><br><span class="line">    Login    lijiaze@163.com    ******    浅墨画青梅</span><br></pre></td></tr></table></figure>
 
 
       
@@ -469,15 +470,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Ansible</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -485,15 +478,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Ansible</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">软件测试 Jmeter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Jmeter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Photoshop</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -505,15 +502,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Hexo Yilia</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Smba Linux</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Photoshop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">杜若诗集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Hexo Yilia</a>
               </li>
              
               <li class="article-tag-list-item">
