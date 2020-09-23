@@ -8,21 +8,21 @@
   <link rel="dns-prefetch" href="http://www.lijiaze.vip">
   <title>Kubernetes-基础知识 | 浅墨画青梅</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Kubernetes基础知识1 Kubernetes框架Kubernetes框架图如下">
+  <meta name="description" content="Kubernetes基础知识1 Kubernetes框架Kubernetes框架图如下   Master节点(负责整个集群的管理和控制)  etcd  存储kubernetes的资源对象，如pods/deployment/nodes等               kube-apiserver 作为集群入口，完成认证、鉴权、业务请求处理 kube-controller-manager  应用模型的处">
 <meta name="keywords" content="kubernetes">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kubernetes-基础知识">
 <meta property="og:url" content="http://www.lijiaze.vip/2020/09/21/Kubernetes1-基础概念/index.html">
 <meta property="og:site_name" content="浅墨画青梅">
-<meta property="og:description" content="Kubernetes基础知识1 Kubernetes框架Kubernetes框架图如下">
+<meta property="og:description" content="Kubernetes基础知识1 Kubernetes框架Kubernetes框架图如下   Master节点(负责整个集群的管理和控制)  etcd  存储kubernetes的资源对象，如pods/deployment/nodes等               kube-apiserver 作为集群入口，完成认证、鉴权、业务请求处理 kube-controller-manager  应用模型的处">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.lijiaze.vip/images/kubernetes/20200921/001.jpg">
 <meta property="og:image" content="http://www.lijiaze.vip/images/kubernetes/20200921/002.jpg">
 <meta property="og:image" content="http://www.lijiaze.vip/images/kubernetes/20200921/003.jpg">
-<meta property="og:updated_time" content="2020-09-23T10:21:04.323Z">
+<meta property="og:updated_time" content="2020-09-23T10:46:33.850Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes-基础知识">
-<meta name="twitter:description" content="Kubernetes基础知识1 Kubernetes框架Kubernetes框架图如下">
+<meta name="twitter:description" content="Kubernetes基础知识1 Kubernetes框架Kubernetes框架图如下   Master节点(负责整个集群的管理和控制)  etcd  存储kubernetes的资源对象，如pods/deployment/nodes等               kube-apiserver 作为集群入口，完成认证、鉴权、业务请求处理 kube-controller-manager  应用模型的处">
 <meta name="twitter:image" content="http://www.lijiaze.vip/images/kubernetes/20200921/001.jpg">
   
     <link rel="alternative" href="/atom.xml" title="浅墨画青梅" type="application/atom+xml">
@@ -181,6 +181,24 @@
       
         <h2 id="Kubernetes基础知识"><a href="#Kubernetes基础知识" class="headerlink" title="Kubernetes基础知识"></a>Kubernetes基础知识</h2><h3 id="1-Kubernetes框架"><a href="#1-Kubernetes框架" class="headerlink" title="1 Kubernetes框架"></a>1 Kubernetes框架</h3><p>Kubernetes框架图如下</p>
 <p><img src="/images/kubernetes/20200921/001.jpg" alt="Kubernetes框架图"></p>
+<ul>
+<li><p>Master节点(负责整个集群的管理和控制)</p>
+<ul>
+<li>etcd  存储kubernetes的资源对象，如pods/deployment/nodes等              </li>
+<li>kube-apiserver 作为集群入口，完成认证、鉴权、业务请求处理</li>
+<li>kube-controller-manager  应用模型的处理如deployment的升级管理、以及实例扩容等</li>
+<li>kube-scheduler 给Pod选择合适的Node节点，然后分配到node节点上</li>
+</ul>
+</li>
+<li><p>Node节点(运行业务应用的容器)</p>
+<ul>
+<li>kubelet  到kube-apiserver watch到pod，然后通过docker根据定义把容器运行起来</li>
+<li>kube-proxy 通过serviceless等实现clusterip进行互访</li>
+<li>docker  运行容器</li>
+<li>cni插件  打通节点之间的网络，给节点上pod上分配IP</li>
+</ul>
+</li>
+</ul>
 <a id="more"></a>
 
 <h3 id="2-Kubernetes工作原理"><a href="#2-Kubernetes工作原理" class="headerlink" title="2 Kubernetes工作原理"></a>2 Kubernetes工作原理</h3><p>Kubernetes工作原理图如下</p>
@@ -577,11 +595,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">软件测试 Jmeter</a>
+                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+                <a href="javascript:void(0)" class="js-tag color2">软件测试 Jmeter</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -172,7 +172,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1 准备工作"></a>1 准备工作</h2><p>本次安装的kubernetes版本是1.13.4。可以通过kubeadm config images list查看kubernetes与之对应的镜像版本。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>容器化方式部署kubernetes大概的过程，先安装kubelet，然后通过systemd把kubelet管理起来，别的组件通过manifest定义，然后由kubelet以容器化方式(Static Pod mainfest)进行拉起以及后续的生命周期(liveness/readiness配置组件健康检查)。所以基本流程可以简单总结为</p>
+<ul>
+<li>1 安装docker、kubelet、kubectl、kubeadm</li>
+<li>2 使用kubeadm进行集群的初始化（因为镜像被墙了，所以需要先拉镜像，然后进行初始化）</li>
+<li>3 添加节点</li>
+<li>4 安装flannel</li>
+</ul>
+<h2 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1 准备工作"></a>1 准备工作</h2><p>本次安装的kubernetes版本是1.13.4。可以通过kubeadm config images list查看kubernetes与之对应的镜像版本。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@qianmohuaqingmei flannel]<span class="comment"># kubeadm config images list</span></span><br><span class="line">I0923 02:49:38.123371   10586 version.go:94] could not fetch a Kubernetes version from the internet: unable to get URL <span class="string">"https://dl.k8s.io/release/stable-1.txt"</span>: Get https://dl.k8s.io/release/stable-1.txt: net/http: request canceled <span class="keyword">while</span> waiting <span class="keyword">for</span> connection (Client.Timeout exceeded <span class="keyword">while</span> awaiting headers)</span><br><span class="line">I0923 02:49:38.123459   10586 version.go:95] falling back to the <span class="built_in">local</span> client version: v1.13.4</span><br><span class="line">k8s.gcr.io/kube-apiserver:v1.13.4</span><br><span class="line">k8s.gcr.io/kube-controller-manager:v1.13.4</span><br><span class="line">k8s.gcr.io/kube-scheduler:v1.13.4</span><br><span class="line">k8s.gcr.io/kube-proxy:v1.13.4</span><br><span class="line">k8s.gcr.io/pause:3.1</span><br><span class="line">k8s.gcr.io/etcd:3.2.24</span><br><span class="line">k8s.gcr.io/coredns:1.2.6</span><br></pre></td></tr></table></figure>
         
           <a class="article-more-a" href="/2020/09/22/Kubernetes2-安装指导/#more">more >></a>
@@ -251,6 +258,24 @@
       
         <h2 id="Kubernetes基础知识"><a href="#Kubernetes基础知识" class="headerlink" title="Kubernetes基础知识"></a>Kubernetes基础知识</h2><h3 id="1-Kubernetes框架"><a href="#1-Kubernetes框架" class="headerlink" title="1 Kubernetes框架"></a>1 Kubernetes框架</h3><p>Kubernetes框架图如下</p>
 <p><img src="/images/kubernetes/20200921/001.jpg" alt="Kubernetes框架图"></p>
+<ul>
+<li><p>Master节点(负责整个集群的管理和控制)</p>
+<ul>
+<li>etcd  存储kubernetes的资源对象，如pods/deployment/nodes等              </li>
+<li>kube-apiserver 作为集群入口，完成认证、鉴权、业务请求处理</li>
+<li>kube-controller-manager  应用模型的处理如deployment的升级管理、以及实例扩容等</li>
+<li>kube-scheduler 给Pod选择合适的Node节点，然后分配到node节点上</li>
+</ul>
+</li>
+<li><p>Node节点(运行业务应用的容器)</p>
+<ul>
+<li>kubelet  到kube-apiserver watch到pod，然后通过docker根据定义把容器运行起来</li>
+<li>kube-proxy 通过serviceless等实现clusterip进行互访</li>
+<li>docker  运行容器</li>
+<li>cni插件  打通节点之间的网络，给节点上pod上分配IP</li>
+</ul>
+</li>
+</ul>
         
           <a class="article-more-a" href="/2020/09/21/Kubernetes1-基础概念/#more">more >></a>
         
@@ -1045,11 +1070,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">软件测试 Jmeter</a>
+                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+                <a href="javascript:void(0)" class="js-tag color2">软件测试 Jmeter</a>
               </li>
              
               <li class="article-tag-list-item">
