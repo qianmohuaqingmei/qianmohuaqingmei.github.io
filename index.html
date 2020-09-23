@@ -159,7 +159,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/22/Kubernetes2-安装指导/">kubernetes-安装指南</a>
+      <a class="article-title" href="/2020/09/22/Kubernetes2-安装指导/">kubernetes 安装指南</a>
     </h1>
   
 
@@ -241,7 +241,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/21/Kubernetes1-基础概念/">Kubernetes-基础知识</a>
+      <a class="article-title" href="/2020/09/21/Kubernetes1-基础概念/">Kubernetes 基础知识</a>
     </h1>
   
 
@@ -256,24 +256,6 @@
       
         <h2 id="Kubernetes基础知识"><a href="#Kubernetes基础知识" class="headerlink" title="Kubernetes基础知识"></a>Kubernetes基础知识</h2><h3 id="1-Kubernetes框架"><a href="#1-Kubernetes框架" class="headerlink" title="1 Kubernetes框架"></a>1 Kubernetes框架</h3><p>Kubernetes框架图如下</p>
 <p><img src="/images/kubernetes/20200921/001.jpg" alt="Kubernetes框架图"></p>
-<ul>
-<li><p>Master节点(负责整个集群的管理和控制)</p>
-<ul>
-<li>etcd  存储kubernetes的资源对象，如pods/deployment/nodes等              </li>
-<li>kube-apiserver 作为集群入口，完成认证、鉴权、业务请求处理</li>
-<li>kube-controller-manager  应用模型的处理如deployment的升级管理、以及实例扩容等</li>
-<li>kube-scheduler 给Pod选择合适的Node节点，然后分配到node节点上</li>
-</ul>
-</li>
-<li><p>Node节点(运行业务应用的容器)</p>
-<ul>
-<li>kubelet  到kube-apiserver watch到pod，然后通过docker根据定义把容器运行起来</li>
-<li>kube-proxy 通过serviceless等实现clusterip进行互访</li>
-<li>docker  运行容器</li>
-<li>cni插件  打通节点之间的网络，给节点上pod上分配IP</li>
-</ul>
-</li>
-</ul>
         
           <a class="article-more-a" href="/2020/09/21/Kubernetes1-基础概念/#more">more >></a>
         
@@ -300,6 +282,82 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/09/21/Kubernetes1-基础概念/">更多精彩 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Kubernetes3-kubectl命令详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/21/Kubernetes3-kubectl命令详解/">Kubernetes kubectl命令详解</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/21/Kubernetes3-kubectl命令详解/" class="archive-article-date">
+  	<time datetime="2020-09-21T14:37:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="kubectl常用命令详解"><a href="#kubectl常用命令详解" class="headerlink" title="kubectl常用命令详解"></a>kubectl常用命令详解</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">kubectl controls the Kubernetes cluster manager. </span><br><span class="line"></span><br><span class="line">Find more information at: https://kubernetes.io/docs/reference/kubectl/overview/</span><br><span class="line"></span><br><span class="line">Basic Commands (Beginner):</span><br><span class="line">  create         Create a resource from a file or from stdin.</span><br><span class="line">  expose         使用 replication controller, service, deployment 或者 pod 并暴露它作为一个 新的</span><br><span class="line">Kubernetes Service</span><br><span class="line">  run            在集群中运行一个指定的镜像</span><br><span class="line">  <span class="built_in">set</span>            为 objects 设置一个指定的特征</span><br><span class="line"></span><br><span class="line">Basic Commands (Intermediate):</span><br><span class="line">  explain        查看资源的文档</span><br><span class="line">  get            显示一个或更多 resources</span><br><span class="line">  edit           在服务器上编辑一个资源</span><br><span class="line">  delete         Delete resources by filenames, stdin, resources and names, or by resources and label selector</span><br><span class="line"></span><br><span class="line">Deploy Commands:</span><br><span class="line">  rollout        Manage the rollout of a resource</span><br><span class="line">  scale          为 Deployment, ReplicaSet, Replication Controller 或者 Job 设置一个新的副本数量</span><br><span class="line">  autoscale      自动调整一个 Deployment, ReplicaSet, 或者 ReplicationController 的副本数量</span><br><span class="line"></span><br><span class="line">Cluster Management Commands:</span><br><span class="line">  certificate    修改 certificate 资源.</span><br><span class="line">  cluster-info   显示集群信息</span><br><span class="line">  top            Display Resource (CPU/Memory/Storage) usage.</span><br><span class="line">  cordon         标记 node 为 unschedulable</span><br><span class="line">  uncordon       标记 node 为 schedulable</span><br><span class="line">  drain          Drain node <span class="keyword">in</span> preparation <span class="keyword">for</span> maintenance</span><br><span class="line">  taint          更新一个或者多个 node 上的 taints</span><br><span class="line"></span><br><span class="line">Troubleshooting and Debugging Commands:</span><br><span class="line">  describe       显示一个指定 resource 或者 group 的 resources 详情</span><br><span class="line">  logs           输出容器在 pod 中的日志</span><br><span class="line">  attach         Attach 到一个运行中的 container</span><br><span class="line">  <span class="built_in">exec</span>           在一个 container 中执行一个命令</span><br><span class="line">  port-forward   Forward one or more <span class="built_in">local</span> ports to a pod</span><br><span class="line">  proxy          运行一个 proxy 到 Kubernetes API server</span><br><span class="line">  cp             复制 files 和 directories 到 containers 和从容器中复制 files 和 directories.</span><br><span class="line">  auth           Inspect authorization</span><br><span class="line"></span><br><span class="line">Advanced Commands:</span><br><span class="line">  diff           Diff live version against would-be applied version</span><br><span class="line">  apply          通过文件名或标准输入流(stdin)对资源进行配置</span><br><span class="line">  patch          使用 strategic merge patch 更新一个资源的 field(s)</span><br><span class="line">  replace        通过 filename 或者 stdin替换一个资源</span><br><span class="line">  <span class="built_in">wait</span>           Experimental: Wait <span class="keyword">for</span> a specific condition on one or many resources.</span><br><span class="line">  convert        在不同的 API versions 转换配置文件</span><br><span class="line"></span><br><span class="line">Settings Commands:</span><br><span class="line">  label          更新在这个资源上的 labels</span><br><span class="line">  annotate       更新一个资源的注解</span><br><span class="line">  completion     Output shell completion code <span class="keyword">for</span> the specified shell (bash or zsh)</span><br><span class="line"></span><br><span class="line">Other Commands:</span><br><span class="line">  api-resources  Print the supported API resources on the server</span><br><span class="line">  api-versions   Print the supported API versions on the server, <span class="keyword">in</span> the form of <span class="string">"group/version"</span></span><br><span class="line">  config         修改 kubeconfig 文件</span><br><span class="line">  plugin         Provides utilities <span class="keyword">for</span> interacting with plugins.</span><br><span class="line">  version        输出 client 和 server 的版本信息</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line">  kubectl [flags] [options]</span><br><span class="line"></span><br><span class="line">Use <span class="string">"kubectl &lt;command&gt; --help"</span> <span class="keyword">for</span> more information about a given <span class="built_in">command</span>.</span><br><span class="line">Use <span class="string">"kubectl options"</span> <span class="keyword">for</span> a list of global <span class="built_in">command</span>-line options (applies to all commands).</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2020/09/21/Kubernetes3-kubectl命令详解/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kubernetes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/21/Kubernetes3-kubectl命令详解/">更多精彩 >></a>
         </p>
       
 
@@ -873,82 +931,6 @@
 
 
   
-    <article id="post-Python实现拼接图片功能" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/06/Python实现拼接图片功能/">Python实现拼接图片功能</a>
-    </h1>
-  
-
-        
-        <a href="/2019/06/06/Python实现拼接图片功能/" class="archive-article-date">
-  	<time datetime="2019-06-06T15:26:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>当我们想实现图片拼接的时候，我们首先会想到啥？美图秀秀？Photoshop？对于猿猿们来说，那当然是自己实现了。下面使用Python实现一个拼接的最简单的功能。</p>
-        
-          <a class="article-more-a" href="/2019/06/06/Python实现拼接图片功能/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/06/Python实现拼接图片功能/">更多精彩 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1052,11 +1034,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
+                <a href="javascript:void(0)" class="js-tag color3">Ansible</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Ansible</a>
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
               </li>
              
               <li class="article-tag-list-item">

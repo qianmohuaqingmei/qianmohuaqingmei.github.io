@@ -6,23 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://www.lijiaze.vip">
-  <title>Kubernetes-基础知识 | 浅墨画青梅</title>
+  <title>Kubernetes 基础知识 | 浅墨画青梅</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Kubernetes基础知识1 Kubernetes框架Kubernetes框架图如下   Master节点(负责整个集群的管理和控制)  etcd  存储kubernetes的资源对象，如pods/deployment/nodes等               kube-apiserver 作为集群入口，完成认证、鉴权、业务请求处理 kube-controller-manager  应用模型的处">
+  <meta name="description" content="Kubernetes基础知识1 Kubernetes框架Kubernetes框架图如下">
 <meta name="keywords" content="kubernetes">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kubernetes-基础知识">
+<meta property="og:title" content="Kubernetes 基础知识">
 <meta property="og:url" content="http://www.lijiaze.vip/2020/09/21/Kubernetes1-基础概念/index.html">
 <meta property="og:site_name" content="浅墨画青梅">
-<meta property="og:description" content="Kubernetes基础知识1 Kubernetes框架Kubernetes框架图如下   Master节点(负责整个集群的管理和控制)  etcd  存储kubernetes的资源对象，如pods/deployment/nodes等               kube-apiserver 作为集群入口，完成认证、鉴权、业务请求处理 kube-controller-manager  应用模型的处">
+<meta property="og:description" content="Kubernetes基础知识1 Kubernetes框架Kubernetes框架图如下">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.lijiaze.vip/images/kubernetes/20200921/001.jpg">
 <meta property="og:image" content="http://www.lijiaze.vip/images/kubernetes/20200921/002.jpg">
 <meta property="og:image" content="http://www.lijiaze.vip/images/kubernetes/20200921/003.jpg">
-<meta property="og:updated_time" content="2020-09-23T10:46:33.850Z">
+<meta property="og:updated_time" content="2020-09-23T15:09:56.127Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kubernetes-基础知识">
-<meta name="twitter:description" content="Kubernetes基础知识1 Kubernetes框架Kubernetes框架图如下   Master节点(负责整个集群的管理和控制)  etcd  存储kubernetes的资源对象，如pods/deployment/nodes等               kube-apiserver 作为集群入口，完成认证、鉴权、业务请求处理 kube-controller-manager  应用模型的处">
+<meta name="twitter:title" content="Kubernetes 基础知识">
+<meta name="twitter:description" content="Kubernetes基础知识1 Kubernetes框架Kubernetes框架图如下">
 <meta name="twitter:image" content="http://www.lijiaze.vip/images/kubernetes/20200921/001.jpg">
   
     <link rel="alternative" href="/atom.xml" title="浅墨画青梅" type="application/atom+xml">
@@ -166,7 +166,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Kubernetes-基础知识
+      Kubernetes 基础知识
     </h1>
   
 
@@ -181,136 +181,411 @@
       
         <h2 id="Kubernetes基础知识"><a href="#Kubernetes基础知识" class="headerlink" title="Kubernetes基础知识"></a>Kubernetes基础知识</h2><h3 id="1-Kubernetes框架"><a href="#1-Kubernetes框架" class="headerlink" title="1 Kubernetes框架"></a>1 Kubernetes框架</h3><p>Kubernetes框架图如下</p>
 <p><img src="/images/kubernetes/20200921/001.jpg" alt="Kubernetes框架图"></p>
-<ul>
-<li><p>Master节点(负责整个集群的管理和控制)</p>
-<ul>
-<li>etcd  存储kubernetes的资源对象，如pods/deployment/nodes等              </li>
-<li>kube-apiserver 作为集群入口，完成认证、鉴权、业务请求处理</li>
-<li>kube-controller-manager  应用模型的处理如deployment的升级管理、以及实例扩容等</li>
-<li>kube-scheduler 给Pod选择合适的Node节点，然后分配到node节点上</li>
-</ul>
-</li>
-<li><p>Node节点(运行业务应用的容器)</p>
-<ul>
-<li>kubelet  到kube-apiserver watch到pod，然后通过docker根据定义把容器运行起来</li>
-<li>kube-proxy 通过serviceless等实现clusterip进行互访</li>
-<li>docker  运行容器</li>
-<li>cni插件  打通节点之间的网络，给节点上pod上分配IP</li>
-</ul>
-</li>
-</ul>
 <a id="more"></a>
 
+<table>
+<thead>
+<tr>
+<th align="center">节点名称</th>
+<th align="center">包含组件</th>
+<th align="left">组件作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"></td>
+<td align="center">etcd</td>
+<td align="left">存储kubernetes的资源对象，如pods/deployment/nodes等</td>
+</tr>
+<tr>
+<td align="center">Master节点(负责整个集群的管理和控制)</td>
+<td align="center">kube-apiserver</td>
+<td align="left">作为集群入口，完成认证、鉴权、业务请求处理</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">kube-controller-manager</td>
+<td align="left">应用模型的处理如deployment的升级管理、以及实例扩容等</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">kube-scheduler</td>
+<td align="left">给Pod选择合适的Node节点，然后分配到node节点上</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">kubelet</td>
+<td align="left">到kube-apiserver watch到pod，然后通过docker根据定义把容器运行起来</td>
+</tr>
+<tr>
+<td align="center">Node节点(运行业务应用的容器)</td>
+<td align="center">kube-proxy</td>
+<td align="left">通过serviceless等实现clusterip进行互访</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">docker</td>
+<td align="left">运行容器</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">cni插件</td>
+<td align="left">打通节点之间的网络，给节点上pod上分配IP</td>
+</tr>
+</tbody></table>
 <h3 id="2-Kubernetes工作原理"><a href="#2-Kubernetes工作原理" class="headerlink" title="2 Kubernetes工作原理"></a>2 Kubernetes工作原理</h3><p>Kubernetes工作原理图如下</p>
 <p><img src="/images/kubernetes/20200921/002.jpg" alt="Kubernetes工作原理图"></p>
-<h3 id="3-Kubernetes基本概念"><a href="#3-Kubernetes基本概念" class="headerlink" title="3 Kubernetes基本概念"></a>3 Kubernetes基本概念</h3><ul>
-<li><p>Pod</p>
-<ul>
-<li>一组功能相关的Container的封装</li>
-<li>共享存储和Network、Namespace</li>
-<li>K8S调度和作业运行的基本单位(Scheduler调度，Kubelet运行)</li>
-<li>容易”走失”，需要Workload和Service的”呵护”</li>
-</ul>
-</li>
-<li><p>Workloads(Deployment,StatefulSet,DaemonSet,Job…)</p>
-<ul>
-<li>一组功能相关的Pod的封装</li>
-</ul>
-</li>
-<li><p>Service</p>
-<ul>
-<li>Pod防”失联”</li>
-<li>给一组Pod设置反向代理</li>
-</ul>
-</li>
-</ul>
+<h3 id="3-Kubernetes基本概念"><a href="#3-Kubernetes基本概念" class="headerlink" title="3 Kubernetes基本概念"></a>3 Kubernetes基本概念</h3><table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">属性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"></td>
+<td align="center">一组功能相关的Container的封装</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">共享存储和Network、Namespace</td>
+</tr>
+<tr>
+<td align="center">Pod</td>
+<td align="center">K8S调度和作业运行的基本单位(Scheduler调度，Kubelet运行)</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">容易”走失”，需要Workload和Service的”呵护”</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Workloads(Deployment,StatefulSet,DaemonSet,Job…)</td>
+<td align="center">一组功能相关的Pod的封装</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Service</td>
+<td align="center">Pod防”失联”</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">给一组Pod设置反向代理</td>
+</tr>
+</tbody></table>
 <h3 id="4-Kubernetes-API对象的基本构成"><a href="#4-Kubernetes-API对象的基本构成" class="headerlink" title="4 Kubernetes API对象的基本构成"></a>4 Kubernetes API对象的基本构成</h3><p><img src="/images/kubernetes/20200921/003.jpg" alt="Kubernetes API对象构成图"></p>
-<ul>
-<li><p>typeMeta指定对象的类型</p>
-</li>
-<li><p>objectMeta对象的元数据</p>
-</li>
-<li><p>spec 对象期望的状态</p>
-<ul>
-<li>matchLabels和labels要相同</li>
-</ul>
-</li>
-<li><p>status 对象实际的状态</p>
-</li>
-</ul>
-<h3 id="5-使用kubectl与集群交互"><a href="#5-使用kubectl与集群交互" class="headerlink" title="5 使用kubectl与集群交互"></a>5 使用kubectl与集群交互</h3><ul>
-<li><p>Basic Commands(Beginner):</p>
-<ul>
-<li>create 从文件或stdin创建资源</li>
-<li>expose 为deployment，pod创建Service</li>
-<li>run    Run a particular image on the cluster</li>
-<li>set    Set specific features on objects</li>
-</ul>
-</li>
-<li><p>Basic Commands(Intermediate):</p>
-<ul>
-<li>get      最基本的查询命令，如kubectl get rs,deploy,nodes,svc,rs/foo</li>
-<li>explain  查看资源定义，如kubectl explain replicaset</li>
-<li>edit     使用系统编辑器编辑资源，如kubectl edit deploy/foo</li>
-<li>delete   删除指定资源，支持文件名、资源名、label、selector。如kubectl delete po -l foo=bar</li>
-</ul>
-</li>
-<li><p>Deploy Commands:</p>
-<ul>
-<li>rollout         Deployment,Daemonset的升级过程管理(查看状态、操作历史、暂停升级、恢复升级、回滚等)</li>
-<li>rolling-update  客户端滚动升级，仅限ReplicationController</li>
-<li>scale           修改Deployment,ReplicaSet,ReplicationController,Job的实例数</li>
-<li>autoscale       为Deploy,RS,RC配置自动伸缩规则(依赖heapster和hpa)</li>
-</ul>
-</li>
-<li><p>Cluster Management Commands:</p>
-<ul>
-<li>certificate   Modify certificate resources.</li>
-<li>cluster-info  查看集群信息</li>
-<li>top           查看资源占用率(依赖heapster)</li>
-<li>cordon        标记节点为unschedulable</li>
-<li>uncordon      标记节点为schedulable</li>
-<li>drain         驱逐节点上的应用，准备下线维护</li>
-<li>taint         修改节点taint标记</li>
-</ul>
-</li>
-<li><p>Troubleshooting and Debugging Commands:</p>
-<ul>
-<li>describe      查看资源详情</li>
-<li>logs          查看pod内容器的日志</li>
-<li>attach        Attach到pod内的一个容器</li>
-<li>exec          在指定的容器内执行命令</li>
-<li>port-forward  为pod创建本地端口映射</li>
-<li>proxy         为kubernetes API service创建代理</li>
-<li>cp            容器内外/容器间文件拷贝</li>
-</ul>
-</li>
-<li><p>Advanced Commands:</p>
-<ul>
-<li>apply    从文件或stdin创建/更新资源</li>
-<li>patch    使用strategic merge patch语法更新对象的某些字段</li>
-<li>replace  从文件或stdin更新资源</li>
-<li>convert  在不同API版本之间转换对象定义</li>
-</ul>
-</li>
-<li><p>Settings Commands:</p>
-<ul>
-<li>label       给资源设置label</li>
-<li>annotate    给资源设置annotation</li>
-<li>completion  获取shell自动补全脚本(支持bash和zsh)</li>
-</ul>
-</li>
-<li><p>Other Commands:</p>
-<ul>
-<li>api-version  Print the support API version on the server,in the form of “group/version”</li>
-<li>config       修改kubectl配置(kubeconfig文件)，如context</li>
-<li>help         Help about any command</li>
-<li>version      查看客户端和Server端K8S版本</li>
-</ul>
-</li>
-</ul>
-<p>kubectl命令行补全功能</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装bash-completion</span></span><br><span class="line">yum install bash-completion -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使bash-completion生效</span></span><br><span class="line"><span class="built_in">source</span> /usr/share/bash-completion/bash_completion</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置</span></span><br><span class="line"><span class="built_in">source</span> &lt;(kubectl completion bash)</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">typeMeta</td>
+<td align="center">指定对象的类型</td>
+</tr>
+<tr>
+<td align="center">objectMeta</td>
+<td align="center">对象的元数据</td>
+</tr>
+<tr>
+<td align="center">spec</td>
+<td align="center">对象期望的状态（matchLabels和labels要相同）</td>
+</tr>
+<tr>
+<td align="center">status</td>
+<td align="center">对象实际的状态</td>
+</tr>
+</tbody></table>
+<h3 id="5-使用kubectl与集群交互"><a href="#5-使用kubectl与集群交互" class="headerlink" title="5 使用kubectl与集群交互"></a>5 使用kubectl与集群交互</h3><h4 id="5-1-简单总结"><a href="#5-1-简单总结" class="headerlink" title="5.1 简单总结"></a>5.1 简单总结</h4><table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">名称</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"></td>
+<td align="center">create</td>
+<td align="left">从文件或stdin创建资源</td>
+</tr>
+<tr>
+<td align="center">Basic Commands(Beginner)</td>
+<td align="center">expose</td>
+<td align="left">为deployment，pod创建Service</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">run</td>
+<td align="left">Run a particular image on the cluster</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">set</td>
+<td align="left">Set specific features on objects</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">get</td>
+<td align="left">最基本的查询命令，如kubectl get rs,deploy,nodes,svc,rs/foo</td>
+</tr>
+<tr>
+<td align="center">Basic Commands(Intermediate)</td>
+<td align="center">explain</td>
+<td align="left">查看资源定义，如kubectl explain replicaset</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">edit</td>
+<td align="left">使用系统编辑器编辑资源，如kubectl edit deploy/foo</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">delete</td>
+<td align="left">删除指定资源，支持文件名、资源名、label、selector。如kubectl delete po -l foo=bar</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">rollout</td>
+<td align="left">Deployment,Daemonset的升级过程管理(查看状态、操作历史、暂停升级、恢复升级、回滚等)</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">rolling-update</td>
+<td align="left">客户端滚动升级，仅限ReplicationController</td>
+</tr>
+<tr>
+<td align="center">Deploy Commands</td>
+<td align="center">scale</td>
+<td align="left">修改Deployment,ReplicaSet,ReplicationController,Job的实例数</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">autoscale</td>
+<td align="left">为Deploy,RS,RC配置自动伸缩规则(依赖heapster和hpa)</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">certificate</td>
+<td align="left">Modify certificate resources.</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">cluster-info</td>
+<td align="left">查看集群信息</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">top</td>
+<td align="left">查看资源占用率(依赖heapster)</td>
+</tr>
+<tr>
+<td align="center">Cluster Management Commands</td>
+<td align="center">cordon</td>
+<td align="left">标记节点为unschedulable</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">uncordon</td>
+<td align="left">标记节点为schedulable</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">drain</td>
+<td align="left">驱逐节点上的应用，准备下线维护</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">taint</td>
+<td align="left">修改节点taint标记</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">describe</td>
+<td align="left">查看资源详情</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">logs</td>
+<td align="left">查看pod内容器的日志</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">attach</td>
+<td align="left">Attach到pod内的一个容器</td>
+</tr>
+<tr>
+<td align="center">Troubleshooting and Debugging Commands</td>
+<td align="center">exec</td>
+<td align="left">在指定的容器内执行命令</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">port-forward</td>
+<td align="left">为pod创建本地端口映射</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">proxy</td>
+<td align="left">为kubernetes API service创建代理</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">cp</td>
+<td align="left">容器内外/容器间文件拷贝</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">apply</td>
+<td align="left">从文件或stdin创建/更新资源</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">patch</td>
+<td align="left">使用strategic merge patch语法更新对象的某些字段</td>
+</tr>
+<tr>
+<td align="center">Advanced Commands</td>
+<td align="center">replace</td>
+<td align="left">从文件或stdin更新资源</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">convert</td>
+<td align="left">在不同API版本之间转换对象定义</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">label</td>
+<td align="left">给资源设置label</td>
+</tr>
+<tr>
+<td align="center">Settings Commands</td>
+<td align="center">annotate</td>
+<td align="left">给资源设置annotation</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">completion</td>
+<td align="left">获取shell自动补全脚本(支持bash和zsh)</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">api-versions</td>
+<td align="left">Print the support API version on the server,in the form of “group/version”</td>
+</tr>
+<tr>
+<td align="center">Other Commands</td>
+<td align="center">config</td>
+<td align="left">修改kubectl配置(kubeconfig文件)，如context</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">help</td>
+<td align="left">Help about any command</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">version</td>
+<td align="left">查看客户端和Server端K8S版本</td>
+</tr>
+</tbody></table>
+<h4 id="5-2-kubectl命令行补全功能"><a href="#5-2-kubectl命令行补全功能" class="headerlink" title="5.2 kubectl命令行补全功能"></a>5.2 kubectl命令行补全功能</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装bash-completion</span></span><br><span class="line">yum install bash-completion -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使bash-completion生效</span></span><br><span class="line"><span class="built_in">source</span> /usr/share/bash-completion/bash_completion</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置</span></span><br><span class="line"><span class="built_in">source</span> &lt;(kubectl completion bash)</span><br></pre></td></tr></table></figure>
 
 
       
@@ -430,14 +705,14 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          kubernetes-安装指南
+          kubernetes 安装指南
         
       </div>
     </a>
   
   
-    <a href="/2020/06/05/《卜算子•芒种》/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">《卜算子•芒种》</div>
+    <a href="/2020/09/21/Kubernetes3-kubectl命令详解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Kubernetes kubectl命令详解</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -579,11 +854,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
+                <a href="javascript:void(0)" class="js-tag color3">Ansible</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Ansible</a>
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
               </li>
              
               <li class="article-tag-list-item">
