@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="浅墨画青梅">
 <meta property="og:description" content="前言容器化方式部署kubernetes大概的过程，先安装kubelet，然后通过systemd把kubelet管理起来，别的组件通过manifest定义，然后由kubelet以容器化方式(Static Pod mainfest)进行拉起以及后续的生命周期(liveness/readiness配置组件健康检查)。所以基本流程可以简单总结为  1 安装docker、kubelet、kubectl、ku">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-09-23T11:06:48.128Z">
+<meta property="og:updated_time" content="2020-09-23T11:07:26.135Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kubernetes-安装指南">
 <meta name="twitter:description" content="前言容器化方式部署kubernetes大概的过程，先安装kubelet，然后通过systemd把kubelet管理起来，别的组件通过manifest定义，然后由kubelet以容器化方式(Static Pod mainfest)进行拉起以及后续的生命周期(liveness/readiness配置组件健康检查)。所以基本流程可以简单总结为  1 安装docker、kubelet、kubectl、ku">
@@ -182,11 +182,10 @@
 <li>3 添加节点</li>
 <li>4 安装flannel</li>
 </ul>
-<h2 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1 准备工作"></a>1 准备工作</h2><p>本次安装的kubernetes版本是1.13.4。可以通过kubeadm config images list查看kubernetes与之对应的镜像版本。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@qianmohuaqingmei flannel]<span class="comment"># kubeadm config images list</span></span><br><span class="line">I0923 02:49:38.123371   10586 version.go:94] could not fetch a Kubernetes version from the internet: unable to get URL <span class="string">"https://dl.k8s.io/release/stable-1.txt"</span>: Get https://dl.k8s.io/release/stable-1.txt: net/http: request canceled <span class="keyword">while</span> waiting <span class="keyword">for</span> connection (Client.Timeout exceeded <span class="keyword">while</span> awaiting headers)</span><br><span class="line">I0923 02:49:38.123459   10586 version.go:95] falling back to the <span class="built_in">local</span> client version: v1.13.4</span><br><span class="line">k8s.gcr.io/kube-apiserver:v1.13.4</span><br><span class="line">k8s.gcr.io/kube-controller-manager:v1.13.4</span><br><span class="line">k8s.gcr.io/kube-scheduler:v1.13.4</span><br><span class="line">k8s.gcr.io/kube-proxy:v1.13.4</span><br><span class="line">k8s.gcr.io/pause:3.1</span><br><span class="line">k8s.gcr.io/etcd:3.2.24</span><br><span class="line">k8s.gcr.io/coredns:1.2.6</span><br></pre></td></tr></table></figure>
-
 <a id="more"></a>
 
+<h2 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1 准备工作"></a>1 准备工作</h2><p>本次安装的kubernetes版本是1.13.4。可以通过kubeadm config images list查看kubernetes与之对应的镜像版本。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@qianmohuaqingmei flannel]<span class="comment"># kubeadm config images list</span></span><br><span class="line">I0923 02:49:38.123371   10586 version.go:94] could not fetch a Kubernetes version from the internet: unable to get URL <span class="string">"https://dl.k8s.io/release/stable-1.txt"</span>: Get https://dl.k8s.io/release/stable-1.txt: net/http: request canceled <span class="keyword">while</span> waiting <span class="keyword">for</span> connection (Client.Timeout exceeded <span class="keyword">while</span> awaiting headers)</span><br><span class="line">I0923 02:49:38.123459   10586 version.go:95] falling back to the <span class="built_in">local</span> client version: v1.13.4</span><br><span class="line">k8s.gcr.io/kube-apiserver:v1.13.4</span><br><span class="line">k8s.gcr.io/kube-controller-manager:v1.13.4</span><br><span class="line">k8s.gcr.io/kube-scheduler:v1.13.4</span><br><span class="line">k8s.gcr.io/kube-proxy:v1.13.4</span><br><span class="line">k8s.gcr.io/pause:3.1</span><br><span class="line">k8s.gcr.io/etcd:3.2.24</span><br><span class="line">k8s.gcr.io/coredns:1.2.6</span><br></pre></td></tr></table></figure>
 
 <h3 id="1-1-安装VirtualBox"><a href="#1-1-安装VirtualBox" class="headerlink" title="1.1 安装VirtualBox"></a>1.1 安装VirtualBox</h3><p>下载<a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="noopener">VirtualBox安装包</a>,然后进行安装即可。</p>
 <p>然后下载<a href="http://isoredirect.centos.org/centos/7/isos/x86_64/" target="_blank" rel="noopener">Centos虚拟机的镜像</a>。这里下载的是CentOS-7-x86_64-Minimal-1810.iso。</p>
@@ -525,11 +524,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Ansible</a>
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
+                <a href="javascript:void(0)" class="js-tag color3">Ansible</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -541,11 +540,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+                <a href="javascript:void(0)" class="js-tag color2">软件测试 Jmeter</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">软件测试 Jmeter</a>
+                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -569,11 +568,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">杜若诗集</a>
+                <a href="javascript:void(0)" class="js-tag color1">Hexo Yilia</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Hexo Yilia</a>
+                <a href="javascript:void(0)" class="js-tag color5">杜若诗集</a>
               </li>
              
               <li class="article-tag-list-item">
