@@ -458,6 +458,179 @@
 
 
   
+    <article id="post-Linux基础-定时任务crontab" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/28/Linux基础-定时任务crontab/">Linux基础-定时任务crontab</a>
+    </h1>
+  
+
+        
+        <a href="/2015/09/28/Linux基础-定时任务crontab/" class="archive-article-date">
+  	<time datetime="2015-09-28T12:03:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-简述"><a href="#1-简述" class="headerlink" title="1 简述"></a>1 简述</h2><p>crontab命令用于设置周期性被执行的指令。该命令从标准输入设备读取指令，并将其存放于“crontab”文件中，以供之后读取和执行。</p>
+<p>cron 系统调度进程。 可以使用它在每天的非高峰负荷时间段运行作业，或在一周或一月中的不同时段运行。cron是系统主要的调度进程，可以在无需人工干预的情况下运行作业。</p>
+<p>crontab命令允许用户提交、编辑或删除相应的作业。每一个用户都可以有一个crontab文件来保存调度信息。系统管理员可以通过/etc/cron.deny 和 /etc/cron.allow 这两个文件来禁止或允许，用户拥有自己的crontab文件。</p>
+<h2 id="2-配置文件"><a href="#2-配置文件" class="headerlink" title="2 配置文件"></a>2 配置文件</h2><p>crontab在/etc目录下面存在cron.hourly,cron.daily,cron.weekly,cron.monthly,cron.d五个目录和crontab,cron.deny二个文件</p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><h2 id="定时任务书写规范"><a href="#定时任务书写规范" class="headerlink" title="定时任务书写规范"></a>定时任务书写规范</h2><ul>
+<li>1 定时任务要加注释</li>
+<li>2 定时任务命令或脚本结尾加 &amp;&gt;/dev/null 或 &gt;/dev/null 2&gt;&amp;1 或 1&gt;/dev/null 2&gt;/dev/null</li>
+<li>3 定时任务执行shell脚本前加/bin/sh，定时任务执行shell脚本不必添加执行权限</li>
+<li>4 定时任务命令或程序尽量写到脚本里，定时任务只要执行脚本即可<ul>
+<li>注意操作步骤：<ul>
+<li>1 命令行执行</li>
+<li>2 编写脚本</li>
+<li>3 测试脚本</li>
+<li>4 设置定时任务</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>5 生产任务程序不要随意打印输出信息</li>
+<li>6 定时任务执行的脚本要规范路径 (例如 /server/script)</li>
+<li>7 配置定时任务要规范操作过程</li>
+<li>8 定时任务执行特殊的字符需要进行转义，否则会报错，例如 百分号% 转义 %</li>
+<li>9 定时任务脚本中如果涉及使用到环境变量，必须在脚本中重新定义，不然，定时任务识别不了</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/09/28/Linux基础-定时任务crontab/">更多精彩 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Linux基础-nodejs安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/25/Linux基础-nodejs安装/">Linux基础-nodejs安装</a>
+    </h1>
+  
+
+        
+        <a href="/2015/09/25/Linux基础-nodejs安装/" class="archive-article-date">
+  	<time datetime="2015-09-25T12:04:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-安装方式一"><a href="#1-安装方式一" class="headerlink" title="1 安装方式一"></a>1 安装方式一</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl --silent --location https://rpm.nodesource.com/setup_10.x | bash -</span><br><span class="line">yum install -y nodejs</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2015/09/25/Linux基础-nodejs安装/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/09/25/Linux基础-nodejs安装/">更多精彩 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Linux基础-磁盘初始化命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -768,159 +941,6 @@
 
 
   
-    <article id="post-Linux基础-网卡配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/26/Linux基础-网卡配置/">Linux基础_网卡配置</a>
-    </h1>
-  
-
-        
-        <a href="/2015/08/26/Linux基础-网卡配置/" class="archive-article-date">
-  	<time datetime="2015-08-26T11:40:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="手动配置网卡信息"><a href="#手动配置网卡信息" class="headerlink" title="手动配置网卡信息"></a>手动配置网卡信息</h2>
-        
-          <a class="article-more-a" href="/2015/08/26/Linux基础-网卡配置/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/08/26/Linux基础-网卡配置/">更多精彩 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linux基础-shell常用的命令或函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/20/Linux基础-shell常用的命令或函数/">Linux基础_shell常用的命令或函数</a>
-    </h1>
-  
-
-        
-        <a href="/2015/08/20/Linux基础-shell常用的命令或函数/" class="archive-article-date">
-  	<time datetime="2015-08-20T12:20:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="shell常用的命令或函数"><a href="#shell常用的命令或函数" class="headerlink" title="shell常用的命令或函数"></a>shell常用的命令或函数</h2><p>1 文本颜色</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">文本颜色: 重置=0,黑=30,红=31,绿=32,黄=33,蓝=34,紫=35,青=36,白=37 </span><br><span class="line">背景颜色: 重置=0,黑=40,红=41,绿=42,黄=43,蓝=44,紫=45,青=46,白=37 </span><br><span class="line"></span><br><span class="line">红色的文本: <span class="built_in">echo</span> -e <span class="string">"\e[1;31m This is red text \e[0m"</span></span><br><span class="line">绿色的背景: <span class="built_in">echo</span> -e <span class="string">"\e[1;42m This is Green background \e[0m"</span></span><br><span class="line">红色文本白色背景: <span class="built_in">echo</span> -e <span class="string">"\e[1;47;31m This is red text and White background \e[0m"</span></span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2015/08/20/Linux基础-shell常用的命令或函数/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/08/20/Linux基础-shell常用的命令或函数/">更多精彩 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
@@ -1024,10 +1044,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Ansible</a>
               </li>
              
@@ -1040,11 +1056,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">软件测试 Jmeter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1052,19 +1064,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Hexo Yilia</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Photoshop</a>
+                <a href="javascript:void(0)" class="js-tag color2">软件测试 Jmeter</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Smba Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Photoshop</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1073,6 +1089,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Hexo Yilia</a>
               </li>
              
               <li class="article-tag-list-item">
