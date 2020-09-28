@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://www.lijiaze.vip/images/hexo/20190606/003.jpg">
 <meta property="og:image" content="http://www.lijiaze.vip/images/hexo/20190606/004.jpg">
 <meta property="og:image" content="http://www.lijiaze.vip/images/hexo/20190606/005.jpg">
-<meta property="og:updated_time" content="2020-09-28T14:49:10.404Z">
+<meta property="og:updated_time" content="2020-09-28T15:19:29.751Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Yilia主题的一些小技巧">
 <meta name="twitter:description" content="概述在使用hexo初始化博客后，需要选择一个主题，这里选择yilia主题。具体怎么使用可以看其Wiki,但是还有一些花里胡哨的小插件，litten大神追求简洁的页面，自然就没有相关的说明，所以下面记录一下。">
@@ -252,7 +252,27 @@ var _hmt = _hmt || [];
 <h3 id="1-6-增加百度搜索引擎收录"><a href="#1-6-增加百度搜索引擎收录" class="headerlink" title="1.6 增加百度搜索引擎收录"></a>1.6 增加百度搜索引擎收录</h3><p>为了提高搜索引擎对自己站点的收录效果,我们最好手动到 google 和百度等搜索引擎，先安装</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
 
-<p>注册百度站长号,注册完成后进入<a href="https://ziyuan.baidu.com/site/index#/" target="_blank" rel="noopener">站点管理</a> ,添加自己的网站,然后按照步骤完成网站认证</p>
+<p>注册百度站长号,注册完成后进入<a href="https://ziyuan.baidu.com/site/index#/" target="_blank" rel="noopener">站点管理</a> ,添加自己的网站,然后按照步骤完成网站认证，这些需要注意的是，要采用CNAME认证，因为别的认证由于重定向问题，会导致认证失败。</p>
+<p>在<a href="https://dns.console.aliyun.com/?spm=5176.100251.111252.25.49544f15xStV7x&accounttraceid=37525cb7df774162829f6c6861bcb9d6lalv#/dns/domainList" target="_blank" rel="noopener">域名解析</a> 这里进行如下的解析设置</p>
+<table>
+<thead>
+<tr>
+<th>主机记录</th>
+<th>记录类型</th>
+<th>解析线路</th>
+<th>记录值</th>
+<th>TTL</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code-dxq9y8qkcu</td>
+<td>CNAME</td>
+<td>默认</td>
+<td>ziyuan.baidu.com</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>然后进行验证即可</p>
 <h2 id="2-修改背景"><a href="#2-修改背景" class="headerlink" title="2.修改背景"></a>2.修改背景</h2><p>在yilia主题下，默认是黑色，所以这里要是想替换的，可以采用下面的方式替换成你喜欢的图片作为背景。</p>
 <h3 id="2-1-添加图片"><a href="#2-1-添加图片" class="headerlink" title="2.1 添加图片"></a>2.1 添加图片</h3><p>在博客根目录（注意，不是主题yilia的根目录）的source目录新建images目录，将图片上传到该目录,这样图片路径就是博客地址加图片名称比如：<a href="http://lijiaze.vip/images/bizhi.jpg" target="_blank" rel="noopener">http://lijiaze.vip/images/bizhi.jpg</a>  </p>
 <h3 id="2-2-修改配置文件"><a href="#2-2-修改配置文件" class="headerlink" title="2.2 修改配置文件"></a>2.2 修改配置文件</h3><p>修改yilia主题的left-col.ejs这个文件，具体路径是yilia/layout/_partial/left-col.ejs，将原来的  </p>
@@ -583,19 +603,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Golang</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">软件测试 Jmeter</a>
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">软件测试 Jmeter</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -607,11 +627,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Photoshop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color1">Smba Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -619,11 +635,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Smba Linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">Photoshop</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">杜若诗集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
