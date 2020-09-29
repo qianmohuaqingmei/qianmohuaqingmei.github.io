@@ -162,34 +162,30 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-《西江月•残梦》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-软件测试-RF3-封装关键字并使用数据驱动" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/31/《西江月•残梦》/">《西江月•残梦》</a>
+      <a class="article-title" href="/2016/09/30/软件测试-RF3-封装关键字并使用数据驱动/">RobotFrameWork 封装关键字并使用数据驱动</a>
     </h1>
   
 
         
-        <a href="/2018/01/31/《西江月•残梦》/" class="archive-article-date">
-  	<time datetime="2018-01-31T10:00:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-31</time>
+        <a href="/2016/09/30/软件测试-RF3-封装关键字并使用数据驱动/" class="archive-article-date">
+  	<time datetime="2016-09-30T15:21:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p align="center">《西江月•残梦》</p>
-<p align="center">冷月斜照桃梢，满地空留残苞。盏杯红影醉今宵，孤城一人酒少。</p>
-<p align="center">愿付此生潦倒，青丝半缕入抱。夜色阑珊惹人恼，清寒梦醒何找。</p>
-
-<p><br><br></p>
-<p>文案：</p>
+        <h2 id="1-背景"><a href="#1-背景" class="headerlink" title="1 背景"></a>1 背景</h2><p>我们先看一个之前写的一个登陆网易云音乐的样例</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">*** Settings ***</span><br><span class="line">Library           SeleniumLibrary</span><br><span class="line"></span><br><span class="line">*** Variables ***</span><br><span class="line">@&#123;user_info&#125;      lijiaze_id@163.com    ******    流水闲枫</span><br><span class="line"></span><br><span class="line">*** Test Cases ***</span><br><span class="line">login_music_163</span><br><span class="line">    Open Browser    https://music.163.com/    chrome</span><br><span class="line">    Maximize Browser Window</span><br><span class="line">    Click Element    xpath=//*[text()=<span class="string">"登录"</span>]</span><br><span class="line">    sleep    1s</span><br><span class="line">    Click Element    xpath=//*[text()=<span class="string">"选择其他登录模式"</span>]</span><br><span class="line">    sleep    1s</span><br><span class="line">    Click Element    id=j-official-terms</span><br><span class="line">    Click Element    //*[@class=<span class="string">'u-mlg2 u-mlg2-wy'</span>]</span><br><span class="line">    sleep    1s</span><br><span class="line">    Input Text    id=e    <span class="variable">$&#123;user_info&#125;</span>[0]</span><br><span class="line">    Input Password    id=epw    <span class="variable">$&#123;user_info&#125;</span>[1]</span><br><span class="line">    Click Element    //*[@class=<span class="string">'js-primary u-btn2 u-btn2-2'</span>]</span><br><span class="line">    sleep    1s</span><br><span class="line">    select frame    contentFrame</span><br><span class="line">    sleep    1s</span><br><span class="line">    <span class="variable">$&#123;uname&#125;</span>    Get Text    id=j-vip-code-to-home</span><br><span class="line">    Should Be Equal    <span class="variable">$&#123;user_info&#125;</span>[2]    <span class="variable">$&#123;uname&#125;</span></span><br><span class="line">    Click Element    xpath=//*[@id=<span class="string">"follow_count"</span>]</span><br><span class="line">    Unselect Frame</span><br><span class="line">    page should contain    <span class="variable">$&#123;user_info&#125;</span>[2]</span><br><span class="line">    sleep    3s</span><br><span class="line">    Close Browser</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2018/01/31/《西江月•残梦》/#more">more >></a>
+          <a class="article-more-a" href="/2016/09/30/软件测试-RF3-封装关键字并使用数据驱动/#more">more >></a>
         
       
 
@@ -203,7 +199,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">杜若诗集</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">软件测试</a>
         		</li>
       		
 		</ul>
@@ -213,7 +209,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/31/《西江月•残梦》/">更多精彩 >></a>
+          <a class="article-more-a" href="/2016/09/30/软件测试-RF3-封装关键字并使用数据驱动/">更多精彩 >></a>
         </p>
       
 
@@ -243,35 +239,29 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-《梦江南•与子偕老》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-软件测试-RF2-WEBUI" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/18/《梦江南•与子偕老》/">《梦江南•与子偕老》</a>
+      <a class="article-title" href="/2016/09/20/软件测试-RF2-WEBUI/">RobotFrameWork WEBUI测试</a>
     </h1>
   
 
         
-        <a href="/2018/01/18/《梦江南•与子偕老》/" class="archive-article-date">
-  	<time datetime="2018-01-17T16:06:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-18</time>
+        <a href="/2016/09/20/软件测试-RF2-WEBUI/" class="archive-article-date">
+  	<time datetime="2016-09-20T12:39:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p align="center">《梦江南•与子偕老》</p>
-<p align="center">相识地，鸥白涛声旧。</p>
-<p align="center">牵手相偎尽此生，青丝银发心依羞。</p>
-<p align="center">消得几生求。</p>
-
-<p><br><br></p>
-<p>文案：</p>
+        <h3 id="1-简述"><a href="#1-简述" class="headerlink" title="1 简述"></a>1 简述</h3><p>不同的测试项，需要不同的库来支撑，WebUI基于selenium、APPUI基于Appium、接口基于request。</p>
         
-          <a class="article-more-a" href="/2018/01/18/《梦江南•与子偕老》/#more">more >></a>
+          <a class="article-more-a" href="/2016/09/20/软件测试-RF2-WEBUI/#more">more >></a>
         
       
 
@@ -285,7 +275,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">杜若诗集</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">软件测试</a>
         		</li>
       		
 		</ul>
@@ -295,7 +285,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/18/《梦江南•与子偕老》/">更多精彩 >></a>
+          <a class="article-more-a" href="/2016/09/20/软件测试-RF2-WEBUI/">更多精彩 >></a>
         </p>
       
 
@@ -325,34 +315,30 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-《西江月•痴》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-软件测试-RF1-介绍与安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/09/《西江月•痴》/">《西江月•痴》</a>
+      <a class="article-title" href="/2016/09/15/软件测试-RF1-介绍与安装/">RobotFrameWork介绍与安装</a>
     </h1>
   
 
         
-        <a href="/2018/01/09/《西江月•痴》/" class="archive-article-date">
-  	<time datetime="2018-01-08T16:12:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-09</time>
+        <a href="/2016/09/15/软件测试-RF1-介绍与安装/" class="archive-article-date">
+  	<time datetime="2016-09-15T12:22:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p align="center">《西江月•痴》</p>
-<p align="center">月落青霜满天，洛水轻飘云烟，白衣青丝画中仙，不应流落人间。</p>
-<p align="center">夜半执笔影单，红烛几盏徒添，痴心难抒残梦牵，怎寄半篇信笺。</p>
-
-<p><br><br></p>
-<p>文案：</p>
+        <h2 id="RobotFrameWork介绍与安装"><a href="#RobotFrameWork介绍与安装" class="headerlink" title="RobotFrameWork介绍与安装"></a>RobotFrameWork介绍与安装</h2><h3 id="1-简述"><a href="#1-简述" class="headerlink" title="1 简述"></a>1 简述</h3><p>自动化功能测试技术，基于selenium来实现自动化功能测试，而RobotFramework,简称RF,就是基于python+selenium来实现的自动化测试框架。RF纯粹是基于关键字来驱动与数据驱动相结合的一种自动化测试框架，能够完美地对WebUI、APPUI、接口来实现自动化功能测试。不需要编写代码，本身是基于RF自定义的一种表格编写语法的形式来实现的工具的自动化测试。</p>
+<p>robot framework是基于python开发的一套开源的基于关键字驱动的自动化测试框架，可以实现app，web，接口等内容的测试，提供了丰富的关键字和日志功能。虽然是基于python开发的，但是robot framework有一套自己的代码编写规则；用户如果想自己定义关键字的话也是支持的，可以使用python也可以是使用java；而且robot framework还能可jenkins结合。<a href="https://robotframework.org/" target="_blank" rel="noopener">官网</a></p>
         
-          <a class="article-more-a" href="/2018/01/09/《西江月•痴》/#more">more >></a>
+          <a class="article-more-a" href="/2016/09/15/软件测试-RF1-介绍与安装/#more">more >></a>
         
       
 
@@ -366,7 +352,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">杜若诗集</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">软件测试</a>
         		</li>
       		
 		</ul>
@@ -376,7 +362,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/09/《西江月•痴》/">更多精彩 >></a>
+          <a class="article-more-a" href="/2016/09/15/软件测试-RF1-介绍与安装/">更多精彩 >></a>
         </p>
       
 
@@ -406,34 +392,29 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-《鹊桥仙•梧桐山》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Smba安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/01/《鹊桥仙•梧桐山》/">《鹊桥仙•梧桐山》</a>
+      <a class="article-title" href="/2016/01/12/Smba安装/">Smba安装</a>
     </h1>
   
 
         
-        <a href="/2018/01/01/《鹊桥仙•梧桐山》/" class="archive-article-date">
-  	<time datetime="2018-01-01T15:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-01</time>
+        <a href="/2016/01/12/Smba安装/" class="archive-article-date">
+  	<time datetime="2016-01-12T14:01:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p align="center">《鹊桥仙•梧桐山》</p><br><br>
-<p align="center">梧桐叶落，晨雾氤氲，三分浅冬诗意，漫爬吁气衣襟湿，尽洗却，经年之苦。</p><br><br>
-<p align="center">鹏城峰上，云烟萦绕，些许疏影几里。静坐闲看新岁来，遥相望，孤者何惧。</p><br><br>
-
-<p><br><br></p>
-<p>文案：</p>
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>为了让Linux和Windows能实时工共享目录，在Linux上面安装个smba。</p>
         
-          <a class="article-more-a" href="/2018/01/01/《鹊桥仙•梧桐山》/#more">more >></a>
+          <a class="article-more-a" href="/2016/01/12/Smba安装/#more">more >></a>
         
       
 
@@ -447,7 +428,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">杜若诗集</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Smba Linux</a>
         		</li>
       		
 		</ul>
@@ -457,7 +438,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/01/《鹊桥仙•梧桐山》/">更多精彩 >></a>
+          <a class="article-more-a" href="/2016/01/12/Smba安装/">更多精彩 >></a>
         </p>
       
 
@@ -487,343 +468,51 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-《杜若诗集•序》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Linux基础-定时任务crontab" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/01/《杜若诗集•序》/">《杜若诗集•序》</a>
+      <a class="article-title" href="/2015/09/28/Linux基础-定时任务crontab/">Linux基础-定时任务crontab</a>
     </h1>
   
 
         
-        <a href="/2018/01/01/《杜若诗集•序》/" class="archive-article-date">
-  	<time datetime="2018-01-01T06:27:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-01</time>
+        <a href="/2015/09/28/Linux基础-定时任务crontab/" class="archive-article-date">
+  	<time datetime="2015-09-28T12:03:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p align="center">《杜若诗集•序》</p>
-
-<p>戊戌年之始，登梧桐山，遂写《鹊桥仙·梧桐山》，尔后每月空隙之余，偶有拙作，放各论坛平台之上，实是零散，是以弄成诗集。然此类陋作，难寻他人为其做序，遂自序以之，故有浅陋之处，或贻笑于方家也。</p>
-<p>《九歌·湘君》有语：”采芳洲兮杜若“。诗意亦似杜若，等君来采。千树落红时，描平渚几行雪雁，万径踪灭处，写高山一道孤鸿。折梅煮酒夜，醉吟喜乐之三千，断弦独处晚，沉赋纵悲苦之九九。夫天地者，万物之逆旅也；光阴者，百代之过客也。而浮生若梦，为欢几何？何不落墨为诗，积文为集。偶有偷闲，翻此诗集，坐清静竹草之阁，品清茶墨韵之风，忆缥缈过往之事，此不亦快哉。</p>
-<p>序终。</p>
-        
-          <a class="article-more-a" href="/2018/01/01/《杜若诗集•序》/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">杜若诗集</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/01/《杜若诗集•序》/">更多精彩 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Jmeter简单使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/23/Jmeter简单使用/">Jmeter简单使用</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/23/Jmeter简单使用/" class="archive-article-date">
-  	<time datetime="2017-08-23T09:19:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-jmeter安装"><a href="#1-jmeter安装" class="headerlink" title="1 jmeter安装"></a>1 jmeter安装</h2><h3 id="1-1-安装java"><a href="#1-1-安装java" class="headerlink" title="1.1 安装java"></a>1.1 安装java</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.下载jdk的安装包，这里用的是jdk-14.0.2_windows-x64_bin.zip</span><br><span class="line">2.配置jdk的环境变量：</span><br><span class="line">	JAVA_HOME: E:\software\jdk\jdk-14.0.2</span><br><span class="line">	PATH: %JAVA_HOME%\bin</span><br><span class="line">	PATH: %JAVA_HOME%\jre\bin</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://download.oracle.com/otn-pub/java/jdk/14.0.2+12/205943a0976c4ed48cb16f1043c5c647/jdk-14.0.2_windows-x64_bin.zip?AuthParam=1597727374_56ea1bf7b995fb3cfe9b5901b61acde3" target="_blank" rel="noopener">jdk-14.0.2_windows-x64_bin.zip</a></p>
-        
-          <a class="article-more-a" href="/2017/08/23/Jmeter简单使用/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">软件测试 Jmeter</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/23/Jmeter简单使用/">更多精彩 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Go语言基础13-生产消费" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/30/Go语言基础13-生产消费/">Go语言基础13_生产消费</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/30/Go语言基础13-生产消费/" class="archive-article-date">
-  	<time datetime="2017-06-30T12:29:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="生产消费"><a href="#生产消费" class="headerlink" title="生产消费"></a>生产消费</h2>
-        
-          <a class="article-more-a" href="/2017/06/30/Go语言基础13-生产消费/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Golang</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/30/Go语言基础13-生产消费/">更多精彩 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Go语言基础12-加锁" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/25/Go语言基础12-加锁/">Go语言基础12_加锁</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/25/Go语言基础12-加锁/" class="archive-article-date">
-  	<time datetime="2017-06-25T12:29:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="共享资源的加锁访问"><a href="#共享资源的加锁访问" class="headerlink" title="共享资源的加锁访问"></a>共享资源的加锁访问</h2>
-        
-          <a class="article-more-a" href="/2017/06/25/Go语言基础12-加锁/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Golang</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/25/Go语言基础12-加锁/">更多精彩 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Go语言基础11-interface" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/20/Go语言基础11-interface/">Go语言基础11_interface</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/20/Go语言基础11-interface/" class="archive-article-date">
-  	<time datetime="2017-06-20T15:29:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="interface"><a href="#interface" class="headerlink" title="interface"></a>interface</h2><ul>
-<li>作为接口</li>
-<li>作为类型</li>
+        <h2 id="1-简述"><a href="#1-简述" class="headerlink" title="1 简述"></a>1 简述</h2><p>crontab命令用于设置周期性被执行的指令。该命令从标准输入设备读取指令，并将其存放于“crontab”文件中，以供之后读取和执行。</p>
+<p>cron 系统调度进程。 可以使用它在每天的非高峰负荷时间段运行作业，或在一周或一月中的不同时段运行。cron是系统主要的调度进程，可以在无需人工干预的情况下运行作业。</p>
+<p>crontab命令允许用户提交、编辑或删除相应的作业。每一个用户都可以有一个crontab文件来保存调度信息。系统管理员可以通过/etc/cron.deny 和 /etc/cron.allow 这两个文件来禁止或允许，用户拥有自己的crontab文件。</p>
+<h2 id="2-配置文件"><a href="#2-配置文件" class="headerlink" title="2 配置文件"></a>2 配置文件</h2><p>crontab在/etc目录下面存在cron.hourly,cron.daily,cron.weekly,cron.monthly,cron.d五个目录和crontab,cron.deny二个文件</p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><h2 id="定时任务书写规范"><a href="#定时任务书写规范" class="headerlink" title="定时任务书写规范"></a>定时任务书写规范</h2><ul>
+<li>1 定时任务要加注释</li>
+<li>2 定时任务命令或脚本结尾加 &amp;&gt;/dev/null 或 &gt;/dev/null 2&gt;&amp;1 或 1&gt;/dev/null 2&gt;/dev/null</li>
+<li>3 定时任务执行shell脚本前加/bin/sh，定时任务执行shell脚本不必添加执行权限</li>
+<li>4 定时任务命令或程序尽量写到脚本里，定时任务只要执行脚本即可<ul>
+<li>注意操作步骤：<ul>
+<li>1 命令行执行</li>
+<li>2 编写脚本</li>
+<li>3 测试脚本</li>
+<li>4 设置定时任务</li>
 </ul>
-        
-          <a class="article-more-a" href="/2017/06/20/Go语言基础11-interface/#more">more >></a>
-        
+</li>
+</ul>
+</li>
+<li>5 生产任务程序不要随意打印输出信息</li>
+<li>6 定时任务执行的脚本要规范路径 (例如 /server/script)</li>
+<li>7 配置定时任务要规范操作过程</li>
+<li>8 定时任务执行特殊的字符需要进行转义，否则会报错，例如 百分号% 转义 %</li>
+<li>9 定时任务脚本中如果涉及使用到环境变量，必须在脚本中重新定义，不然，定时任务识别不了</li>
+</ul>
+
       
 
       
@@ -836,7 +525,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Golang</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
@@ -846,7 +535,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/20/Go语言基础11-interface/">更多精彩 >></a>
+          <a class="article-more-a" href="/2015/09/28/Linux基础-定时任务crontab/">更多精彩 >></a>
         </p>
       
 
@@ -876,29 +565,29 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Go语言基础10-http-server" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Linux基础-nodejs安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/18/Go语言基础10-http-server/">Go语言基础10_http_server</a>
+      <a class="article-title" href="/2015/09/25/Linux基础-nodejs安装/">Linux基础-nodejs安装</a>
     </h1>
   
 
         
-        <a href="/2017/06/18/Go语言基础10-http-server/" class="archive-article-date">
-  	<time datetime="2017-06-18T13:29:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-18</time>
+        <a href="/2015/09/25/Linux基础-nodejs安装/" class="archive-article-date">
+  	<time datetime="2015-09-25T12:04:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Http-server"><a href="#Http-server" class="headerlink" title="Http server"></a>Http server</h2>
+        <h2 id="1-安装方式一"><a href="#1-安装方式一" class="headerlink" title="1 安装方式一"></a>1 安装方式一</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl --silent --location https://rpm.nodesource.com/setup_10.x | bash -</span><br><span class="line">yum install -y nodejs</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2017/06/18/Go语言基础10-http-server/#more">more >></a>
+          <a class="article-more-a" href="/2015/09/25/Linux基础-nodejs安装/#more">more >></a>
         
       
 
@@ -912,7 +601,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Golang</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
@@ -922,7 +611,317 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/18/Go语言基础10-http-server/">更多精彩 >></a>
+          <a class="article-more-a" href="/2015/09/25/Linux基础-nodejs安装/">更多精彩 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Linux基础-磁盘初始化命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/20/Linux基础-磁盘初始化命令/">Linux基础_磁盘初始化命令</a>
+    </h1>
+  
+
+        
+        <a href="/2015/09/20/Linux基础-磁盘初始化命令/" class="archive-article-date">
+  	<time datetime="2015-09-20T12:40:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="磁盘初始化"><a href="#磁盘初始化" class="headerlink" title="磁盘初始化"></a>磁盘初始化</h2><h3 id="1-挂载根目录"><a href="#1-挂载根目录" class="headerlink" title="1 挂载根目录"></a>1 挂载根目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># df -h</span></span><br><span class="line"><span class="comment"># fdisk -l</span></span><br><span class="line"><span class="comment"># fdisk /dev/vdb</span></span><br><span class="line"><span class="comment"># mkfs.btrfs /dev/vdb1</span></span><br><span class="line"><span class="comment"># btrfs device add -f /dev/vdb1 /</span></span><br><span class="line"><span class="comment"># btrfs filesystem balance /</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 可能需要重启rsyslog服务</span></span><br><span class="line"><span class="comment"># service rsyslog restart</span></span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2015/09/20/Linux基础-磁盘初始化命令/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/09/20/Linux基础-磁盘初始化命令/">更多精彩 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Linux基础-umask" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/17/Linux基础-umask/">Linux基础_umask</a>
+    </h1>
+  
+
+        
+        <a href="/2015/09/17/Linux基础-umask/" class="archive-article-date">
+  	<time datetime="2015-09-17T13:53:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="umask"><a href="#umask" class="headerlink" title="umask"></a>umask</h2><h3 id="1-简述"><a href="#1-简述" class="headerlink" title="1 简述"></a>1 简述</h3><p>在linux系统中，我们创建一个新的文件或者目录的时候，这些新的文件或目录都会有默认的访问权限，umask命令与文件和目录的默认访问权限有关。</p>
+<p>它与chmod的效果刚好相反，umask设置的是权限“补码”，而chmod设置的是文件权限码。系统管理员必须要为你设置一个合理的 umask值，以确保你创建的文件具有所希望的缺省权限，防止其他非同组用户对你的文件具有写权限。在已经登录之后，可以按照个人的偏好使用umask命 令来改变文件创建的缺省权限。相应的改变直到退出该shell或使用另外的umask命令之前一直有效。一般来说，umask命令是在/etc /profile文件中设置的，每个用户在登录时都会引用这个文件，所以如果希望改变所有用户的umask，可以在该文件中加入相应的条目。如果希望永久 性地设置自己的umask值，那么就把它放在自己$HOME目录下的.profile或.bash_profile文件中</p>
+<p>设置umask</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># umask 002</span></span><br></pre></td></tr></table></figure>
+
+<p>查看umask</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># umask -p</span></span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2015/09/17/Linux基础-umask/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/09/17/Linux基础-umask/">更多精彩 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Linux基础-问题锦集1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/01/Linux基础-问题锦集1/">Linux基础_问题锦集1</a>
+    </h1>
+  
+
+        
+        <a href="/2015/09/01/Linux基础-问题锦集1/" class="archive-article-date">
+  	<time datetime="2015-08-31T16:35:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="问题锦集1"><a href="#问题锦集1" class="headerlink" title="问题锦集1"></a>问题锦集1</h2>
+        
+          <a class="article-more-a" href="/2015/09/01/Linux基础-问题锦集1/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/09/01/Linux基础-问题锦集1/">更多精彩 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-MySQL-基本操作1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/31/MySQL-基本操作1/">MySQL_基本操作1</a>
+    </h1>
+  
+
+        
+        <a href="/2015/08/31/MySQL-基本操作1/" class="archive-article-date">
+  	<time datetime="2015-08-31T12:55:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="MySQL基本操作1"><a href="#MySQL基本操作1" class="headerlink" title="MySQL基本操作1"></a>MySQL基本操作1</h2><h3 id="1-简单查询操作"><a href="#1-简单查询操作" class="headerlink" title="1 简单查询操作"></a>1 简单查询操作</h3>
+        
+          <a class="article-more-a" href="/2015/08/31/MySQL-基本操作1/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/08/31/MySQL-基本操作1/">更多精彩 >></a>
         </p>
       
 
@@ -954,7 +953,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
   
 
@@ -1083,10 +1082,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Photoshop</a>
               </li>
              
@@ -1099,11 +1094,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">杜若诗集</a>
+                <a href="javascript:void(0)" class="js-tag color1">Hexo Yilia</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Hexo Yilia</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
