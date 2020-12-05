@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://www.lijiaze.vip">
   <title>MYSQL_备份与恢复脚本 | 浅墨画青梅</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="备份与恢复脚本使用方法1.将脚本保存在MySQL服务器一个空间足够大的目录下，名称为backup_recovery.sh2.给脚本添加可执行权限。chmod a+x backup_recovery.sh3.执行的样例：sh backup_recovery.sh  &amp;lt;backup|recovery&amp;gt;      备份：sh backup_recovery.sh backup test 20">
+  <meta name="description" content="备份与恢复脚本使用方法1.将脚本保存在MySQL服务器一个空间足够大的目录下，名称为backup_recovery.sh2.给脚本添加可执行权限。chmod a+x backup_recovery.sh3.执行的样例：sh backup_recovery.sh  &amp;lt;操作：backup|recovery&amp;gt; &amp;lt;库名：database&amp;gt;  &amp;lt;时间：date&amp;gt;  备份：">
 <meta name="keywords" content="MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MYSQL_备份与恢复脚本">
 <meta property="og:url" content="http://www.lijiaze.vip/2020/12/05/MySQL-备份与恢复脚本/index.html">
 <meta property="og:site_name" content="浅墨画青梅">
-<meta property="og:description" content="备份与恢复脚本使用方法1.将脚本保存在MySQL服务器一个空间足够大的目录下，名称为backup_recovery.sh2.给脚本添加可执行权限。chmod a+x backup_recovery.sh3.执行的样例：sh backup_recovery.sh  &amp;lt;backup|recovery&amp;gt;      备份：sh backup_recovery.sh backup test 20">
+<meta property="og:description" content="备份与恢复脚本使用方法1.将脚本保存在MySQL服务器一个空间足够大的目录下，名称为backup_recovery.sh2.给脚本添加可执行权限。chmod a+x backup_recovery.sh3.执行的样例：sh backup_recovery.sh  &amp;lt;操作：backup|recovery&amp;gt; &amp;lt;库名：database&amp;gt;  &amp;lt;时间：date&amp;gt;  备份：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-12-05T08:27:24.810Z">
+<meta property="og:updated_time" content="2020-12-05T08:50:51.396Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MYSQL_备份与恢复脚本">
-<meta name="twitter:description" content="备份与恢复脚本使用方法1.将脚本保存在MySQL服务器一个空间足够大的目录下，名称为backup_recovery.sh2.给脚本添加可执行权限。chmod a+x backup_recovery.sh3.执行的样例：sh backup_recovery.sh  &amp;lt;backup|recovery&amp;gt;      备份：sh backup_recovery.sh backup test 20">
+<meta name="twitter:description" content="备份与恢复脚本使用方法1.将脚本保存在MySQL服务器一个空间足够大的目录下，名称为backup_recovery.sh2.给脚本添加可执行权限。chmod a+x backup_recovery.sh3.执行的样例：sh backup_recovery.sh  &amp;lt;操作：backup|recovery&amp;gt; &amp;lt;库名：database&amp;gt;  &amp;lt;时间：date&amp;gt;  备份：">
   
     <link rel="alternative" href="/atom.xml" title="浅墨画青梅" type="application/atom+xml">
   
@@ -185,7 +185,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="备份与恢复脚本"><a href="#备份与恢复脚本" class="headerlink" title="备份与恢复脚本"></a>备份与恢复脚本</h2><p>使用方法<br>1.将脚本保存在MySQL服务器一个空间足够大的目录下，名称为backup_recovery.sh<br>2.给脚本添加可执行权限。chmod a+x backup_recovery.sh<br>3.执行的样例：sh backup_recovery.sh  &lt;backup|recovery&gt;  <database>  <date></date></database></p>
+        <h2 id="备份与恢复脚本"><a href="#备份与恢复脚本" class="headerlink" title="备份与恢复脚本"></a>备份与恢复脚本</h2><p>使用方法<br>1.将脚本保存在MySQL服务器一个空间足够大的目录下，名称为backup_recovery.sh<br>2.给脚本添加可执行权限。chmod a+x backup_recovery.sh<br>3.执行的样例：sh backup_recovery.sh  &lt;操作：backup|recovery&gt; &lt;库名：database&gt;  &lt;时间：date&gt;</p>
 <ul>
 <li>备份：sh backup_recovery.sh backup test 20201205</li>
 <li>恢复：sh backup_recovery.sh recovery test 20201205</li>
@@ -451,11 +451,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Ansible</a>
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
+                <a href="javascript:void(0)" class="js-tag color3">Ansible</a>
               </li>
              
               <li class="article-tag-list-item">
