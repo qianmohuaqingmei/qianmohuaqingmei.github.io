@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://www.lijiaze.vip">
-  <title>Archives: 2015 | 浅墨画青梅</title>
+  <title>MYSQL_备份与恢复脚本 | 浅墨画青梅</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="浅墨画青梅">
-<meta property="og:url" content="http://www.lijiaze.vip/archives/2015/index.html">
+  <meta name="description" content="备份与恢复脚本使用方法1.将脚本保存在MySQL服务器一个空间足够大的目录下，名称为backup_recovery.sh2.给脚本添加可执行权限。chmod a+x backup_recovery.sh3.执行的样例：sh backup_recovery.sh &amp;lt;backup|recovery&amp;gt;    备份：sh backup_recovery.sh backup test 20201">
+<meta name="keywords" content="MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MYSQL_备份与恢复脚本">
+<meta property="og:url" content="http://www.lijiaze.vip/2020/12/05/MySQL-备份与恢复脚本/index.html">
 <meta property="og:site_name" content="浅墨画青梅">
+<meta property="og:description" content="备份与恢复脚本使用方法1.将脚本保存在MySQL服务器一个空间足够大的目录下，名称为backup_recovery.sh2.给脚本添加可执行权限。chmod a+x backup_recovery.sh3.执行的样例：sh backup_recovery.sh &amp;lt;backup|recovery&amp;gt;    备份：sh backup_recovery.sh backup test 20201">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-12-05T08:24:02.587Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅墨画青梅">
+<meta name="twitter:title" content="MYSQL_备份与恢复脚本">
+<meta name="twitter:description" content="备份与恢复脚本使用方法1.将脚本保存在MySQL服务器一个空间足够大的目录下，名称为backup_recovery.sh2.给脚本添加可执行权限。chmod a+x backup_recovery.sh3.执行的样例：sh backup_recovery.sh &amp;lt;backup|recovery&amp;gt;    备份：sh backup_recovery.sh backup test 20201">
   
     <link rel="alternative" href="/atom.xml" title="浅墨画青梅" type="application/atom+xml">
   
@@ -160,226 +165,73 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-MySQL-备份与恢复脚本" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MYSQL_备份与恢复脚本
+    </h1>
+  
+
+        
+        <a href="/2020/12/05/MySQL-备份与恢复脚本/" class="archive-article-date">
+  	<time datetime="2020-12-05T08:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-05</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="备份与恢复脚本"><a href="#备份与恢复脚本" class="headerlink" title="备份与恢复脚本"></a>备份与恢复脚本</h2><p>使用方法<br>1.将脚本保存在MySQL服务器一个空间足够大的目录下，名称为backup_recovery.sh<br>2.给脚本添加可执行权限。chmod a+x backup_recovery.sh<br>3.执行的样例：sh backup_recovery.sh &lt;backup|recovery&gt; <database> <date></date></database></p>
+<ul>
+<li>备份：sh backup_recovery.sh backup test 20201205</li>
+<li>恢复：sh backup_recovery.sh recovery test 20201205</li>
+</ul>
+<a id="more"></a>
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">CUR_PATH=<span class="string">"<span class="variable">$(cd "$(dirname "$&#123;BASH_SOURCE[0]&#125;")</span>"</span> &amp;&amp; <span class="built_in">pwd</span>)<span class="string">"</span></span><br><span class="line"><span class="string">LOG_FILE="</span><span class="variable">$&#123;CUR_PATH&#125;</span>/backup.log<span class="string">"</span></span><br><span class="line"><span class="string">DB_INIT_FILE="</span><span class="variable">$&#123;CUR_PATH&#125;</span>/init_db.sql<span class="string">"</span></span><br><span class="line"><span class="string">DB_USE="</span>root<span class="string">"</span></span><br><span class="line"><span class="string">DB_PWD="</span>Ftprd_2020<span class="string">"</span></span><br><span class="line"><span class="string">DB_HOST="</span>127.0.0.1<span class="string">"</span></span><br><span class="line"><span class="string">DB_PORT="</span>3306<span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">function log_info()&#123;</span></span><br><span class="line"><span class="string">    echo "</span>[INFO] [$(date <span class="string">"+%Y-%m-%d%T"</span>)] <span class="variable">$1</span><span class="string">" &gt;&gt; "</span><span class="variable">$&#123;LOG_FILE&#125;</span><span class="string">"</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">function log_error()&#123;</span></span><br><span class="line"><span class="string">    echo "</span>[ERROR] [$(date <span class="string">"+%Y-%m-%d%T"</span>)] <span class="variable">$1</span><span class="string">" &gt;&gt; "</span><span class="variable">$&#123;LOG_FILE&#125;</span><span class="string">"</span></span><br><span class="line"><span class="string">    exit 1</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">function usage()&#123;</span></span><br><span class="line"><span class="string">    echo "</span><span class="literal">false</span><span class="string">"</span></span><br><span class="line"><span class="string">    log_error "</span>Usage: <span class="variable">$&#123;PROG_NAME&#125;</span> &lt;backup|recovery&gt; databasename date<span class="string">"</span></span><br><span class="line"><span class="string">    exit 1</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">function backup_database()&#123;</span></span><br><span class="line"><span class="string">    log_info "</span><span class="variable">$&#123;FUNCNAME[0]&#125;</span> begin.<span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    DB_NAME="</span><span class="variable">$1</span><span class="string">"</span></span><br><span class="line"><span class="string">    BK_DATE="</span><span class="variable">$2</span><span class="string">"</span></span><br><span class="line"><span class="string">    BK_FILE="</span><span class="variable">$&#123;CUR_PATH&#125;</span>/<span class="variable">$&#123;DB_NAME&#125;</span>_<span class="variable">$&#123;BK_DATE&#125;</span>.sql<span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    log_info "</span>check backup sql file exist or not.<span class="string">"</span></span><br><span class="line"><span class="string">    [[ ! -f "</span><span class="variable">$&#123;BK_FILE&#125;</span><span class="string">" ]] || &#123; echo "</span><span class="literal">false</span><span class="string">"; log_error "</span>backup file exist!<span class="string">"; &#125;</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    log_info "</span>backup file not exist,begin backup <span class="variable">$&#123;DB_NAME&#125;</span><span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    mysqldump -h"</span><span class="variable">$&#123;DB_HOST&#125;</span><span class="string">" -P"</span><span class="variable">$&#123;DB_PORT&#125;</span><span class="string">" -u"</span><span class="variable">$&#123;DB_USE&#125;</span><span class="string">" -p"</span><span class="variable">$&#123;DB_PWD&#125;</span><span class="string">" --set-gtid-purged=off -x "</span><span class="variable">$&#123;DB_NAME&#125;</span><span class="string">" &gt; "</span><span class="variable">$&#123;BK_FILE&#125;</span><span class="string">" 2&gt;&gt;<span class="variable">$&#123;LOG_FILE&#125;</span> || &#123; echo "</span><span class="literal">false</span><span class="string">"; rm -rf "</span><span class="variable">$&#123;BK_FILE&#125;</span><span class="string">"; log_error "</span>backup <span class="variable">$&#123;DB_NAME&#125;</span> failed!<span class="string">"; &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    log_info "</span>backup <span class="variable">$&#123;DB_NAME&#125;</span> success!<span class="string">" &amp;&amp; echo "</span><span class="literal">true</span><span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    log_info "</span><span class="variable">$&#123;FUNCNAME[0]&#125;</span> complete.<span class="string">"</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">function create_init_db_file()&#123;</span></span><br><span class="line"><span class="string">    log_info "</span><span class="variable">$&#123;FUNCNAME[0]&#125;</span> begin.<span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    DB_NAME="</span><span class="variable">$1</span><span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    [[ -n "</span><span class="variable">$&#123;DB_NAME&#125;</span><span class="string">" ]] || &#123; echo "</span><span class="literal">false</span><span class="string">"; log_error "</span>DB_NAME is null!<span class="string">"; &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    cat &gt; "</span><span class="variable">$&#123;DB_INIT_FILE&#125;</span><span class="string">" &lt;&lt;EOF</span></span><br><span class="line"><span class="string">DROP DATABASE IF EXISTS <span class="variable">$&#123;DB_NAME&#125;</span>;</span></span><br><span class="line"><span class="string">CREATE DATABASE IF NOT EXISTS <span class="variable">$&#123;DB_NAME&#125;</span> DEFAULT CHARACTER SET utf8;</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">    log_info "</span><span class="variable">$&#123;FUNCNAME[0]&#125;</span> complete.<span class="string">"</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">function recovery_database()&#123;</span></span><br><span class="line"><span class="string">    log_info "</span><span class="variable">$&#123;FUNCNAME[0]&#125;</span> begin.<span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    DB_NAME="</span><span class="variable">$1</span><span class="string">"</span></span><br><span class="line"><span class="string">    BK_DATE="</span><span class="variable">$2</span><span class="string">"</span></span><br><span class="line"><span class="string">    BK_FILE="</span><span class="variable">$&#123;CUR_PATH&#125;</span>/<span class="variable">$&#123;DB_NAME&#125;</span>_<span class="variable">$&#123;BK_DATE&#125;</span>.sql<span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    [[ -n "</span><span class="variable">$&#123;DB_NAME&#125;</span><span class="string">" ]] || &#123; echo "</span><span class="literal">false</span><span class="string">"; log_error "</span>DB_NAME is null!<span class="string">"; &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    create_init_db_file "</span><span class="variable">$&#123;DB_NAME&#125;</span><span class="string">" || &#123; echo "</span><span class="literal">false</span><span class="string">"; log_error "</span>create init db file failed!<span class="string">";&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    log_info "</span>check recovery sql file exist or not.<span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    [[ -f "</span><span class="variable">$&#123;BK_FILE&#125;</span><span class="string">" ]] || &#123; echo "</span><span class="literal">false</span><span class="string">"; log_error "</span>backup file not exist!<span class="string">"; &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    [[ -f "</span><span class="variable">$&#123;DB_INIT_FILE&#125;</span><span class="string">" ]] || &#123; echo "</span><span class="literal">false</span><span class="string">"; log_error "</span>db init file not exist!<span class="string">"; &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    log_info "</span>recovery and init file exist,begin recovery <span class="variable">$&#123;DB_NAME&#125;</span><span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    mysql -h"</span><span class="variable">$&#123;DB_HOST&#125;</span><span class="string">" -P"</span><span class="variable">$&#123;DB_PORT&#125;</span><span class="string">" -u"</span><span class="variable">$&#123;DB_USE&#125;</span><span class="string">" -p"</span><span class="variable">$&#123;DB_PWD&#125;</span><span class="string">" "</span><span class="variable">$&#123;DB_NAME&#125;</span><span class="string">" &lt; "</span><span class="variable">$&#123;DB_INIT_FILE&#125;</span><span class="string">" 2&gt;&gt;<span class="variable">$&#123;LOG_FILE&#125;</span> || &#123; echo "</span><span class="literal">false</span><span class="string">"; log_error "</span>init db failed!<span class="string">";&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    log_info "</span>init db success!<span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    mysql -h"</span><span class="variable">$&#123;DB_HOST&#125;</span><span class="string">" -P"</span><span class="variable">$&#123;DB_PORT&#125;</span><span class="string">" -u"</span><span class="variable">$&#123;DB_USE&#125;</span><span class="string">" -p"</span><span class="variable">$&#123;DB_PWD&#125;</span><span class="string">" "</span><span class="variable">$&#123;DB_NAME&#125;</span><span class="string">" &lt; "</span><span class="variable">$&#123;BK_FILE&#125;</span><span class="string">" 2&gt;&gt;<span class="variable">$&#123;LOG_FILE&#125;</span> || &#123; echo "</span><span class="literal">false</span><span class="string">"; log_error "</span>recovery <span class="variable">$&#123;DB_NAME&#125;</span> failed!<span class="string">"; &#125; </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    log_info "</span>recovery <span class="variable">$&#123;DB_NAME&#125;</span> success!<span class="string">" &amp;&amp; echo "</span><span class="literal">true</span><span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    log_info "</span><span class="variable">$&#123;FUNCNAME[0]&#125;</span> complete.<span class="string">"</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">function main()&#123;</span></span><br><span class="line"><span class="string">	log_info "</span><span class="variable">$&#123;FUNCNAME[0]&#125;</span> begin.<span class="string">"</span></span><br><span class="line"><span class="string">	</span></span><br><span class="line"><span class="string">    ACTION="</span><span class="variable">$1</span><span class="string">"</span></span><br><span class="line"><span class="string">    DATABASE_NAME="</span><span class="variable">$2</span><span class="string">"</span></span><br><span class="line"><span class="string">    BACKUP_DATE="</span><span class="variable">$3</span><span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    [[ -n "</span><span class="variable">$&#123;ACTION&#125;</span><span class="string">" ]] || &#123; echo "</span><span class="literal">false</span><span class="string">"; log_error "</span>action commnad is null!<span class="string">"; &#125;</span></span><br><span class="line"><span class="string">    [[ -n "</span><span class="variable">$&#123;DATABASE_NAME&#125;</span><span class="string">" ]] || &#123; echo "</span><span class="literal">false</span><span class="string">"; log_error "</span>database name is null!<span class="string">"; &#125;</span></span><br><span class="line"><span class="string">    [[ -n "</span><span class="variable">$&#123;BACKUP_DATE&#125;</span><span class="string">" ]] || &#123; echo "</span><span class="literal">false</span><span class="string">"; log_error "</span>backup date is null!<span class="string">"; &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    case "</span><span class="variable">$&#123;ACTION&#125;</span><span class="string">" in</span></span><br><span class="line"><span class="string">        backup)</span></span><br><span class="line"><span class="string">            backup_database "</span><span class="variable">$&#123;DATABASE_NAME&#125;</span><span class="string">" "</span><span class="variable">$&#123;BACKUP_DATE&#125;</span><span class="string">"</span></span><br><span class="line"><span class="string">        ;;</span></span><br><span class="line"><span class="string">        recovery)</span></span><br><span class="line"><span class="string">            recovery_database "</span><span class="variable">$&#123;DATABASE_NAME&#125;</span><span class="string">" "</span><span class="variable">$&#123;BACKUP_DATE&#125;</span><span class="string">"</span></span><br><span class="line"><span class="string">        ;;</span></span><br><span class="line"><span class="string">        *)</span></span><br><span class="line"><span class="string">            usage</span></span><br><span class="line"><span class="string">        ;;</span></span><br><span class="line"><span class="string">        esac</span></span><br><span class="line"><span class="string">	</span></span><br><span class="line"><span class="string">	log_info "</span><span class="variable">$&#123;FUNCNAME[0]&#125;</span> complete.<span class="string">"</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">main "</span><span class="variable">$@</span><span class="string">"</span></span><br></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>爱，就供养<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/weichatpay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/28/Linux基础-定时任务crontab/" class="archive-article-date">
-  	<time datetime="2015-09-28T12:03:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/28/Linux基础-定时任务crontab/">Linux基础-定时任务crontab</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/25/Linux基础-nodejs安装/" class="archive-article-date">
-  	<time datetime="2015-09-25T12:04:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/25/Linux基础-nodejs安装/">Linux基础-nodejs安装</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/20/Linux基础-磁盘初始化命令/" class="archive-article-date">
-  	<time datetime="2015-09-20T12:40:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/20/Linux基础-磁盘初始化命令/">Linux基础_磁盘初始化命令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/17/Linux基础-umask/" class="archive-article-date">
-  	<time datetime="2015-09-17T13:53:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/17/Linux基础-umask/">Linux基础_umask</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/01/Linux基础-问题锦集1/" class="archive-article-date">
-  	<time datetime="2015-08-31T16:35:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/01/Linux基础-问题锦集1/">Linux基础_问题锦集1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/31/MySQL-基本操作1/" class="archive-article-date">
-  	<time datetime="2015-08-31T12:55:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/31/MySQL-基本操作1/">MySQL_基本操作1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -391,174 +243,115 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.lijiaze.vip/2020/12/05/MySQL-备份与恢复脚本/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/26/Linux基础-网卡配置/" class="archive-article-date">
-  	<time datetime="2015-08-26T11:40:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-26</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/09/22/Kubernetes2-安装指导/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">kubernetes 安装指南</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/26/Linux基础-网卡配置/">Linux基础_网卡配置</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/20/Linux基础-shell常用的命令或函数/" class="archive-article-date">
-  	<time datetime="2015-08-20T12:20:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/20/Linux基础-shell常用的命令或函数/">Linux基础_shell常用的命令或函数</a>
-    </h1>
+  <div id="SOHUCS" sid="MySQL-备份与恢复脚本"></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js"></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cyugJtiYY",
+        conf: "prod_93b5906623d98eda2333693f7d4a2b29"
+    });
+</script>
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/05/25/软件测试-基本理论3/" class="archive-article-date">
-  	<time datetime="2015-05-25T15:20:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-05-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/05/25/软件测试-基本理论3/">软件测试_基本理论3</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">软件测试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/05/22/软件测试-基本理论2/" class="archive-article-date">
-  	<time datetime="2015-05-22T13:20:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-05-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/05/22/软件测试-基本理论2/">软件测试_基本理论2</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">软件测试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2015/page/2/">2</a><a class="extend next" rel="next" href="/archives/2015/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -588,8 +381,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
