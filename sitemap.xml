@@ -354,13 +354,6 @@
   </url>
   
   <url>
-    <loc>http://www.lijiaze.vip/tags/Git/</loc>
-    <lastmod>2020-12-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://www.lijiaze.vip/tags/Golang/</loc>
     <lastmod>2020-12-05</lastmod>
     <changefreq>daily</changefreq>
@@ -368,7 +361,7 @@
   </url>
   
   <url>
-    <loc>http://www.lijiaze.vip/tags/kubernetes/</loc>
+    <loc>http://www.lijiaze.vip/tags/Git/</loc>
     <lastmod>2020-12-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -376,6 +369,13 @@
   
   <url>
     <loc>http://www.lijiaze.vip/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95-Jmeter/</loc>
+    <lastmod>2020-12-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.lijiaze.vip/tags/kubernetes/</loc>
     <lastmod>2020-12-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -410,14 +410,14 @@
   </url>
   
   <url>
-    <loc>http://www.lijiaze.vip/tags/Hexo-Yilia/</loc>
+    <loc>http://www.lijiaze.vip/tags/Smba-Linux/</loc>
     <lastmod>2020-12-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://www.lijiaze.vip/tags/Smba-Linux/</loc>
+    <loc>http://www.lijiaze.vip/tags/Hexo-Yilia/</loc>
     <lastmod>2020-12-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
