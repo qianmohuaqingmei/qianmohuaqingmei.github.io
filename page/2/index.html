@@ -157,29 +157,34 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Zookeeper集群部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-杜若诗集-《少年游•东江湖》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/09/01/Zookeeper%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/">Zookeeper集群部署</a>
+      <a class="article-title" href="/2018/06/25/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E5%B0%91%E5%B9%B4%E6%B8%B8%E2%80%A2%E4%B8%9C%E6%B1%9F%E6%B9%96%E3%80%8B/">《少年游•东江湖》</a>
     </h1>
   
 
         
-        <a href="/2021/09/01/Zookeeper%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/" class="archive-article-date">
-  	<time datetime="2021-09-01T01:54:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-01</time>
+        <a href="/2018/06/25/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E5%B0%91%E5%B9%B4%E6%B8%B8%E2%80%A2%E4%B8%9C%E6%B1%9F%E6%B9%96%E3%80%8B/" class="archive-article-date">
+  	<time datetime="2018-06-25T12:45:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-云硬盘挂载"><a href="#1-云硬盘挂载" class="headerlink" title="1 云硬盘挂载"></a>1 云硬盘挂载</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看挂盘名称</span></span><br><span class="line">fdisk -l</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建物理卷</span></span><br><span class="line">pvcreate /dev/vdb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建卷组</span></span><br><span class="line">vgcreate data_vg /dev/vdb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建逻辑卷</span></span><br><span class="line">lvcreate -l +100%free -n data data_vg</span><br><span class="line"></span><br><span class="line"><span class="comment"># 格式化磁盘</span></span><br><span class="line">mkfs.xfs /dev/data_vg/data</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建挂载目录</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /data1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 挂载</span></span><br><span class="line">mount /dev/data_vg/data /data1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加挂载信息</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;/dev/mapper/data_vg-data /data1 xfs     defaults        0 0&quot;</span> &gt;&gt; /etc/fstab</span><br></pre></td></tr></table></figure>
+        <p align="center">《少年游•东江湖》</p>
+<p align="center">暮风轻抚绕湖游，烟起隐渔舟，碧水草寒，落霞沾雾，江岸白悠悠。</p>
+<p align="center">丛芒荒径斑竹疏，丝秀紫袍柔，檀口含羞，手牵相许，梦短暗香留。</p>
+
+<p><br></br></p>
+<p>文案：</p>
         
-          <a class="article-more-a" href="/2021/09/01/Zookeeper%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/#more">more >></a>
+          <a class="article-more-a" href="/2018/06/25/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E5%B0%91%E5%B9%B4%E6%B8%B8%E2%80%A2%E4%B8%9C%E6%B1%9F%E6%B9%96%E3%80%8B/#more">more >></a>
         
       
 
@@ -193,7 +198,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Zookeeper</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">杜若诗集</a>
         		</li>
       		
 		</ul>
@@ -203,7 +208,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/09/01/Zookeeper%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/06/25/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E5%B0%91%E5%B9%B4%E6%B8%B8%E2%80%A2%E4%B8%9C%E6%B1%9F%E6%B9%96%E3%80%8B/">展开全文 >></a>
         </p>
       
 
@@ -233,29 +238,34 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Zookeeper单机部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-杜若诗集-《蝶恋花•五月二十》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/09/01/Zookeeper%E5%8D%95%E6%9C%BA%E9%83%A8%E7%BD%B2/">Zookeeper单机部署</a>
+      <a class="article-title" href="/2018/05/20/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E8%9D%B6%E6%81%8B%E8%8A%B1%E2%80%A2%E4%BA%94%E6%9C%88%E4%BA%8C%E5%8D%81%E3%80%8B/">《蝶恋花•五月二十》</a>
     </h1>
   
 
         
-        <a href="/2021/09/01/Zookeeper%E5%8D%95%E6%9C%BA%E9%83%A8%E7%BD%B2/" class="archive-article-date">
-  	<time datetime="2021-09-01T01:54:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-01</time>
+        <a href="/2018/05/20/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E8%9D%B6%E6%81%8B%E8%8A%B1%E2%80%A2%E4%BA%94%E6%9C%88%E4%BA%8C%E5%8D%81%E3%80%8B/" class="archive-article-date">
+  	<time datetime="2018-05-20T13:09:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-云硬盘挂载"><a href="#1-云硬盘挂载" class="headerlink" title="1 云硬盘挂载"></a>1 云硬盘挂载</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看挂盘名称</span></span><br><span class="line">fdisk -l</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建物理卷</span></span><br><span class="line">pvcreate /dev/vdb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建卷组</span></span><br><span class="line">vgcreate data_vg /dev/vdb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建逻辑卷</span></span><br><span class="line">lvcreate -l +100%free -n data data_vg</span><br><span class="line"></span><br><span class="line"><span class="comment"># 格式化磁盘</span></span><br><span class="line">mkfs.xfs /dev/data_vg/data</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建挂载目录</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /data1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 挂载</span></span><br><span class="line">mount /dev/data_vg/data /data1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加挂载信息</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;/dev/mapper/data_vg-data /data1 xfs     defaults        0 0&quot;</span> &gt;&gt; /etc/fstab</span><br></pre></td></tr></table></figure>
+        <p align="center">《蝶恋花•五月二十》</p>
+<p align="center">散尽流霞天色暮，柳絮满庭，万物依始簇，惭怯春心空作负，昔日光景不堪顾。</p>
+<p align="center">玉露销魂无说处，离夜烛微，一片书尺素，且把相思别梦叙，多情不胜天涯路。</p>
+
+<p><br></br></p>
+<p>文案：</p>
         
-          <a class="article-more-a" href="/2021/09/01/Zookeeper%E5%8D%95%E6%9C%BA%E9%83%A8%E7%BD%B2/#more">more >></a>
+          <a class="article-more-a" href="/2018/05/20/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E8%9D%B6%E6%81%8B%E8%8A%B1%E2%80%A2%E4%BA%94%E6%9C%88%E4%BA%8C%E5%8D%81%E3%80%8B/#more">more >></a>
         
       
 
@@ -269,7 +279,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Zookeeper</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">杜若诗集</a>
         		</li>
       		
 		</ul>
@@ -279,7 +289,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/09/01/Zookeeper%E5%8D%95%E6%9C%BA%E9%83%A8%E7%BD%B2/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/05/20/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E8%9D%B6%E6%81%8B%E8%8A%B1%E2%80%A2%E4%BA%94%E6%9C%88%E4%BA%8C%E5%8D%81%E3%80%8B/">展开全文 >></a>
         </p>
       
 
@@ -309,29 +319,35 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Docker-Harbor搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-杜若诗集-《采桑子•春思》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/08/31/Docker-Harbor%E6%90%AD%E5%BB%BA/">Docker Harbor搭建</a>
+      <a class="article-title" href="/2018/03/27/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E9%87%87%E6%A1%91%E5%AD%90%E2%80%A2%E6%98%A5%E6%80%9D%E3%80%8B/">《采桑子•春思》</a>
     </h1>
   
 
         
-        <a href="/2021/08/31/Docker-Harbor%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2021-08-31T01:10:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-31</time>
+        <a href="/2018/03/27/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E9%87%87%E6%A1%91%E5%AD%90%E2%80%A2%E6%98%A5%E6%80%9D%E3%80%8B/" class="archive-article-date">
+  	<time datetime="2018-03-27T13:57:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-云硬盘挂载"><a href="#1-云硬盘挂载" class="headerlink" title="1 云硬盘挂载"></a>1 云硬盘挂载</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看挂盘名称</span></span><br><span class="line">fdisk -l</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建物理卷</span></span><br><span class="line">pvcreate /dev/vdb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建卷组</span></span><br><span class="line">vgcreate data_vg /dev/vdb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建逻辑卷</span></span><br><span class="line">lvcreate -l +100%free -n data data_vg</span><br><span class="line"></span><br><span class="line"><span class="comment"># 格式化磁盘</span></span><br><span class="line">mkfs.xfs /dev/data_vg/data</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建挂载目录</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /data1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 挂载</span></span><br><span class="line">mount /dev/data_vg/data /data1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加挂载信息</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;/dev/mapper/data_vg-data /data1 xfs     defaults        0 0&quot;</span> &gt;&gt; /etc/fstab</span><br></pre></td></tr></table></figure>
+        <p align="center">《采桑子•春思》</p>
+<p align="center">花开千树惹蝶恋，满城絮扬，云雾飘茫，几处烟雨消残阳。</p>
+<p align="center">满纸乱笔念旧颜，夜半微凉，何以思量，说与春风亦断肠。</p>
+
+
+<p><br></br></p>
+<p>文案：</p>
         
-          <a class="article-more-a" href="/2021/08/31/Docker-Harbor%E6%90%AD%E5%BB%BA/#more">more >></a>
+          <a class="article-more-a" href="/2018/03/27/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E9%87%87%E6%A1%91%E5%AD%90%E2%80%A2%E6%98%A5%E6%80%9D%E3%80%8B/#more">more >></a>
         
       
 
@@ -345,7 +361,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">杜若诗集</a>
         		</li>
       		
 		</ul>
@@ -355,7 +371,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/31/Docker-Harbor%E6%90%AD%E5%BB%BA/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/27/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E9%87%87%E6%A1%91%E5%AD%90%E2%80%A2%E6%98%A5%E6%80%9D%E3%80%8B/">展开全文 >></a>
         </p>
       
 
@@ -385,29 +401,34 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Docker-registry搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-杜若诗集-《浣溪沙•茶溪谷》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/08/30/Docker-registry%E6%90%AD%E5%BB%BA/">Docker registry搭建</a>
+      <a class="article-title" href="/2018/03/17/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E6%B5%A3%E6%BA%AA%E6%B2%99%E2%80%A2%E8%8C%B6%E6%BA%AA%E8%B0%B7%E3%80%8B/">《浣溪沙•茶溪谷》</a>
     </h1>
   
 
         
-        <a href="/2021/08/30/Docker-registry%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2021-08-30T08:01:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-30</time>
+        <a href="/2018/03/17/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E6%B5%A3%E6%BA%AA%E6%B2%99%E2%80%A2%E8%8C%B6%E6%BA%AA%E8%B0%B7%E3%80%8B/" class="archive-article-date">
+  	<time datetime="2018-03-17T15:50:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-云硬盘挂载"><a href="#1-云硬盘挂载" class="headerlink" title="1 云硬盘挂载"></a>1 云硬盘挂载</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看挂盘名称</span></span><br><span class="line">fdisk -l</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建物理卷</span></span><br><span class="line">pvcreate /dev/vdb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建卷组</span></span><br><span class="line">vgcreate data_vg /dev/vdb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建逻辑卷</span></span><br><span class="line">lvcreate -l +100%free -n data data_vg</span><br><span class="line"></span><br><span class="line"><span class="comment"># 格式化磁盘</span></span><br><span class="line">mkfs.xfs /dev/data_vg/data</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建挂载目录</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /data1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 挂载</span></span><br><span class="line">mount /dev/data_vg/data /data1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加挂载信息</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;/dev/mapper/data_vg-data /data1 xfs     defaults        0 0&quot;</span> &gt;&gt; /etc/fstab</span><br></pre></td></tr></table></figure>
+        <p align="center">《浣溪沙•茶溪谷》</p>
+<p align="center">末芽浅绿满茶山，株叶紫红倾容颜，幽水淡烟溪谷寒。</p>
+<p align="center">竹间晨听鸟语喃，不堪暮看花败残，唯恐时光负春闲。</p>
+
+<p><br></br></p>
+<p>文案：</p>
         
-          <a class="article-more-a" href="/2021/08/30/Docker-registry%E6%90%AD%E5%BB%BA/#more">more >></a>
+          <a class="article-more-a" href="/2018/03/17/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E6%B5%A3%E6%BA%AA%E6%B2%99%E2%80%A2%E8%8C%B6%E6%BA%AA%E8%B0%B7%E3%80%8B/#more">more >></a>
         
       
 
@@ -421,7 +442,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">杜若诗集</a>
         		</li>
       		
 		</ul>
@@ -431,7 +452,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/30/Docker-registry%E6%90%AD%E5%BB%BA/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/17/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E6%B5%A3%E6%BA%AA%E6%B2%99%E2%80%A2%E8%8C%B6%E6%BA%AA%E8%B0%B7%E3%80%8B/">展开全文 >></a>
         </p>
       
 
@@ -461,29 +482,36 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-MYSQL-数据全量恢复" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-杜若诗集-《清平乐•盘古庙》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/08/28/MYSQL-%E6%95%B0%E6%8D%AE%E5%85%A8%E9%87%8F%E6%81%A2%E5%A4%8D/">MYSQL数据全量恢复</a>
+      <a class="article-title" href="/2018/02/23/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E6%B8%85%E5%B9%B3%E4%B9%90%E2%80%A2%E7%9B%98%E5%8F%A4%E5%BA%99%E3%80%8B/">《清平乐•盘古庙》</a>
     </h1>
   
 
         
-        <a href="/2021/08/28/MYSQL-%E6%95%B0%E6%8D%AE%E5%85%A8%E9%87%8F%E6%81%A2%E5%A4%8D/" class="archive-article-date">
-  	<time datetime="2021-08-28T07:58:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-28</time>
+        <a href="/2018/02/23/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E6%B8%85%E5%B9%B3%E4%B9%90%E2%80%A2%E7%9B%98%E5%8F%A4%E5%BA%99%E3%80%8B/" class="archive-article-date">
+  	<time datetime="2018-02-23T10:40:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Xtrabackup是MySQL数据库的备份不可多得的工具之一。提供了全备，增备，数据库级别，表级别备份等等。最强大的功能还有不落盘的备份，即流备份方式。</p>
+        <p align="center">《清平乐•盘古庙》</p>
+<p align="center">深山峭壁，磐石千年立。</p>
+<p align="center">雕栏玉砌禅乐起，清心虔拜祷祈。</p>
+<p align="center">香烛青烟绕随，恍若氤氲仙气。</p>
+<p align="center">遥念盘古旧事，一斧天地始开。</p>
+
+<p><br></br></p>
+<p>文案：</p>
         
-          <a class="article-more-a" href="/2021/08/28/MYSQL-%E6%95%B0%E6%8D%AE%E5%85%A8%E9%87%8F%E6%81%A2%E5%A4%8D/#more">more >></a>
+          <a class="article-more-a" href="/2018/02/23/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E6%B8%85%E5%B9%B3%E4%B9%90%E2%80%A2%E7%9B%98%E5%8F%A4%E5%BA%99%E3%80%8B/#more">more >></a>
         
       
 
@@ -497,7 +525,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">杜若诗集</a>
         		</li>
       		
 		</ul>
@@ -507,7 +535,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/28/MYSQL-%E6%95%B0%E6%8D%AE%E5%85%A8%E9%87%8F%E6%81%A2%E5%A4%8D/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/02/23/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E6%B8%85%E5%B9%B3%E4%B9%90%E2%80%A2%E7%9B%98%E5%8F%A4%E5%BA%99%E3%80%8B/">展开全文 >></a>
         </p>
       
 
@@ -537,29 +565,34 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Elastic-单机部署v5.x" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-杜若诗集-《画堂春•立春》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/08/28/Elastic-%E5%8D%95%E6%9C%BA%E9%83%A8%E7%BD%B2v5.x/">elasticsearch5单机部署</a>
+      <a class="article-title" href="/2018/02/04/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E7%94%BB%E5%A0%82%E6%98%A5%E2%80%A2%E7%AB%8B%E6%98%A5%E3%80%8B/">《画堂春•立春》</a>
     </h1>
   
 
         
-        <a href="/2021/08/28/Elastic-%E5%8D%95%E6%9C%BA%E9%83%A8%E7%BD%B2v5.x/" class="archive-article-date">
-  	<time datetime="2021-08-28T02:38:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-28</time>
+        <a href="/2018/02/04/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E7%94%BB%E5%A0%82%E6%98%A5%E2%80%A2%E7%AB%8B%E6%98%A5%E3%80%8B/" class="archive-article-date">
+  	<time datetime="2018-02-04T14:10:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-云硬盘挂载"><a href="#1-云硬盘挂载" class="headerlink" title="1 云硬盘挂载"></a>1 云硬盘挂载</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看挂盘名称</span></span><br><span class="line">fdisk -l</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建物理卷</span></span><br><span class="line">pvcreate /dev/vdb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建卷组</span></span><br><span class="line">vgcreate data_vg /dev/vdb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建逻辑卷</span></span><br><span class="line">lvcreate -l +100%free -n data data_vg</span><br><span class="line"></span><br><span class="line"><span class="comment"># 格式化磁盘</span></span><br><span class="line">mkfs.xfs /dev/data_vg/data</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建挂载目录</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /data1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 挂载</span></span><br><span class="line">mount /dev/data_vg/data /data1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加挂载信息</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;/dev/mapper/data_vg-data /data1 xfs     defaults        0 0&quot;</span> &gt;&gt; /etc/fstab</span><br></pre></td></tr></table></figure>
+        <p align="center">《画堂春•立春》</p>
+<p align="center">杨柳依依细雨绵，芳草千树碧连。桃花零乱春泥黏，来年痴念。</p>
+<p align="center">青灯烟消阑珊，寒气微透红帘。泪眼浅浮旧容颜，辗转难眠。</p>
+
+<p><br></br></p>
+<p>文案：</p>
         
-          <a class="article-more-a" href="/2021/08/28/Elastic-%E5%8D%95%E6%9C%BA%E9%83%A8%E7%BD%B2v5.x/#more">more >></a>
+          <a class="article-more-a" href="/2018/02/04/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E7%94%BB%E5%A0%82%E6%98%A5%E2%80%A2%E7%AB%8B%E6%98%A5%E3%80%8B/#more">more >></a>
         
       
 
@@ -573,7 +606,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">elastic</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">杜若诗集</a>
         		</li>
       		
 		</ul>
@@ -583,7 +616,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/28/Elastic-%E5%8D%95%E6%9C%BA%E9%83%A8%E7%BD%B2v5.x/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/02/04/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E7%94%BB%E5%A0%82%E6%98%A5%E2%80%A2%E7%AB%8B%E6%98%A5%E3%80%8B/">展开全文 >></a>
         </p>
       
 
@@ -613,29 +646,34 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Elastic-单机部署v7.x" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-杜若诗集-《西江月•残梦》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/08/28/Elastic-%E5%8D%95%E6%9C%BA%E9%83%A8%E7%BD%B2v7.x/">elasticsearch7单机部署</a>
+      <a class="article-title" href="/2018/01/31/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E8%A5%BF%E6%B1%9F%E6%9C%88%E2%80%A2%E6%AE%8B%E6%A2%A6%E3%80%8B/">《西江月•残梦》</a>
     </h1>
   
 
         
-        <a href="/2021/08/28/Elastic-%E5%8D%95%E6%9C%BA%E9%83%A8%E7%BD%B2v7.x/" class="archive-article-date">
-  	<time datetime="2021-08-28T02:38:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-28</time>
+        <a href="/2018/01/31/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E8%A5%BF%E6%B1%9F%E6%9C%88%E2%80%A2%E6%AE%8B%E6%A2%A6%E3%80%8B/" class="archive-article-date">
+  	<time datetime="2018-01-31T10:00:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-云硬盘挂载"><a href="#1-云硬盘挂载" class="headerlink" title="1 云硬盘挂载"></a>1 云硬盘挂载</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看挂盘名称</span></span><br><span class="line">fdisk -l</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建物理卷</span></span><br><span class="line">pvcreate /dev/vdb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建卷组</span></span><br><span class="line">vgcreate data_vg /dev/vdb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建逻辑卷</span></span><br><span class="line">lvcreate -l +100%free -n data data_vg</span><br><span class="line"></span><br><span class="line"><span class="comment"># 格式化磁盘</span></span><br><span class="line">mkfs.xfs /dev/data_vg/data</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建挂载目录</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /data1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 挂载</span></span><br><span class="line">mount /dev/data_vg/data /data1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加挂载信息</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;/dev/mapper/data_vg-data /data1 xfs     defaults        0 0&quot;</span> &gt;&gt; /etc/fstab</span><br></pre></td></tr></table></figure>
+        <p align="center">《西江月•残梦》</p>
+<p align="center">冷月斜照桃梢，满地空留残苞。盏杯红影醉今宵，孤城一人酒少。</p>
+<p align="center">愿付此生潦倒，青丝半缕入抱。夜色阑珊惹人恼，清寒梦醒何找。</p>
+
+<p><br></br></p>
+<p>文案：</p>
         
-          <a class="article-more-a" href="/2021/08/28/Elastic-%E5%8D%95%E6%9C%BA%E9%83%A8%E7%BD%B2v7.x/#more">more >></a>
+          <a class="article-more-a" href="/2018/01/31/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E8%A5%BF%E6%B1%9F%E6%9C%88%E2%80%A2%E6%AE%8B%E6%A2%A6%E3%80%8B/#more">more >></a>
         
       
 
@@ -649,7 +687,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">elastic</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">杜若诗集</a>
         		</li>
       		
 		</ul>
@@ -659,7 +697,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/28/Elastic-%E5%8D%95%E6%9C%BA%E9%83%A8%E7%BD%B2v7.x/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/01/31/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E8%A5%BF%E6%B1%9F%E6%9C%88%E2%80%A2%E6%AE%8B%E6%A2%A6%E3%80%8B/">展开全文 >></a>
         </p>
       
 
@@ -689,30 +727,35 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Elastic-集群部署v7.x" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-杜若诗集-《梦江南•与子偕老》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/08/28/Elastic-%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2v7.x/">elasticsearch7集群部署</a>
+      <a class="article-title" href="/2018/01/18/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E6%A2%A6%E6%B1%9F%E5%8D%97%E2%80%A2%E4%B8%8E%E5%AD%90%E5%81%95%E8%80%81%E3%80%8B/">《梦江南•与子偕老》</a>
     </h1>
   
 
         
-        <a href="/2021/08/28/Elastic-%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2v7.x/" class="archive-article-date">
-  	<time datetime="2021-08-28T02:38:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-28</time>
+        <a href="/2018/01/18/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E6%A2%A6%E6%B1%9F%E5%8D%97%E2%80%A2%E4%B8%8E%E5%AD%90%E5%81%95%E8%80%81%E3%80%8B/" class="archive-article-date">
+  	<time datetime="2018-01-17T16:06:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-云硬盘挂载"><a href="#1-云硬盘挂载" class="headerlink" title="1 云硬盘挂载"></a>1 云硬盘挂载</h3><p>三台节点都需要进行相同的操作。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看挂盘名称</span></span><br><span class="line">fdisk -l</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建物理卷</span></span><br><span class="line">pvcreate /dev/vdb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建卷组</span></span><br><span class="line">vgcreate data_vg /dev/vdb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建逻辑卷</span></span><br><span class="line">lvcreate -l +100%free -n data data_vg</span><br><span class="line"></span><br><span class="line"><span class="comment"># 格式化磁盘</span></span><br><span class="line">mkfs.xfs /dev/data_vg/data</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建挂载目录</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /data1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 挂载</span></span><br><span class="line">mount /dev/data_vg/data /data1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加挂载信息</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;/dev/mapper/data_vg-data /data1 xfs     defaults        0 0&quot;</span> &gt;&gt; /etc/fstab</span><br></pre></td></tr></table></figure>
+        <p align="center">《梦江南•与子偕老》</p>
+<p align="center">相识地，鸥白涛声旧。</p>
+<p align="center">牵手相偎尽此生，青丝银发心依羞。</p>
+<p align="center">消得几生求。</p>
+
+<p><br></br></p>
+<p>文案：</p>
         
-          <a class="article-more-a" href="/2021/08/28/Elastic-%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2v7.x/#more">more >></a>
+          <a class="article-more-a" href="/2018/01/18/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E6%A2%A6%E6%B1%9F%E5%8D%97%E2%80%A2%E4%B8%8E%E5%AD%90%E5%81%95%E8%80%81%E3%80%8B/#more">more >></a>
         
       
 
@@ -726,7 +769,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">elastic</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">杜若诗集</a>
         		</li>
       		
 		</ul>
@@ -736,7 +779,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/28/Elastic-%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2v7.x/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/01/18/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E6%A2%A6%E6%B1%9F%E5%8D%97%E2%80%A2%E4%B8%8E%E5%AD%90%E5%81%95%E8%80%81%E3%80%8B/">展开全文 >></a>
         </p>
       
 
@@ -766,30 +809,34 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Elastic-集群部署v5.x" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-杜若诗集-《西江月•痴》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/08/28/Elastic-%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2v5.x/">elasticsearch5集群部署</a>
+      <a class="article-title" href="/2018/01/09/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E8%A5%BF%E6%B1%9F%E6%9C%88%E2%80%A2%E7%97%B4%E3%80%8B/">《西江月•痴》</a>
     </h1>
   
 
         
-        <a href="/2021/08/28/Elastic-%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2v5.x/" class="archive-article-date">
-  	<time datetime="2021-08-28T02:38:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-28</time>
+        <a href="/2018/01/09/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E8%A5%BF%E6%B1%9F%E6%9C%88%E2%80%A2%E7%97%B4%E3%80%8B/" class="archive-article-date">
+  	<time datetime="2018-01-08T16:12:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-云硬盘挂载"><a href="#1-云硬盘挂载" class="headerlink" title="1 云硬盘挂载"></a>1 云硬盘挂载</h3><p>三台节点都需要进行相同的操作。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看挂盘名称</span></span><br><span class="line">fdisk -l</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建物理卷</span></span><br><span class="line">pvcreate /dev/vdb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建卷组</span></span><br><span class="line">vgcreate data_vg /dev/vdb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建逻辑卷</span></span><br><span class="line">lvcreate -l +100%free -n data data_vg</span><br><span class="line"></span><br><span class="line"><span class="comment"># 格式化磁盘</span></span><br><span class="line">mkfs.xfs /dev/data_vg/data</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建挂载目录</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /data1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 挂载</span></span><br><span class="line">mount /dev/data_vg/data /data1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加挂载信息</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;/dev/mapper/data_vg-data /data1 xfs     defaults        0 0&quot;</span> &gt;&gt; /etc/fstab</span><br></pre></td></tr></table></figure>
+        <p align="center">《西江月•痴》</p>
+<p align="center">月落青霜满天，洛水轻飘云烟，白衣青丝画中仙，不应流落人间。</p>
+<p align="center">夜半执笔影单，红烛几盏徒添，痴心难抒残梦牵，怎寄半篇信笺。</p>
+
+<p><br></br></p>
+<p>文案：</p>
         
-          <a class="article-more-a" href="/2021/08/28/Elastic-%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2v5.x/#more">more >></a>
+          <a class="article-more-a" href="/2018/01/09/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E8%A5%BF%E6%B1%9F%E6%9C%88%E2%80%A2%E7%97%B4%E3%80%8B/#more">more >></a>
         
       
 
@@ -803,7 +850,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">elastic</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">杜若诗集</a>
         		</li>
       		
 		</ul>
@@ -813,7 +860,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/28/Elastic-%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2v5.x/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/01/09/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E8%A5%BF%E6%B1%9F%E6%9C%88%E2%80%A2%E7%97%B4%E3%80%8B/">展开全文 >></a>
         </p>
       
 
@@ -843,29 +890,34 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Elastic-忘记密码v7.x" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-杜若诗集-《鹊桥仙•梧桐山》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/08/28/Elastic-%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81v7.x/">elasticsearch7忘记密码</a>
+      <a class="article-title" href="/2018/01/01/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E9%B9%8A%E6%A1%A5%E4%BB%99%E2%80%A2%E6%A2%A7%E6%A1%90%E5%B1%B1%E3%80%8B/">《鹊桥仙•梧桐山》</a>
     </h1>
   
 
         
-        <a href="/2021/08/28/Elastic-%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81v7.x/" class="archive-article-date">
-  	<time datetime="2021-08-28T02:22:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-28</time>
+        <a href="/2018/01/01/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E9%B9%8A%E6%A1%A5%E4%BB%99%E2%80%A2%E6%A2%A7%E6%A1%90%E5%B1%B1%E3%80%8B/" class="archive-article-date">
+  	<time datetime="2018-01-01T15:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-创建一个超级管理员账户"><a href="#1-创建一个超级管理员账户" class="headerlink" title="1 创建一个超级管理员账户"></a>1 创建一个超级管理员账户</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/elasticsearch/bin/elasticsearch-users useradd yezi -p Yezi@0802 -r superuser</span><br></pre></td></tr></table></figure>
+        <p align="center">《鹊桥仙•梧桐山》</p><br></br>
+<p align="center">梧桐叶落，晨雾氤氲，三分浅冬诗意，漫爬吁气衣襟湿，尽洗却，经年之苦。</p><br></br>
+<p align="center">鹏城峰上，云烟萦绕，些许疏影几里。静坐闲看新岁来，遥相望，孤者何惧。</p><br></br>
+
+<p><br></br></p>
+<p>文案：</p>
         
-          <a class="article-more-a" href="/2021/08/28/Elastic-%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81v7.x/#more">more >></a>
+          <a class="article-more-a" href="/2018/01/01/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E9%B9%8A%E6%A1%A5%E4%BB%99%E2%80%A2%E6%A2%A7%E6%A1%90%E5%B1%B1%E3%80%8B/#more">more >></a>
         
       
 
@@ -879,7 +931,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">elastic</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">杜若诗集</a>
         		</li>
       		
 		</ul>
@@ -889,7 +941,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/28/Elastic-%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81v7.x/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/01/01/%E6%9D%9C%E8%8B%A5%E8%AF%97%E9%9B%86-%E3%80%8A%E9%B9%8A%E6%A1%A5%E4%BB%99%E2%80%A2%E6%A2%A7%E6%A1%90%E5%B1%B1%E3%80%8B/">展开全文 >></a>
         </p>
       
 
@@ -921,7 +973,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -1023,46 +1075,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Ansible</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">elastic</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Elastic</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Hexo Yilia</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RocketMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Zookeeper</a>
-              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">杜若诗集</a>
